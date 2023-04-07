@@ -1,0 +1,34 @@
+.root{
+    -fx-background-color: #555555;
+}
+.text-area{
+    -fx-control-inner-background: #cccccc;
+    -fx-border-color: #66ffff;
+    -fx-highlight-fill: #00e6b8;
+    -fx-highlight-text-fill: #444444;
+}
+.label{
+    -fx-text-fill: #cccccc;
+}
+.check-box{
+    -fx-text-fill: #cccccc;
+}
+
+.menu-bar, .context-menu{
+    -fx-background-color: #333333;
+    -fx-border-color: #666666;
+}
+.context-menu .separator .line{
+    -fx-border-color: #555555;
+}
+.menu .label{
+    -fx-text-fill: #cccccc;
+}
+.button{
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #111111;
+    -fx-skin: "org.app.fx_application.AnimatedButtonSkin";
+}
+.button:disabled{
+    -fx-opacity: 0.6;
+}

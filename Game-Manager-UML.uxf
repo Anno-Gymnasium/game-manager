@@ -1,0 +1,120 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>180</x><y>531</y><w>189</w><h>171</h></coordinates><panel_attributes>PlayingTeam
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>117</x><y>765</y><w>324</w><h>171</h></coordinates><panel_attributes>GenericMatchingTeam &lt;T extends GenericMatchingTeam&lt;T&gt;&gt;
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>306</x><y>1017</y><w>189</w><h>171</h></coordinates><panel_attributes>TreeTeam
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>693</y><w>27</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1260</x><y>441</y><w>306</w><h>171</h></coordinates><panel_attributes>GenericGame &lt;T ext. PlayingTeam, L ext. GenericLeague&gt;
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1134</x><y>747</y><w>225</w><h>153</h></coordinates><panel_attributes>MatchlessGame
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1233</x><y>603</y><w>261</w><h>162</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fontsize=13
+&lt;PlayingTeam, MatchlessLeague&gt;</panel_attributes><additional_attributes>120;10;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1422</x><y>747</y><w>450</w><h>153</h></coordinates><panel_attributes>GenericMatchingGame &lt;T ext. GenericMatchingTeam&lt;T&gt;, L ext. MatchingLeague&lt;T&gt;&gt;
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1431</x><y>603</y><w>162</w><h>162</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fontsize=13
+    &lt;T, L&gt;</panel_attributes><additional_attributes>10;10;160;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1665</x><y>999</y><w>225</w><h>153</h></coordinates><panel_attributes>TreeGame
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1314</x><y>999</y><w>225</w><h>153</h></coordinates><panel_attributes>MatchingGame
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1413</x><y>891</y><w>288</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fontsize=13
+&lt;MatchingTeam, MatchLoggingLeague&gt;</panel_attributes><additional_attributes>100;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>1665</x><y>891</y><w>306</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fontsize=13
+   &lt;TreeTeam, MatchingLeague&lt;TreeTeam&gt;&gt;</panel_attributes><additional_attributes>10;10;120;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>675</x><y>486</y><w>225</w><h>171</h></coordinates><panel_attributes>GenericLeague &lt;T extends PlayingTeam&gt;
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>801</x><y>765</y><w>297</w><h>171</h></coordinates><panel_attributes>MatchingLeague &lt;T extends GenericMatchingTeam&lt;T&gt;&gt;
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>846</x><y>648</y><w>117</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fontsize=13
+  &lt;T&gt;</panel_attributes><additional_attributes>10;10;110;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>837</x><y>189</y><w>243</w><h>171</h></coordinates><panel_attributes>Match &lt;T extends GenericMatchingTeam&lt;T&gt;&gt;
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>522</x><y>189</y><w>234</w><h>171</h></coordinates><panel_attributes>Player
+--
+-name: String
+- teamName: String
+--
+(c) Player(name: String, teamName: String)
++ setName(name: String): void
++ getName(): String
++ getTeamName(): String
+
++ equals(other: Object): boolean
++ compareTo(Player other): int
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1269</x><y>315</y><w>135</w><h>45</h></coordinates><panel_attributes>template=ContentType: Player
+fontsize=13
+TreeSet</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1314</x><y>351</y><w>81</w><h>108</h></coordinates><panel_attributes>lt=&lt;-
+fontsize=13
+allPlayers</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1440</x><y>315</y><w>108</w><h>45</h></coordinates><panel_attributes>template=ContentType: L
+fontsize=13
+List</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1458</x><y>351</y><w>72</w><h>108</h></coordinates><panel_attributes>lt=&lt;-
+fontsize=13
+leagues</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1809</x><y>675</y><w>72</w><h>90</h></coordinates><panel_attributes>lt=&lt;-
+fontsize=13
+matches</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1782</x><y>639</y><w>153</w><h>45</h></coordinates><panel_attributes>template=ContentType: Match&lt;T&gt;
+fontsize=13
+List</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>207</x><y>189</y><w>243</w><h>162</h></coordinates><panel_attributes>GlobalTeam
+--
+- name: String
+--
+(c) GlobalTeam(name: String, player: Player)
++ setName(name: String): void
++ getName(): String
++ addPlayer(player: Player): void
++ getPlayers(): HashSet&lt;Player&gt;
+
++ equals(other: Object): boolean
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1674</x><y>495</y><w>162</w><h>45</h></coordinates><panel_attributes>template=K: String, V: GlobalTeam
+fontsize=13
+TreeMap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1557</x><y>504</y><w>135</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
+fontsize=13
+teamByName</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>423</y><w>144</w><h>45</h></coordinates><panel_attributes>template=ContentType: Player
+fontsize=13
+TreeMap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>315</x><y>342</y><w>108</w><h>99</h></coordinates><panel_attributes>lt=&lt;-
+fontsize=13
+playerByName</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>585</x><y>72</y><w>144</w><h>63</h></coordinates><panel_attributes>template=Type: Player
+Comparable
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>126</y><w>27</w><h>81</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>504</x><y>765</y><w>243</w><h>171</h></coordinates><panel_attributes>MatchlessLeague
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>666</x><y>648</y><w>135</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fontsize=13
+&lt;PlayingTeam&gt;</panel_attributes><additional_attributes>60;10;10;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>63</x><y>1017</y><w>189</w><h>171</h></coordinates><panel_attributes>MatchingTeam
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>927</y><w>126</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fontsize=13
+  &lt;TreeTeam&gt;</panel_attributes><additional_attributes>10;10;70;100</additional_attributes></element><element><id>Relation</id><coordinates><x>144</x><y>927</y><w>153</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fontsize=13
+&lt;MatchingTeam&gt;</panel_attributes><additional_attributes>80;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>828</x><y>1017</y><w>252</w><h>171</h></coordinates><panel_attributes>MatchLoggingLeague
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>945</x><y>927</y><w>117</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fontsize=13
+&lt;MatchingTeam&gt;</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element></diagram>
