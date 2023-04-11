@@ -1,40 +1,22 @@
 package org.app.game_classes;
 
-import org.app.comp_key_classes.CompPlayerID;
-
-import jakarta.persistence.*;
-
 import java.util.UUID;
 
 /** Player enthält die Eigenschaften eines Spielers. */
-@Entity
-@Table(name = "player", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"name", "global_team_id"})
-})
 public class Player implements Comparable<Player> {
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
     private UUID id;
 
-    @Column(name = "name")
     // Name des Spielers
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "global_team_id", referencedColumnName = "id")
     // Team, zu dem der Spieler gehört
     private GlobalTeam globalTeam;
 
-    @Column(name = "description")
     // Kurze Information über den Spieler
     private String description;
 
-    @Column(name = "is_team_leader")
     private boolean isTeamLeader;
 
-    @OneToOne
-    @JoinColumn(name = "account_name", referencedColumnName = "name")
     // Account, der mit dem Spieler verknüpft ist
     private Account boundAccount;
 
@@ -83,7 +65,11 @@ public class Player implements Comparable<Player> {
     }
     @Override
     public int compareTo(Player other) {
-        return id.compareTo(other.id);
+        int globalTeamCompare = globalTeam.compareTo(other.globalTeam);
+        if (globalTeamCompare == 0) {
+            return name.compareTo(other.name);
+        }
+        return globalTeamCompare;
     }
     @Override
     public String toString() {

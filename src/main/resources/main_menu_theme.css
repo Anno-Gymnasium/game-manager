@@ -1,0 +1,9 @@
+.button{
+    -fx-skin: "org.app.fx_application.AnimatedButtonSkin";
+}
+.button:disabled{
+    -fx-opacity: 0.6;
+}
+.clickable_pane:hover {
+    -fx-background-color: #cccccc;
+}

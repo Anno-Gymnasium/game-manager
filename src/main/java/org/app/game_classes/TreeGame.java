@@ -3,7 +3,7 @@ package org.app.game_classes;
 import java.util.UUID;
 
 public class TreeGame extends GenericMatchingGame<TreeTeam, MatchingLeague<TreeTeam>> {
-public TreeGame(boolean soloTeams, UUID id) {
+    public TreeGame(boolean soloTeams, UUID id) {
         super(soloTeams, id);
         rematchMode = RematchMode.RESET_ALL_SCORES;
     }

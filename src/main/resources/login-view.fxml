@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@normal_theme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.fx_application.LoginController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@login_theme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.fx_application.LoginController">
    <children>
       <Label layoutX="200.0" layoutY="10.0" prefHeight="35.0" prefWidth="300.0" text="Anmelden oder Registrieren">
          <font>
@@ -33,38 +33,38 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <TextField fx:id="unameRegField" layoutX="423.0" layoutY="80.0" onAction="#onUnameRegFieldEnter" promptText="Benutzername">
+      <TextField fx:id="unameRegField" layoutX="423.0" layoutY="220.0" onAction="#onUnameRegFieldEnter" promptText="Benutzername">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="emailRegField" layoutX="423.0" layoutY="130.0" onAction="#onEmailRegFieldEnter" promptText="Bestätigungs-Email">
+      <TextField fx:id="emailRegField" layoutX="423.0" layoutY="80.0" onAction="#onEmailRegFieldEnter" promptText="Bestätigungs-Email">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="passwordRegField" layoutX="423.0" layoutY="180.0" onAction="#onPasswordRegFieldEnter" promptText="Passwort">
+      <PasswordField fx:id="passwordRegField" layoutX="423.0" layoutY="270.0" onAction="#onPasswordRegFieldEnter" promptText="Passwort">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="passwordConfirmField" layoutX="423.0" layoutY="230.0" onAction="#onPasswordConfirmFieldEnter" promptText="Passwort bestätigen">
+      <PasswordField fx:id="passwordConfirmField" layoutX="423.0" layoutY="320.0" onAction="#onPasswordConfirmFieldEnter" promptText="Passwort bestätigen">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <Button fx:id="sendRegCodeButton" layoutX="463.0" layoutY="280.0" mnemonicParsing="false" onAction="#onSendRegCodeButtonClicked" text="Code senden">
+      <Button fx:id="sendRegCodeButton" layoutX="463.0" layoutY="130.0" mnemonicParsing="false" onAction="#onSendRegCodeButtonClicked" text="Code senden">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Line endX="700.0" endY="330.0" startX="350.0" startY="330.0" />
+      <Line endX="700.0" endY="190.0" startX="350.0" startY="190.0" />
       <PasswordField fx:id="regCodeField" layoutX="423.0" layoutY="370.0" onAction="#onRegCodeFieldEnter" promptText="Code eingeben">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <Button fx:id="registerButton" layoutX="467.0" layoutY="420.0" mnemonicParsing="false" onAction="#onRegisterButtonClicked" text="Registrieren">
+      <Button fx:id="registerButton" layoutX="467.0" layoutY="425.0" mnemonicParsing="false" onAction="#onRegisterButtonClicked" text="Registrieren">
          <font>
             <Font size="15.0" />
          </font>

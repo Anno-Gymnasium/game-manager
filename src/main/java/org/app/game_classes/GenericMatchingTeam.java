@@ -12,6 +12,8 @@ public abstract class GenericMatchingTeam <T extends GenericMatchingTeam<T>> ext
 
     public GenericMatchingTeam(GlobalTeam globalTeam, int leagueIndex, Player player) {
         super(globalTeam, leagueIndex, player);
+        this.matchScore = 0;
+        this.opponent = null;
     }
 
     public void setOpponent(T opponent) {
@@ -54,5 +56,9 @@ public abstract class GenericMatchingTeam <T extends GenericMatchingTeam<T>> ext
     @Override
     public String toString() {
         return super.toString();
+    }
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

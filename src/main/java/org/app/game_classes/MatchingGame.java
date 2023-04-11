@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class MatchingGame extends GenericMatchingGame<MatchingTeam, MatchLoggingLeague> {
+public class MatchingGame extends GenericMatchingGame<MatchingTeam, MatchingLeague<MatchingTeam>> implements WithCustomLimitedPassing {
     public MatchingGame(boolean soloTeams, UUID id) {
         super(soloTeams, id);
     }
@@ -13,12 +13,10 @@ public class MatchingGame extends GenericMatchingGame<MatchingTeam, MatchLogging
         this(soloTeams, UUID.randomUUID());
     }
 
-    /** Erstellt eine neue Liga, in der alle Teams der aktuellen Liga weiterkommen, die mindestens minScore Punkte haben.
-     * Gibt die Anzahl der Teams zurück, die nicht weitergekommen sind. */
     public int createNextLeague(int minScore) throws NotEvaluatedException, TeamSelectionException {
         if (! matchesEvaluated()) throw new NotEvaluatedException();
 
-        MatchLoggingLeague nextLeague = new MatchLoggingLeague();
+        MatchingLeague<MatchingTeam> nextLeague = new MatchingLeague<>(MatchingTeam.class);
         for (MatchingTeam team : currentLeague.getTeams()) {
             if (team.getTotalScore() >= minScore) {
                 nextLeague.addTeam(team);
@@ -39,11 +37,6 @@ public class MatchingGame extends GenericMatchingGame<MatchingTeam, MatchLogging
         return nDisqualified;
     }
 
-    /** Erstellt eine neue Liga, in der die nPassingTeams besten Teams der aktuellen Liga weiterkommen.
-     * Wenn in der nach Punktzahl absteigend sortierten Liste das Team am Index nPassingTeams - 1 nach sich noch andere
-     * Teams mit gleicher Punktzahl hat, wird unterschieden:
-     * - Ist decideOnDraw = true, so werden aus der unklaren letzten Gruppe einige Teams zufällig ausgewählt.
-     * - Ist decideOnDraw = false, so wird eine TeamSelectionException geworfen. */
     public void createNextLeague(int nPassingTeams, boolean decideOnDraw) throws NotEvaluatedException, TeamSelectionException {
         if (! matchesEvaluated()) throw new NotEvaluatedException();
 
@@ -51,7 +44,7 @@ public class MatchingGame extends GenericMatchingGame<MatchingTeam, MatchLogging
         if (nPassingTeams > nTeams) throw new TeamSelectionException(nPassingTeams);
         List<MatchingTeam> sortedByScore = currentLeague.getTeamsSortedByScore(false);
         List<MatchingTeam> passingTeams = new ArrayList<>();
-        MatchLoggingLeague nextLeague = new MatchLoggingLeague();
+        MatchingLeague<MatchingTeam> nextLeague = new MatchingLeague<>(MatchingTeam.class);
 
         if (nPassingTeams > 0 && nPassingTeams < nTeams) {
             List<MatchingTeam> randomFromRemainingGroup = new ArrayList<>();

@@ -9,11 +9,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
-import org.app.game_classes.Account;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Persistence;
+import org.jdbi.v3.core.Jdbi;
 
+import org.app.game_classes.Account;
+
+import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,14 +37,11 @@ public class LoginController {
     private String currentEmail;
     private Account currentAccount;
 
-    private EntityManagerFactory entityManagerFactory;
-    private AccountManager accountManager;
+    private Jdbi jdbi;
 
     private static final int REG_CODE_TIMEOUT = 5 * 60 * 1000;
     private Timer regCodeTimer;
     private TimerTask regCodeTimerTask;
-    private Scene gameSelectionScene;
-    private GameSelectionController gameSelectionController;
 
     public void initialize() {
         infoAlert.setTitle("Game-Manager Info");
@@ -51,51 +49,72 @@ public class LoginController {
         warningAlert.setTitle("Achtung");
         currentRegCode = null;
         regCodeTimer = new Timer();
-        regCodeTimerTask = new TimerTask() {
-            @Override
-            public void run() {
-                currentRegCode = null;
-                warningAlert.setHeaderText("Registrierungscode abgelaufen");
-                warningAlert.setContentText("Ihr Registrierungscode ist abgelaufen. Bitte fordern Sie einen neuen an.");
-                warningAlert.showAndWait();
-            }
-        };
+        createRegCodeTimerTask();
         currentEmail = null;
         currentAccount = null;
-        gameSelectionScene = null;
-        gameSelectionController = null;
-        entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        accountManager = new AccountManager(entityManagerFactory.createEntityManager());
+
+        unameRegField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > 20) {
+                unameRegField.setText(oldValue);
+            }
+        });
+        unameLoginField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > 20) {
+                unameLoginField.setText(oldValue);
+            }
+        });
+        emailRegField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > 50) {
+                emailRegField.setText(oldValue);
+            }
+        });
+        regCodeField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > 6 || !newValue.matches("[0-9]*")) {
+                regCodeField.setText(oldValue);
+            }
+        });
+
+        jdbi = JdbiProvider.getInstance().getJdbi();
+        int abandonedAccountMonthsTreshold = 8;
+        jdbi.useHandle(handle -> {
+            AccountDao dao = handle.attach(AccountDao.class);
+            List<String> abandonedAccountNames = dao.getAbandonedAccountNames(abandonedAccountMonthsTreshold);
+            for (String abandonedAccountName : abandonedAccountNames) {
+                dao.deleteAccount(abandonedAccountName);
+            }
+        });
     }
 
     @FXML
     public void onUnameLoginFieldEnter() {
         if (unameLoginField.getText().isEmpty())
             unameLoginField.requestFocus();
-        else
-            passwordLoginField.requestFocus();
+        else passwordLoginField.requestFocus();
     }
     @FXML
     public void onPasswordLoginFieldEnter() {
         if (passwordLoginField.getText().isEmpty())
             passwordLoginField.requestFocus();
-        else
+        else {
+            loginButton.requestFocus();
             loginButton.fire();
+        }
     }
 
-    @FXML
-    public void onUnameRegFieldEnter() {
-        if (unameRegField.getText().isEmpty())
-            unameRegField.requestFocus();
-        else
-            emailRegField.requestFocus();
-    }
     @FXML
     public void onEmailRegFieldEnter() {
         if (emailRegField.getText().isEmpty())
             emailRegField.requestFocus();
-        else
-            passwordRegField.requestFocus();
+        else {
+            sendRegCodeButton.requestFocus();
+            sendRegCodeButton.fire();
+        }
+    }
+    @FXML
+    public void onUnameRegFieldEnter() {
+        if (unameRegField.getText().isEmpty())
+            unameRegField.requestFocus();
+        else passwordRegField.requestFocus();
     }
     @FXML
     public void onPasswordRegFieldEnter() {
@@ -108,20 +127,47 @@ public class LoginController {
     public void onPasswordConfirmFieldEnter() {
         if (passwordConfirmField.getText().isEmpty())
             passwordConfirmField.requestFocus();
-        else
-            sendRegCodeButton.fire();
+        else regCodeField.requestFocus();
     }
     @FXML
     public void onRegCodeFieldEnter() {
         if (regCodeField.getText().isEmpty())
             regCodeField.requestFocus();
-        else
+        else {
+            registerButton.requestFocus();
             registerButton.fire();
+        }
     }
 
     @FXML
     public void onLoginButtonClicked() {
-        // TODO: Login-Vorgang implementieren
+        if (unameLoginField.getText().isEmpty() || passwordLoginField.getText().isEmpty()) {
+            errorAlert.setHeaderText("Fehlende Anmeldedaten");
+            errorAlert.setContentText("Bitte geben Sie einen Benutzernamen und ein Passwort ein, um sich anzumelden.");
+            errorAlert.showAndWait();
+            return;
+        }
+        String uname, password;
+        unameLoginField.setText(uname = unameLoginField.getText().strip());
+        passwordLoginField.setText(password = passwordLoginField.getText().strip());
+
+        Account account = jdbi.withHandle(handle -> (handle.attach(AccountDao.class).getByName(uname)));
+        if (account == null) {
+            errorAlert.setHeaderText("Ungültiger Benutzername");
+            errorAlert.setContentText("Der angegebene Benutzername existiert nicht. Registrieren Sie sich, um einen neuen Account zu erstellen.");
+            errorAlert.showAndWait();
+            return;
+        }
+        if (!account.authenticate(password)) {
+            errorAlert.setHeaderText("Ungültiges Passwort");
+            errorAlert.setContentText("Das angegebene Passwort ist falsch. Bitte versuchen Sie es erneut.");
+            errorAlert.showAndWait();
+            return;
+        }
+
+        currentAccount = account;
+        System.out.println("Erstellungsdatum des eingeloggten Accounts: " + currentAccount.getDateCreated());
+        openMainMenuScene();
     }
     @FXML
     public void onSendRegCodeButtonClicked() {
@@ -141,7 +187,9 @@ public class LoginController {
             errorAlert.showAndWait();
             return;
         }
-        if (accountManager.getByEmail(email) != null) {
+
+        boolean existsWithEmail = jdbi.withHandle(handle -> handle.attach(AccountDao.class).existsByEmail(email));
+        if (existsWithEmail) {
             errorAlert.setHeaderText("E-Mail-Adresse bereits registriert");
             errorAlert.setContentText("Diese E-Mail-Adresse ist bereits registriert. Bitte melden Sie sich an oder verwenden Sie eine andere E-Mail-Adresse.");
             errorAlert.showAndWait();
@@ -181,7 +229,7 @@ public class LoginController {
         }
         if (currentRegCode == null) {
             errorAlert.setHeaderText("Registrierungscode abgelaufen");
-            errorAlert.setContentText("Ihr Registrierungscode ist abgelaufen. Bitte fordern Sie einen neuen an.");
+            errorAlert.setContentText("Ihr Registrierungscode ist abgelaufen oder wurde noch nicht angefordert. Bitte fordern Sie einen Registrierungscode an.");
             errorAlert.showAndWait();
             return;
         }
@@ -193,7 +241,8 @@ public class LoginController {
         }
 
         String uname = unameRegField.getText().strip();
-        if (accountManager.getByName(uname) != null) {
+        boolean existsWithUname = jdbi.withHandle(handle -> handle.attach(AccountDao.class).existsByName(uname));
+        if (existsWithUname) {
             errorAlert.setHeaderText("Benutzername bereits vergeben");
             errorAlert.setContentText("Dieser Benutzername ist bereits vergeben. Bitte wählen Sie einen anderen Benutzernamen.");
             errorAlert.showAndWait();
@@ -201,9 +250,14 @@ public class LoginController {
         }
 
         String password = passwordRegField.getText().strip();
-        currentAccount = new Account(uname, password, currentEmail);
+        currentAccount = Account.fromRawPassword(uname, password, currentEmail, null, false);
 
-        accountManager.saveNewAccount(currentAccount);
+        jdbi.useHandle(handle -> {
+            AccountDao accountDao = handle.attach(AccountDao.class);
+            accountDao.saveNewAccount(currentAccount);
+            currentAccount = accountDao.getByName(uname);
+        });
+        openMainMenuScene();
     }
 
     private void generateRandomRegCode() {
@@ -217,20 +271,31 @@ public class LoginController {
 
         regCodeTimer.cancel();
         regCodeTimer = new Timer();
+        createRegCodeTimerTask();
         regCodeTimer.schedule(regCodeTimerTask, REG_CODE_TIMEOUT);
     }
+    private void createRegCodeTimerTask() {
+        regCodeTimerTask = new TimerTask() {
+            @Override
+            public void run() {
+                currentRegCode = null;
+                warningAlert.setHeaderText("Registrierungscode abgelaufen");
+                warningAlert.setContentText("Ihr Registrierungscode ist abgelaufen. Bitte fordern Sie einen neuen an.");
+                warningAlert.showAndWait();
+            }
+        };
+    }
 
-    public void setGameSelectionScene(Scene scene) {
-        gameSelectionScene = scene;
-    }
-    public void setGameSelectionController(GameSelectionController controller) {
-        gameSelectionController = controller;
-    }
-    public void openGameSelectionScene() {
-        if (gameSelectionScene == null)
-            return;
-        gameSelectionController.setAccount(currentAccount);
+    public void openMainMenuScene() {
+        Scene mainMenuScene;
+        try {
+            mainMenuScene = ControllerLoader.loadMainMenuController(currentAccount);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         Stage primaryStage = (Stage) loginButton.getScene().getWindow();
-        primaryStage.setScene(gameSelectionScene);
+        primaryStage.setTitle("Game-Manager - Hauptmenü (Angemeldet als: " + currentAccount.getName() + ")");
+        primaryStage.setScene(mainMenuScene);
     }
 }

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="700.0" stylesheets="@main_menu_theme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.fx_application.MainMenuController">
+   <children>
+      <Accordion layoutX="14.0" layoutY="104.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="260.0">
+        <panes>
+          <TitledPane expanded="false" text="All vs All (Keine Matches)">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <content>
+                  <ScrollPane pannable="true">
+                     <content>
+                        <VBox fx:id="vbMatchlessGames" prefWidth="260.0" />
+                     </content>
+                  </ScrollPane>
+               </content>
+               <graphic>
+                  <Button fx:id="bCreateMatchlessGame" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@fx_icons/plus-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="1.0" />
+                     </padding>
+                  </Button>
+               </graphic>
+          </TitledPane>
+          <TitledPane expanded="false" text="1v1-Matches (Rematch möglich)">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <content>
+                  <ScrollPane pannable="true">
+                     <content>
+                        <VBox fx:id="vbMatchingGames" prefWidth="260.0" />
+                     </content>
+                  </ScrollPane>
+               </content>
+               <graphic>
+                  <Button fx:id="bCreateMatchingGame" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@fx_icons/plus-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="1.0" />
+                     </padding>
+                  </Button>
+               </graphic>
+          </TitledPane>
+          <TitledPane expanded="false" text="Baum-System (Reset bei Rematch)">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <content>
+                  <ScrollPane pannable="true">
+                     <content>
+                        <VBox fx:id="vbTreeGames" prefWidth="260.0" />
+                     </content>
+                  </ScrollPane>
+               </content>
+               <graphic>
+                  <Button fx:id="bCreateTreeGame" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@fx_icons/plus-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="1.0" />
+                     </padding>
+                  </Button>
+               </graphic>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <CheckBox fx:id="cbPublicViewFilter" layoutX="15.0" layoutY="75.0" mnemonicParsing="false" text="Öffentlich sichtbar">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <Label layoutX="15.0" layoutY="50.0" text="Sichtbarkeit:">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="170.0" layoutY="8.0" text="Rollen filtern:">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="cbAdminFilter" layoutX="170.0" layoutY="30.0" mnemonicParsing="false" selected="true" text="Admin">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="cbPlayerFilter" layoutX="170.0" layoutY="55.0" mnemonicParsing="false" selected="true" text="Spieler">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="cbViewerFilter" layoutX="170.0" layoutY="80.0" mnemonicParsing="false" selected="true" text="Zuschauer">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <TextField fx:id="gameSearchField" layoutX="10.0" layoutY="15.0" promptText="Spiele suchen..." />
+      <Button fx:id="bAccountSettings" contentDisplay="GRAPHIC_ONLY" layoutX="650.0" layoutY="10.0" mnemonicParsing="false" text="Button">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fx_icons/gear-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Button>
+      <Label layoutX="386.0" layoutY="60.0" text="Meine Anfragen" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Accordion layoutX="320.0" layoutY="104.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="260.0">
+         <panes>
+            <TitledPane expanded="false" text="Ausgehend">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <content>
+                  <ScrollPane pannable="true">
+                     <content>
+                        <VBox fx:id="vbOutgoingRequests" prefWidth="260.0" />
+                     </content>
+                  </ScrollPane>
+               </content>
+               <graphic>
+                  <Button fx:id="bCreateWhitelistRequest" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@fx_icons/plus-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="1.0" />
+                     </padding>
+                  </Button>
+               </graphic>
+            </TitledPane>
+            <TitledPane expanded="false" text="Eingehend">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <content>
+                  <ScrollPane pannable="true">
+                     <content>
+                        <VBox fx:id="vbIncomingRequests" prefWidth="260.0" />
+                     </content>
+                  </ScrollPane>
+               </content>
+            </TitledPane>
+            <TitledPane expanded="false" text="Beantwortet">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <content>
+                  <ScrollPane pannable="true">
+                     <content>
+                        <VBox fx:id="vbRequestAnswers" prefWidth="260.0" />
+                     </content>
+                  </ScrollPane>
+               </content>
+            </TitledPane>
+            <TitledPane expanded="false" text="Einladungen">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <content>
+                  <ScrollPane pannable="true">
+                     <content>
+                        <VBox fx:id="vbGameInvitations" prefWidth="260.0">
+                           <children>
+                              <StackPane alignment="TOP_LEFT" prefWidth="260.0" styleClass="clickable_pane">
+                                 <children>
+                                    <Label text="Label">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </TitledPane>
+         </panes>
+      </Accordion>
+      <Button fx:id="bLogout" contentDisplay="GRAPHIC_ONLY" layoutX="605.0" layoutY="10.0" mnemonicParsing="false" text="Button">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fx_icons/logout-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

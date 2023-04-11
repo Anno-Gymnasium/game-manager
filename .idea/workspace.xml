@@ -4,7 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f944ec2d-139e-4ed3-9e74-9de2b13f8236" name="Changes" comment="" />
+    <list default="true" id="f944ec2d-139e-4ed3-9e74-9de2b13f8236" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/GameRoles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/ControllerLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/JdbiProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/SelectableGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/WithCustomLimitedPassing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fx_icons/plus-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main-menu-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main_menu_theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/comp_key_classes/CompPlayerID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/comp_key_classes/CompPlayingTeamID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/comp_key_classes/WhiteListEntryID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/AccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/AccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/EmailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GMApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GMApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GameSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericLeague.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericLeague.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericMatchingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericMatchingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericMatchingTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericMatchingTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GlobalTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GlobalTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/LoggedMatchGeneration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/LoggedMatchGeneration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchLoggingLeague.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchingLeague.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchingLeague.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchlessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchlessGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/PlayingTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/PlayingTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/TreeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/TreeGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/WhiteListEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/WhiteListEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/game-selection-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/normal_theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/login_theme.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,12 +53,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JavaFXApplication" />
-        <option value="CSS File" />
         <option value="module-info" />
-        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="CSS File" />
         <option value="Class" />
+        <option value="FxmlFile" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -39,6 +80,7 @@
     </option>
     <option name="importingSettings">
       <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
@@ -68,8 +110,13 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;azure&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -87,6 +134,13 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="GMApplication" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.app.fx_application.GMApplication" />
+      <module name="spiele-manager" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="game-manager-neu" />
       <method v="2">
@@ -169,12 +223,41 @@
       <workItem from="1680803057199" duration="1944000" />
       <workItem from="1680805287606" duration="6209000" />
       <workItem from="1680870073073" duration="67000" />
-      <workItem from="1680870150351" duration="595000" />
+      <workItem from="1680870150351" duration="1142000" />
+      <workItem from="1680871420661" duration="4009000" />
+      <workItem from="1680876921248" duration="2258000" />
+      <workItem from="1680879198050" duration="4583000" />
+      <workItem from="1680883802585" duration="295000" />
+      <workItem from="1680884108662" duration="371000" />
+      <workItem from="1680884491264" duration="108000" />
+      <workItem from="1680884911002" duration="1580000" />
+      <workItem from="1680887636687" duration="410000" />
+      <workItem from="1680888058497" duration="7208000" />
+      <workItem from="1681126697069" duration="991000" />
+      <workItem from="1681136645640" duration="5485000" />
+      <workItem from="1681145570756" duration="147000" />
+      <workItem from="1681145728704" duration="46000" />
+      <workItem from="1681147580338" duration="266000" />
+      <workItem from="1681147857212" duration="9524000" />
+      <workItem from="1681163770024" duration="3425000" />
+      <workItem from="1681210730748" duration="7882000" />
+      <workItem from="1681226816974" duration="3439000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

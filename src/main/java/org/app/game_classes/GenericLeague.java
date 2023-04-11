@@ -11,11 +11,6 @@ import java.util.HashSet;
 import java.util.TreeMap;
 import java.util.HashMap;
 
-import jakarta.persistence.*;
-
-// @Entity
-// @Table(name = "generic_league")
-// @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class GenericLeague<T extends PlayingTeam> {
     // enthält alle Teams, die in dieser Liga aktiv sind
     protected TreeMap<String, T> teamByName;
@@ -23,7 +18,6 @@ public abstract class GenericLeague<T extends PlayingTeam> {
     // enthält alle Spieler, die in dieser Liga aktiv sind
     protected HashSet<Player> leaguePlayers;
 
-    @Transient
     // Konstruktor für Teams des Typs T
     private final Constructor<? extends T> teamConstructor;
 

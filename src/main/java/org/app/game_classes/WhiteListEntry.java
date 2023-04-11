@@ -1,36 +1,40 @@
 package org.app.game_classes;
 
-import jakarta.persistence.*;
-import org.app.comp_key_classes.WhiteListEntryID;
-
+import java.util.Objects;
 import java.util.UUID;
 
-@Entity
-@Table(name = "game_whitelist")
 public class WhiteListEntry {
-    @EmbeddedId
-    private WhiteListEntryID id = new WhiteListEntryID();
-
-    @ManyToOne
-    @MapsId("accountName")
-    private Account account;
-
-    // @ManyToOne
-    // @MapsId("gameId")
-    // TODO: Später wieder auf GenericGame umstellen (auskommentieren)
-    //private GenericGame<?, ?> game;
-    // private GenericMatchingGame game;
-
-    @Column(name = "assigned_role")
+    private String accountName;
+    private UUID gameId;
     private byte assignedRole;
 
-    public void setAssignedRole(byte role) {
-        this.assignedRole = role;
+    public WhiteListEntry(String accountName, UUID gameId, byte assignedRole) {
+        this.accountName = accountName;
+        this.gameId = gameId;
+        this.assignedRole = assignedRole;
     }
+
     public byte getAssignedRole() {
         return assignedRole;
     }
-    public Account getAccount() {
-        return account;
+    public String getAccountName() {
+        return accountName;
+    }
+    public UUID getGameId() {
+        return gameId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        WhiteListEntry other = (WhiteListEntry) o;
+        return Objects.equals(accountName, other.accountName) &&
+                Objects.equals(gameId, other.gameId);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountName, gameId);
     }
 }

@@ -69,7 +69,7 @@ public abstract class GenericMatchingGame<T extends GenericMatchingTeam<T>, L ex
         return skipDrawsOnEvaluation;
     }
     public boolean matchesEvaluated() {
-        return currentLeague.MatchesEvaluated();
+        return currentLeague.matchesEvaluated();
     }
 
     public List<Match<T>> getMatches() {

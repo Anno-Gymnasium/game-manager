@@ -2,6 +2,7 @@ package org.app.fx_application;
 
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Random;
 
 import jakarta.mail.Message;
 import jakarta.mail.MessagingException;
@@ -18,7 +19,7 @@ public class EmailSender {
         try {
             mailCredentials.load(EmailSender.class.getClassLoader().getResourceAsStream("mail_credentials.properties"));
         } catch (IOException e) {
-            throw new RuntimeException("Fehler beim Laden von der Sendenden Mail-Adresse und deren Passwort", e);
+            throw new RuntimeException("Fehler beim Laden von der sendenden Mail-Adresse und deren Passwort", e);
         }
 
         String from = mailCredentials.getProperty("mail.from");
@@ -38,12 +39,28 @@ public class EmailSender {
             }
         });
 
+        session.setDebug(true);
         MimeMessage message = new MimeMessage(session);
         message.setFrom(new InternetAddress(from));
         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
+        String whiteText = createWhiteText();
+        message.setContent("<h2>" + text + "</h2><p style='color: white;'>" + "\n".repeat(30) + whiteText + "</p>", "text/html");
         message.setSubject(subject);
-        message.setText(text);
         Transport.send(message);
+    }
+    private static String createWhiteText() {
+        // Erstelle zufälligen String der Länge 30-50 mit zufälligen Buchstaben und Leerzeichen
+        Random random = new Random();
+        int length = random.nextInt(20, 51);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            if (random.nextBoolean()) {
+                sb.append((char) (random.nextInt(26) + 'a'));
+            } else {
+                sb.append(' ');
+            }
+        }
+        return sb.toString();
     }
 }

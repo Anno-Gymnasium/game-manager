@@ -5,31 +5,19 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import jakarta.persistence.*;
-
 /** GlobalTeam enthält die Eigenschaften eines Teams, die für alle Ligen gleich sind. */
-@Entity
-@Table(name = "global_team")
-public class GlobalTeam {
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
+public class GlobalTeam implements Comparable<GlobalTeam> {
     private UUID id;
 
-    @Column(name = "name")
     // Name des Teams
     private String name;
 
-    @Column(name = "game_id")
     // ID des Spiels, zu dem das Team gehört
     private UUID gameID;
 
-    @Column(name = "description")
     // Beschreibung des Teams
     private String description;
 
-    @OneToMany(mappedBy = "globalTeam")
-    @MapKey(name = "name")
     // enthält alle Spieler, die für dieses Team spielen
     private TreeMap<String, Player> playerByName;
 
@@ -84,5 +72,13 @@ public class GlobalTeam {
     @Override
     public String toString() {
         return "Teamname: " + name + ", Anzahl Spieler: " + playerByName.size();
+    }
+    @Override
+    public int compareTo(GlobalTeam other) {
+        int result = name.compareTo(other.name);
+        if (result == 0) {
+            result = gameID.compareTo(other.gameID);
+        }
+        return result;
     }
 }

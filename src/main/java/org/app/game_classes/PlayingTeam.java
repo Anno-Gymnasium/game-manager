@@ -1,44 +1,18 @@
 package org.app.game_classes;
 
-import org.app.comp_key_classes.CompPlayingTeamID;
+import java.util.*;
 
-import java.util.TreeMap;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.UUID;
-
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "playing_team", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"global_team_id", "league_index"})
-})
-@Inheritance(strategy = InheritanceType.JOINED)
-public class PlayingTeam {
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
+public class PlayingTeam implements Comparable<PlayingTeam> {
     protected UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "global_team_id")
     // GlobalTeam, zu dem dieses Team gehört
     protected GlobalTeam globalTeam;
 
-    @Column(name = "global_team_id", insertable = false, updatable = false)
-    protected UUID globalTeamID;
-    @Column(name = "league_index")
     protected int leagueIndex;
 
-    @Column(name = "total_score")
     // Punktzahl des Teams in der aktuellen Liga
     protected int totalScore;
 
-    @ManyToMany
-    @JoinTable(name = "playing_team_player",
-            joinColumns = @JoinColumn(name = "playing_team_id"),
-            inverseJoinColumns = @JoinColumn(name = "player_id"))
-    @MapKey(name = "name")
     // Spieler, die in diesem Team spielen
     protected TreeMap<String, Player> playerByName = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
@@ -46,7 +20,6 @@ public class PlayingTeam {
     public PlayingTeam(GlobalTeam globalTeam, int leagueIndex, Player player) {
         this.leagueIndex = leagueIndex;
         this.globalTeam = globalTeam;
-        this.globalTeamID = globalTeam.getId();
         this.totalScore = 0;
         addPlayer(player);
     }
@@ -94,11 +67,20 @@ public class PlayingTeam {
         if (!(other instanceof PlayingTeam otherTeam)) {
             return false;
         }
-        return otherTeam.getName().equalsIgnoreCase(this.getName());
+        return Objects.equals(globalTeam, otherTeam.globalTeam) &&
+                Objects.equals(leagueIndex, otherTeam.leagueIndex);
     }
     @Override
     public String toString() {
         return "Teamname: " + getName() + ", Punktzahl: " + getTotalScore() +
                 ", Anzahl Spieler: " + getPlayers().size();
+    }
+    @Override
+    public int compareTo(PlayingTeam other) {
+        int globalTeamCompare = globalTeam.compareTo(other.globalTeam);
+        if (globalTeamCompare != 0) {
+            return globalTeamCompare;
+        }
+        return Integer.compare(leagueIndex, other.leagueIndex);
     }
 }

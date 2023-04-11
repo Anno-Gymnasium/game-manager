@@ -1,9 +1,6 @@
 package org.app.game_classes;
 
-import org.hibernate.annotations.ListIndexBase;
 import org.jetbrains.annotations.NotNull;
-
-import jakarta.persistence.*;
 
 import java.util.*;
 
@@ -13,51 +10,35 @@ import java.util.*;
 // @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague<T>> {
 
-    @OneToMany(mappedBy = "game")
-    @MapKey(name = "accountName")
     // Gibt für einen Account-Namen den WhiteListEntry zurück
     private HashMap<String, WhiteListEntry> accessingAccounts = new HashMap<>();
 
-    @OneToMany(mappedBy = "gameId")
-    @MapKey(name = "name")
     // enthält alle globalen Teams, die in diesem Spiel spielen
     protected TreeMap<String, GlobalTeam> teamByName;
 
-    @OneToMany(mappedBy = "game")
-    @OrderColumn(name = "index", nullable = false, updatable = false)
     // Liste der Ligen und aktuelle Liga
     protected List<L> leagues;
-    @Transient
+
     protected L currentLeague;
 
-    @Transient
     // enthält alle Spieler, die in diesem Spiel spielen
     protected TreeSet<Player> allPlayers;
 
-    @OneToMany(mappedBy = "globalTeam.gameID")
-    @MapKey(name = "boundAccount.name")
     // enthält für jeweils einen Account-Namen den zugehörigen Spieler (falls vorhanden)
     protected HashMap<String, Player> accountPlayerBindings;
 
-    @Column(name = "solo_teams")
     // Wenn true, dann wird jedem Spieler ein eigenes Team zugewiesen
     protected boolean soloTeams;
     // Wenn true, dann kann jeder Account das Spiel ansehen, ansonsten nach Whitelist
-    @Column(name = "public_view")
     protected boolean publicView;
 
     // Name und Beschreibung des Spiels
-    @Column(name = "name")
     protected String name;
-    @Column(name = "description")
     protected String description;
 
-    @Id
-    @Column(name = "id")
     // ID des Spiels
     protected UUID id;
 
-    public GenericGame() {}
     public GenericGame(boolean soloTeams, @NotNull UUID id) {
         leagues = new ArrayList<>();
 
@@ -237,10 +218,9 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
         player.setGlobalTeam(team);
     }
 
-    // TODO: Später wieder auskommentieren
-//    public byte getRole(@NotNull Player player) {
-//        return player.getAccount().getRole(id);
-//    }
+    public byte getRole(@NotNull Player player) {
+        return player.getAccount().getRole(id);
+    }
 
     public TreeMap<String, GlobalTeam> getTeamByName() {
         return teamByName;
@@ -324,15 +304,6 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
         }
         public HasPlayedException() {
             super("Team oder Spieler, das/der gelöscht werden soll, hat bereits in einer alten Liga gespielt.");
-        }
-    }
-    /** Wird ausgelöst, wenn die Teams für die nächste Liga nicht eindeutig ausgewählt werden können. */
-    public static class TeamSelectionException extends Exception {
-        public TeamSelectionException(String message) {
-            super(message);
-        }
-        public TeamSelectionException(int nPassingTeams) {
-            super("Die " + nPassingTeams + " besten Teams, die in die nächste Liga kommen sollen, können nicht eindeutig ausgewählt werden.");
         }
     }
 }

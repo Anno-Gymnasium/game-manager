@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
 
-public class MatchlessGame extends GenericGame<PlayingTeam, MatchlessLeague> {
+public class MatchlessGame extends GenericGame<PlayingTeam, MatchlessLeague> implements WithCustomLimitedPassing {
     public MatchlessGame(boolean soloTeams, UUID id) {
         super(soloTeams, id);
         leagues.add(currentLeague = new MatchlessLeague());
@@ -15,8 +15,6 @@ public class MatchlessGame extends GenericGame<PlayingTeam, MatchlessLeague> {
         this(soloTeams, UUID.randomUUID());
     }
 
-    /** Erstellt eine neue Liga, in der alle Teams der aktuellen Liga weiterkommen, die mindestens minScore Punkte haben.
-     * Gibt die Anzahl der Teams zurück, die nicht weitergekommen sind. */
     public int createNextLeague(int minScore) throws TeamSelectionException {
         MatchlessLeague nextLeague = new MatchlessLeague();
         for (PlayingTeam team : currentLeague.getTeams()) {
@@ -39,11 +37,6 @@ public class MatchlessGame extends GenericGame<PlayingTeam, MatchlessLeague> {
         return nDisqualified;
     }
 
-    /** Erstellt eine neue Liga, in der die nPassingTeams besten Teams der aktuellen Liga weiterkommen.
-     * Wenn in der nach Punktzahl absteigend sortierten Liste das Team am Index nPassingTeams - 1 nach sich noch andere
-     * Teams mit gleicher Punktzahl hat, wird unterschieden:
-     * - Ist decideOnDraw = true, so werden aus der unklaren letzten Gruppe einige Teams zufällig ausgewählt.
-     * - Ist decideOnDraw = false, so wird eine TeamSelectionException geworfen. */
     public void createNextLeague(int nPassingTeams, boolean decideOnDraw) throws TeamSelectionException {
         int nTeams = currentLeague.getTeams().size();
         if (nPassingTeams > nTeams) throw new TeamSelectionException(nPassingTeams);
