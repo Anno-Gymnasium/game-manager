@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root stylesheets="@main_theme.css" type="DialogPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <header>
+        <Label fx:id="createGameLabel" alignment="CENTER" contentDisplay="TEXT_ONLY">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+    </header>
+    <content>
+        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0">
+            <children>
+                <TextArea fx:id="descriptionTextArea" layoutX="75.0" layoutY="90.0" prefHeight="100.0" prefWidth="350.0" promptText="Beschreibung eingeben..." wrapText="true">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </TextArea>
+                <Label layoutX="189.0" layoutY="60.0" text="Spiel-Beschreibung:">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <CheckBox fx:id="cbSoloTeams" layoutX="65.0" layoutY="210.0" mnemonicParsing="false" text="Einzelspieler (Teams bestehen aus jeweils einem Spieler)">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </CheckBox>
+                <Label layoutX="125.0" layoutY="25.0" text="Name des Spiels:">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="gameNameField" layoutX="235.0" layoutY="22.0" promptText="Name" />
+            <CheckBox fx:id="cbPublicView" layoutX="65.0" layoutY="250.0" mnemonicParsing="false" text="Öffentlich sichtbar (jeder kann das Spiel ansehen)">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="cbOwnTeamsCreation" layoutX="65.0" layoutY="290.0" mnemonicParsing="false" text="Spieler können neue Teams erstellen">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            </children>
+        </AnchorPane>
+    </content>
+</fx:root>

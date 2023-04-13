@@ -26,10 +26,11 @@ public class Account {
 
     private HashMap<UUID, WhiteListEntry> accessibleGames = new HashMap<>();
 
-    public Account(String name, @ColumnName("pw_hash") String passwordHash, String email, @ColumnName("date_created") Timestamp dateCreated,
+    public Account(String name, String description, @ColumnName("pw_hash") String passwordHash, String email,
+                   @ColumnName("date_created") Timestamp dateCreated,
                    @ColumnName("allow_passive_game_joining") boolean allowPassiveGameJoining) {
         this.name = name;
-        this.description = "";
+        this.description = description;
         this.passwordHash = passwordHash;
         this.email = email;
         this.dateCreated = dateCreated;
@@ -37,7 +38,7 @@ public class Account {
     }
     public static Account fromRawPassword(String name, String password, String email, Timestamp dateCreated, boolean allowPassiveGameJoining) {
         String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
-        return new Account(name, passwordHash, email, dateCreated, allowPassiveGameJoining);
+        return new Account(name, "", passwordHash, email, dateCreated, allowPassiveGameJoining);
     }
 
     public boolean authenticate(String password) {
@@ -45,10 +46,10 @@ public class Account {
     }
 
     public byte getRole(UUID gameID) {
-        return accessibleGames.get(gameID).getAssignedRole();
+        return accessibleGames.get(gameID).assignedRole();
     }
     public void addEntry(WhiteListEntry entry) {
-        accessibleGames.put(entry.getGameId(), entry);
+        accessibleGames.put(entry.gameId(), entry);
     }
     public void updatePassword(String newPassword) {
         passwordHash = BCrypt.hashpw(newPassword, BCrypt.gensalt());
@@ -77,6 +78,9 @@ public class Account {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public void setAllowPassiveGameJoining(boolean allowPassiveGameJoining) {
+        this.allowPassiveGameJoining = allowPassiveGameJoining;
     }
     public boolean isAllowPassiveGameJoining() {
         return allowPassiveGameJoining;

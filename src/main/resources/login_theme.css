@@ -1,6 +1,0 @@
-.button{
-    -fx-skin: "org.app.fx_application.AnimatedButtonSkin";
-}
-.button:disabled{
-    -fx-opacity: 0.6;
-}

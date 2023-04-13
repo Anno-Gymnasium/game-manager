@@ -29,7 +29,7 @@ public abstract class GenericLeague<T extends PlayingTeam> {
     }
     public GenericLeague(Class<? extends T> teamClass) {
         try {
-            teamConstructor = teamClass.getConstructor(GlobalTeam.class, Player.class);
+            teamConstructor = teamClass.getConstructor(GlobalTeam.class, int.class, Player.class);
         } catch (NoSuchMethodException e) {
             throw new RuntimeException(e);
         }

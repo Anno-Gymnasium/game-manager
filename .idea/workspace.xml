@@ -5,45 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f944ec2d-139e-4ed3-9e74-9de2b13f8236" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/GameRoles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/ControllerLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/JdbiProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/SelectableGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/WithCustomLimitedPassing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fx_icons/plus-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/main-menu-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/main_menu_theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/GameType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GameDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GameSelectionDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/RequestDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/RolesDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/AccountSettingsDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/CustomDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/GameCreationDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/GamePreviewDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/RoleRequestDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/PreviewGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableOutgoingRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/account-settings-dialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/game-creation-dialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/game-preview-dialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/role-request-dialog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089/storage_v2/_src_/database/game_manager_db.vSTIKA/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089/storage_v2/_src_/database/game_manager_db.vSTIKA/schema/dbo.sYMBAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089/storage_v2/_src_/database/game_manager_db.vSTIKA/schema/dbo.sYMBAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089/storage_v2/_src_/database/game_manager_db.vSTIKA/schema/dbo.sYMBAA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/comp_key_classes/CompPlayerID.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/comp_key_classes/CompPlayingTeamID.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/comp_key_classes/WhiteListEntryID.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/AccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/AccountDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/EmailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/GameRoles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/GameRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/ControllerLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/SceneLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GMApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GMApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GameSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/MainMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/SelectableGame.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericLeague.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericLeague.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericMatchingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericMatchingGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericMatchingTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericMatchingTeam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GlobalTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GlobalTeam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/LoggedMatchGeneration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/LoggedMatchGeneration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchLoggingLeague.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchingGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchingLeague.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchingLeague.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchlessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/MatchlessGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/PlayingTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/PlayingTeam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/TreeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/TreeGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/WhiteListEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/WhiteListEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game-selection-view.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/normal_theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/login_theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/login_theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main-menu-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main-menu-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main_menu_theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main_theme.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,16 +56,19 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="module-info" />
-        <option value="Interface" />
         <option value="CSS File" />
-        <option value="Class" />
-        <option value="FxmlFile" />
         <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/GamePreviewDialog.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -107,7 +111,8 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
@@ -132,6 +137,11 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.app.game_classes" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="open Email-Test" />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="GMApplication" type="Application" factoryName="Application">
@@ -241,7 +251,13 @@
       <workItem from="1681147857212" duration="9524000" />
       <workItem from="1681163770024" duration="3425000" />
       <workItem from="1681210730748" duration="7882000" />
-      <workItem from="1681226816974" duration="3439000" />
+      <workItem from="1681226816974" duration="17300000" />
+      <workItem from="1681247297999" duration="7328000" />
+      <workItem from="1681254655397" duration="1603000" />
+      <workItem from="1681301924589" duration="6464000" />
+      <workItem from="1681313439682" duration="21051000" />
+      <workItem from="1681380837698" duration="1998000" />
+      <workItem from="1681386044741" duration="33540000" />
     </task>
     <servers />
   </component>

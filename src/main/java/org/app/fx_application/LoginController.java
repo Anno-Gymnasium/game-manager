@@ -2,18 +2,13 @@ package org.app.fx_application;
 
 import jakarta.mail.MessagingException;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import org.jdbi.v3.core.Jdbi;
 
 import org.app.game_classes.Account;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 import java.util.Timer;
@@ -167,6 +162,7 @@ public class LoginController {
 
         currentAccount = account;
         System.out.println("Erstellungsdatum des eingeloggten Accounts: " + currentAccount.getDateCreated());
+        jdbi.useHandle(handle -> handle.attach(AccountDao.class).updateLastLogin(currentAccount.getName()));
         openMainMenuScene();
     }
     @FXML
@@ -199,6 +195,8 @@ public class LoginController {
         generateRandomRegCode();
         String subject = "Game-Manager Registrierung";
         String message = "Ihr Registrierungscode lautet: " + currentRegCode;
+
+
         try {
             EmailSender.sendEmail(email, subject, message);
             currentEmail = email;
@@ -287,15 +285,6 @@ public class LoginController {
     }
 
     public void openMainMenuScene() {
-        Scene mainMenuScene;
-        try {
-            mainMenuScene = ControllerLoader.loadMainMenuController(currentAccount);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        Stage primaryStage = (Stage) loginButton.getScene().getWindow();
-        primaryStage.setTitle("Game-Manager - Hauptmenü (Angemeldet als: " + currentAccount.getName() + ")");
-        primaryStage.setScene(mainMenuScene);
+        SceneLoader.openMainMenuScene((Stage) loginButton.getScene().getWindow(), currentAccount);
     }
 }

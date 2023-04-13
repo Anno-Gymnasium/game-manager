@@ -6,11 +6,11 @@ import java.util.Random;
 import java.util.UUID;
 
 public class MatchingGame extends GenericMatchingGame<MatchingTeam, MatchingLeague<MatchingTeam>> implements WithCustomLimitedPassing {
-    public MatchingGame(boolean soloTeams, UUID id) {
-        super(soloTeams, id);
+    public MatchingGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation, UUID id) {
+        super(soloTeams, publicView, allowOwnTeamsCreation, id);
     }
-    public MatchingGame(boolean soloTeams) {
-        this(soloTeams, UUID.randomUUID());
+    public MatchingGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation) {
+        this(soloTeams, publicView, allowOwnTeamsCreation, UUID.randomUUID());
     }
 
     public int createNextLeague(int minScore) throws NotEvaluatedException, TeamSelectionException {

@@ -8,16 +8,16 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="700.0" stylesheets="@main_menu_theme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.fx_application.MainMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="700.0" stylesheets="@main_theme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.fx_application.MainMenuController">
    <children>
-      <Accordion layoutX="14.0" layoutY="104.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="260.0">
+      <Accordion layoutX="14.0" layoutY="145.0" maxHeight="465.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="260.0">
         <panes>
           <TitledPane expanded="false" text="All vs All (Keine Matches)">
                <font>
@@ -26,12 +26,16 @@
                <content>
                   <ScrollPane pannable="true">
                      <content>
-                        <VBox fx:id="vbMatchlessGames" prefWidth="260.0" />
+                        <VBox fx:id="vbMatchlessGames" fillWidth="false" minWidth="260.0" spacing="3.0">
+                           <padding>
+                              <Insets bottom="15.0" left="3.0" right="3.0" top="5.0" />
+                           </padding>
+                        </VBox>
                      </content>
                   </ScrollPane>
                </content>
                <graphic>
-                  <Button fx:id="bCreateMatchlessGame" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0">
+                  <Button contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" onAction="#onCreateMatchlessGame" prefHeight="26.0" prefWidth="26.0">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -55,12 +59,15 @@
                <content>
                   <ScrollPane pannable="true">
                      <content>
-                        <VBox fx:id="vbMatchingGames" prefWidth="260.0" />
+                        <VBox fx:id="vbMatchingGames" fillWidth="false" minWidth="260.0" spacing="3.0">
+                           <padding>
+                              <Insets bottom="15.0" left="3.0" right="3.0" top="5.0" />
+                           </padding></VBox>
                      </content>
                   </ScrollPane>
                </content>
                <graphic>
-                  <Button fx:id="bCreateMatchingGame" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0">
+                  <Button contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" onAction="#onCreateMatchingGame" prefHeight="26.0" prefWidth="26.0">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -84,12 +91,15 @@
                <content>
                   <ScrollPane pannable="true">
                      <content>
-                        <VBox fx:id="vbTreeGames" prefWidth="260.0" />
+                        <VBox fx:id="vbTreeGames" fillWidth="false" minWidth="260.0" spacing="3.0">
+                           <padding>
+                              <Insets bottom="15.0" left="3.0" right="3.0" top="5.0" />
+                           </padding></VBox>
                      </content>
                   </ScrollPane>
                </content>
                <graphic>
-                  <Button fx:id="bCreateTreeGame" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0">
+                  <Button contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" onAction="#onCreateTreeGame" prefHeight="26.0" prefWidth="26.0">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -108,38 +118,33 @@
           </TitledPane>
         </panes>
       </Accordion>
-      <CheckBox fx:id="cbPublicViewFilter" layoutX="15.0" layoutY="75.0" mnemonicParsing="false" text="Öffentlich sichtbar">
+      <CheckBox fx:id="cbPublicViewFilter" allowIndeterminate="true" indeterminate="true" layoutX="15.0" layoutY="40.0" mnemonicParsing="false" text="Öffentlich sichtbar">
          <font>
             <Font size="13.0" />
          </font>
       </CheckBox>
-      <Label layoutX="15.0" layoutY="50.0" text="Sichtbarkeit:">
+      <Label layoutX="195.0" layoutY="42.0" text="Meine Rolle:">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="170.0" layoutY="8.0" text="Rollen filtern:">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <CheckBox fx:id="cbAdminFilter" layoutX="170.0" layoutY="30.0" mnemonicParsing="false" selected="true" text="Admin">
+      <CheckBox fx:id="cbAdminFilter" layoutX="195.0" layoutY="67.0" mnemonicParsing="false" selected="true" text="Admin">
          <font>
             <Font size="13.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="cbPlayerFilter" layoutX="170.0" layoutY="55.0" mnemonicParsing="false" selected="true" text="Spieler">
+      <CheckBox fx:id="cbPlayerFilter" layoutX="195.0" layoutY="92.0" mnemonicParsing="false" selected="true" text="Spieler">
          <font>
             <Font size="13.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="cbViewerFilter" layoutX="170.0" layoutY="80.0" mnemonicParsing="false" selected="true" text="Zuschauer">
+      <CheckBox fx:id="cbViewerFilter" layoutX="195.0" layoutY="117.0" mnemonicParsing="false" selected="true" text="Zuschauer">
          <font>
             <Font size="13.0" />
          </font>
       </CheckBox>
-      <TextField fx:id="gameSearchField" layoutX="10.0" layoutY="15.0" promptText="Spiele suchen..." />
-      <Button fx:id="bAccountSettings" contentDisplay="GRAPHIC_ONLY" layoutX="650.0" layoutY="10.0" mnemonicParsing="false" text="Button">
+      <TextField fx:id="gameSearchField" layoutX="14.0" layoutY="10.0" onAction="#onSearchFieldEnter" prefWidth="120.0" promptText="Spiele suchen..." />
+      <Button fx:id="bAccountSettings" contentDisplay="GRAPHIC_ONLY" layoutX="650.0" layoutY="10.0" mnemonicParsing="false" onAction="#onAccountSettings">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -150,13 +155,16 @@
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
+         <tooltip>
+            <Tooltip text="Account-Einstellungen" />
+         </tooltip>
       </Button>
-      <Label layoutX="386.0" layoutY="60.0" text="Meine Anfragen" underline="true">
+      <Label layoutX="386.0" layoutY="70.0" text="Meine Anfragen" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Accordion layoutX="320.0" layoutY="104.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="260.0">
+      <Accordion layoutX="320.0" layoutY="115.0" maxHeight="495.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="260.0">
          <panes>
             <TitledPane expanded="false" text="Ausgehend">
                <font>
@@ -165,27 +173,13 @@
                <content>
                   <ScrollPane pannable="true">
                      <content>
-                        <VBox fx:id="vbOutgoingRequests" prefWidth="260.0" />
+                        <VBox fx:id="vbOutgoingRequests" fillWidth="false" minWidth="260.0" spacing="3.0">
+                           <padding>
+                              <Insets bottom="15.0" left="3.0" right="3.0" top="5.0" />
+                           </padding></VBox>
                      </content>
                   </ScrollPane>
                </content>
-               <graphic>
-                  <Button fx:id="bCreateWhitelistRequest" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@fx_icons/plus-icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <padding>
-                        <Insets left="1.0" />
-                     </padding>
-                  </Button>
-               </graphic>
             </TitledPane>
             <TitledPane expanded="false" text="Eingehend">
                <font>
@@ -194,7 +188,10 @@
                <content>
                   <ScrollPane pannable="true">
                      <content>
-                        <VBox fx:id="vbIncomingRequests" prefWidth="260.0" />
+                        <VBox fx:id="vbIncomingRequests" fillWidth="false" minWidth="260.0" spacing="3.0">
+                           <padding>
+                              <Insets bottom="15.0" left="3.0" right="3.0" top="5.0" />
+                           </padding></VBox>
                      </content>
                   </ScrollPane>
                </content>
@@ -206,7 +203,10 @@
                <content>
                   <ScrollPane pannable="true">
                      <content>
-                        <VBox fx:id="vbRequestAnswers" prefWidth="260.0" />
+                        <VBox fx:id="vbRequestAnswers" fillWidth="false" minWidth="260.0" spacing="3.0">
+                           <padding>
+                              <Insets bottom="15.0" left="3.0" right="3.0" top="5.0" />
+                           </padding></VBox>
                      </content>
                   </ScrollPane>
                </content>
@@ -218,18 +218,10 @@
                <content>
                   <ScrollPane pannable="true">
                      <content>
-                        <VBox fx:id="vbGameInvitations" prefWidth="260.0">
-                           <children>
-                              <StackPane alignment="TOP_LEFT" prefWidth="260.0" styleClass="clickable_pane">
-                                 <children>
-                                    <Label text="Label">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </StackPane>
-                           </children>
+                        <VBox fx:id="vbGameInvitations" fillWidth="false" minWidth="260.0" spacing="3.0">
+                           <padding>
+                              <Insets bottom="15.0" left="3.0" right="3.0" top="5.0" />
+                           </padding>
                         </VBox>
                      </content>
                   </ScrollPane>
@@ -237,7 +229,7 @@
             </TitledPane>
          </panes>
       </Accordion>
-      <Button fx:id="bLogout" contentDisplay="GRAPHIC_ONLY" layoutX="605.0" layoutY="10.0" mnemonicParsing="false" text="Button">
+      <Button fx:id="bLogout" contentDisplay="GRAPHIC_ONLY" layoutX="605.0" layoutY="10.0" mnemonicParsing="false" onAction="#onLogout">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
@@ -248,6 +240,56 @@
                </image>
             </ImageView>
          </graphic>
+         <tooltip>
+            <Tooltip text="Ausloggen" />
+         </tooltip>
       </Button>
+      <CheckBox fx:id="cbSoloTeamsFilter" allowIndeterminate="true" indeterminate="true" layoutX="15.0" layoutY="65.0" mnemonicParsing="false" text="Einzelspieler">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="cbOwnTeamsCreationFilter" allowIndeterminate="true" indeterminate="true" layoutX="15.0" layoutY="90.0" mnemonicParsing="false" text="Eigene Teamerstellung">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </CheckBox>
+      <Button fx:id="bSearchGame" contentDisplay="GRAPHIC_ONLY" layoutX="134.0" layoutY="10.0" mnemonicParsing="false" onAction="#onSearchButtonPressed">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fx_icons/search-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Button>
+      <Button fx:id="bReverseSort" layoutX="160.0" layoutY="10.0" mnemonicParsing="false" onAction="#onReverseSortPressed" text="A-Z" />
+      <Button fx:id="bReload" contentDisplay="GRAPHIC_ONLY" layoutX="560.0" layoutY="10.0" mnemonicParsing="false" onAction="#onReload">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fx_icons/reload-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Alles neu laden" />
+         </tooltip>
+      </Button>
+      <Label layoutX="15.0" layoutY="117.0" text="Ab Nummer:">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="numSuffixField" layoutX="100.0" layoutY="114.0" onAction="#onSearchFieldEnter" prefWidth="75.0" promptText="Suffix" />
    </children>
+   <padding>
+      <Insets bottom="5.0" />
+   </padding>
 </AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="500.0" type="DialogPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <header>
+      <Label fx:id="requestRoleLabel" alignment="CENTER" text="Spiel-Rolle anfragen">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </header>
+   <content>
+      <VBox alignment="TOP_CENTER" fillWidth="false" spacing="10.0">
+         <children>
+            <Label text="Angefragte Rolle:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cboxRole" prefWidth="150.0" />
+            <Label text="Nachricht:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="messageArea" prefWidth="400.0" promptText="Grund / Anlass deiner Anfrage" />
+         </children>
+      </VBox>
+   </content>
+   <buttonTypes>
+      <ButtonType fx:constant="CANCEL" />
+      <ButtonType fx:constant="OK" />
+   </buttonTypes>
+</fx:root>

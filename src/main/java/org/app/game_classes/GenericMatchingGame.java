@@ -26,14 +26,14 @@ public abstract class GenericMatchingGame<T extends GenericMatchingTeam<T>, L ex
     protected RematchMode rematchMode;
     protected boolean skipDrawsOnEvaluation;
 
-    public GenericMatchingGame(boolean soloTeams, UUID id) {
-        super(soloTeams, id);
+    public GenericMatchingGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation, UUID id) {
+        super(soloTeams, publicView, allowOwnTeamsCreation, id);
         evaluationMode = MatchEvaluationMode.ADD_ONE_FOR_WINNER;
         rematchMode = RematchMode.EVALUATE_CURRENT_MATCHES;
         skipDrawsOnEvaluation = false;
     }
-    public GenericMatchingGame(boolean soloTeams) {
-        this(soloTeams, UUID.randomUUID());
+    public GenericMatchingGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation) {
+        this(soloTeams, publicView, allowOwnTeamsCreation, UUID.randomUUID());
     }
 
     public void generateShuffledMatches() throws MatchingLeague.MatchDrawException, MatchingLeague.MatchMakingException {

@@ -13,17 +13,15 @@ public class GMApplication extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         primaryStage.setOnCloseRequest(windowEvent -> {
             Platform.exit();
             System.exit(0);
         });
 
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Game Manager Login");
 
-        Scene loginScene = ControllerLoader.loadLoginController();
-        primaryStage.setScene(loginScene);
+        SceneLoader.openLoginScene(primaryStage);
         primaryStage.show();
     }
 }

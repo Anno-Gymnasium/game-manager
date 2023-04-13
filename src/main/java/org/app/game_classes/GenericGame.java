@@ -31,6 +31,8 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
     protected boolean soloTeams;
     // Wenn true, dann kann jeder Account das Spiel ansehen, ansonsten nach Whitelist
     protected boolean publicView;
+    // Wenn true, dann kann jeder Spieler neue Teams erstellen, ansonsten nur Admins
+    protected boolean allowOwnTeamsCreation;
 
     // Name und Beschreibung des Spiels
     protected String name;
@@ -39,16 +41,23 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
     // ID des Spiels
     protected UUID id;
 
-    public GenericGame(boolean soloTeams, @NotNull UUID id) {
+    public GenericGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation, @NotNull UUID id) {
         leagues = new ArrayList<>();
+        currentLeague = null;
 
         this.soloTeams = soloTeams;
+        this.publicView = publicView;
+        this.allowOwnTeamsCreation = allowOwnTeamsCreation;
+        this.id = id;
+        name = "";
+        description = "";
+
+        accountPlayerBindings = new HashMap<>();
         teamByName = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         allPlayers = new TreeSet<>(Player::compareTo);
-        this.id = id;
     }
-    public GenericGame(boolean soloTeams) {
-        this(soloTeams, UUID.randomUUID());
+    public GenericGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation) {
+        this(soloTeams, publicView, allowOwnTeamsCreation, UUID.randomUUID());
     }
 
     protected void checkForDuplicatePlayer(@NotNull Player player) throws DuplicatePlayerException {
@@ -164,7 +173,7 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
             throw new HasPlayedException();
         }
         allPlayers.remove(player);
-        GlobalTeam team = teamByName.get(player.getGlobalTeam());
+        GlobalTeam team = teamByName.get(player.getGlobalTeam().getName());
         if (team != null) {
             team.removePlayer(player);
             if (team.getSize() == 0) {
@@ -273,6 +282,12 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
     }
     public boolean isPublicView() {
         return publicView;
+    }
+    public void setAllowOwnTeamsCreation(boolean allowOwnTeamsCreation) {
+        this.allowOwnTeamsCreation = allowOwnTeamsCreation;
+    }
+    public boolean isAllowOwnTeamsCreation() {
+        return allowOwnTeamsCreation;
     }
 
     public UUID getId() {

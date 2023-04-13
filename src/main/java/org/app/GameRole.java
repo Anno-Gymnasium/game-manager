@@ -1,27 +1,27 @@
 package org.app;
 
-public enum GameRoles {
-    VIEWER(0, "Zuschauer"),
-    PLAYER(1, "Spieler"),
-    ADMIN(2, "Admin");
+public enum GameRole {
+    SPECTATOR((byte) 0, "Zuschauer"),
+    PLAYER((byte) 1, "Spieler"),
+    ADMIN((byte) 2, "Admin");
 
-    private final int value;
+    private final byte value;
     private final String name;
-    GameRoles(int value, String name) {
+    GameRole(byte value, String name) {
         this.value = value;
         this.name = name;
     }
 
-    public int getValue() {
+    public byte getValue() {
         return value;
     }
     public String getName() {
         return name;
     }
 
-    public static GameRoles getRole(int value) {
+    public static GameRole getRole(int value) {
         return switch (value) {
-            case 0 -> VIEWER;
+            case 0 -> SPECTATOR;
             case 1 -> PLAYER;
             case 2 -> ADMIN;
             default -> null;

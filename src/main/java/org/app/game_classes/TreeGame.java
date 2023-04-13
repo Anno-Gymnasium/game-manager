@@ -3,12 +3,12 @@ package org.app.game_classes;
 import java.util.UUID;
 
 public class TreeGame extends GenericMatchingGame<TreeTeam, MatchingLeague<TreeTeam>> {
-    public TreeGame(boolean soloTeams, UUID id) {
-        super(soloTeams, id);
+    public TreeGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation, UUID id) {
+        super(soloTeams, publicView, allowOwnTeamsCreation, id);
         rematchMode = RematchMode.RESET_ALL_SCORES;
     }
-    public TreeGame(boolean soloTeams) {
-        this(soloTeams, UUID.randomUUID());
+    public TreeGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation) {
+        this(soloTeams, publicView, allowOwnTeamsCreation, UUID.randomUUID());
     }
 
     public void createNextLeague() throws NotEvaluatedException {
