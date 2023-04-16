@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@main_theme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.fx_application.LoginController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@main_theme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.fx_application.controllers.LoginController">
    <children>
       <Label layoutX="200.0" layoutY="10.0" prefHeight="35.0" prefWidth="300.0" text="Anmelden oder Registrieren">
          <font>

@@ -1,6 +1,7 @@
 package org.app.game_classes;
 
-import java.util.UUID;
+import org.app.GameMetadata;
+
 import java.util.List;
 
 public abstract class GenericMatchingGame<T extends GenericMatchingTeam<T>, L extends MatchingLeague<T>> extends GenericGame<T, L> {
@@ -26,14 +27,11 @@ public abstract class GenericMatchingGame<T extends GenericMatchingTeam<T>, L ex
     protected RematchMode rematchMode;
     protected boolean skipDrawsOnEvaluation;
 
-    public GenericMatchingGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation, UUID id) {
-        super(soloTeams, publicView, allowOwnTeamsCreation, id);
+    public GenericMatchingGame(GameMetadata metadata) {
+        super(metadata);
         evaluationMode = MatchEvaluationMode.ADD_ONE_FOR_WINNER;
         rematchMode = RematchMode.EVALUATE_CURRENT_MATCHES;
         skipDrawsOnEvaluation = false;
-    }
-    public GenericMatchingGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation) {
-        this(soloTeams, publicView, allowOwnTeamsCreation, UUID.randomUUID());
     }
 
     public void generateShuffledMatches() throws MatchingLeague.MatchDrawException, MatchingLeague.MatchMakingException {

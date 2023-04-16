@@ -10,8 +10,8 @@ public class TreeTeam extends GenericMatchingTeam<TreeTeam> {
     private TreeTeam child1;
     private TreeTeam child2;
 
-    public TreeTeam(GlobalTeam globalTeam, int leagueIndex, Player player) {
-        super(globalTeam, leagueIndex, player);
+    public TreeTeam(GlobalTeam globalTeam, int leagueIndex) {
+        super(globalTeam, leagueIndex);
         this.parent = null;
         this.child1 = null;
         this.child2 = null;
@@ -19,7 +19,7 @@ public class TreeTeam extends GenericMatchingTeam<TreeTeam> {
 
     @Override
     public TreeTeam cloneForNewLeague() {
-        TreeTeam clone = new TreeTeam(globalTeam, leagueIndex, playerByName.firstEntry().getValue());
+        TreeTeam clone = new TreeTeam(globalTeam, leagueIndex);
         clone.playerByName = new TreeMap<>(playerByName);
         return clone;
     }

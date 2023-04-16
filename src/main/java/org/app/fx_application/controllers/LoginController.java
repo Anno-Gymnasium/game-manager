@@ -1,10 +1,14 @@
-package org.app.fx_application;
+package org.app.fx_application.controllers;
 
 import jakarta.mail.MessagingException;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import org.app.fx_application.daos.AccountDao;
+import org.app.fx_application.EmailSender;
+import org.app.fx_application.JdbiProvider;
+import org.app.fx_application.SceneLoader;
 import org.jdbi.v3.core.Jdbi;
 
 import org.app.game_classes.Account;

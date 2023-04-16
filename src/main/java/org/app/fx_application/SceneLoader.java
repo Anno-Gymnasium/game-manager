@@ -7,16 +7,15 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import org.app.GameMetadata;
 import org.app.GameRole;
-import org.app.GameType;
+import org.app.fx_application.controllers.*;
 import org.app.game_classes.Account;
-import org.app.game_classes.GenericGame;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.UUID;
 
 public class SceneLoader {
     private static final EventHandler<? super MouseEvent> rootOnMousePressed = (EventHandler<MouseEvent>) mouseEvent -> {
@@ -37,24 +36,34 @@ public class SceneLoader {
     }
     public static void openMainMenuScene(Stage primaryStage, Account currentAccount) {
         Scene mainMenuScene;
+        MainMenuController controller;
         try {
-            mainMenuScene = loadMainMenuScene(currentAccount);
+            FXMLLoader mainMenuViewLoader = loadMainMenuScene();
+            Parent mainMenuRoot = mainMenuViewLoader.load();
+            mainMenuRoot.setOnMousePressed(rootOnMousePressed);
+            controller = mainMenuViewLoader.getController();
+            controller.setAccount(currentAccount);
+
+            mainMenuScene = new Scene(mainMenuRoot);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         primaryStage.setTitle("Game Manager - Hauptmenü (Angemeldet als: " + currentAccount.getName() + ")");
         primaryStage.setScene(mainMenuScene);
+
+        // Eventhandler für das Reload-Event
+        primaryStage.addEventHandler(MainMenuController.RELOAD, event -> controller.onReload());
     }
-    public static void openGameScene(GameType gameType, Stage primaryStage, UUID gameId, Account currentAccount, GameRole accountRole) {
+    public static void openGameScene(Stage primaryStage, GameMetadata metadata, GameRole joinRole) {
         Scene gameScene;
         try {
-            gameScene = loadGameScene(gameType, gameId, currentAccount, accountRole);
+            gameScene = loadGameScene(metadata, joinRole);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        primaryStage.setTitle("Game Manager - Spiel (Angemeldet als: " + currentAccount.getName() + ")");
+        primaryStage.setTitle("Game Manager - Spiel (Angemeldet als: " + metadata.getAccount().getName() + ")");
         primaryStage.setScene(gameScene);
     }
 
@@ -64,30 +73,34 @@ public class SceneLoader {
         loginRoot.setOnMousePressed(rootOnMousePressed);
         return new Scene(loginRoot);
     }
-    private static Scene loadMainMenuScene(@NotNull Account account) throws IOException {
-        FXMLLoader mainMenuViewLoader = new FXMLLoader(Objects.requireNonNull(SceneLoader.class.getClassLoader().getResource("main-menu-view.fxml")));
-        Parent gameSelectionRoot = mainMenuViewLoader.load();
-        gameSelectionRoot.setOnMousePressed(rootOnMousePressed);
-        MainMenuController mainMenuController = mainMenuViewLoader.getController();
-        mainMenuController.setAccount(account);
-        return new Scene(gameSelectionRoot);
+    private static FXMLLoader loadMainMenuScene() throws IOException {
+        return new FXMLLoader(Objects.requireNonNull(SceneLoader.class.getClassLoader().getResource("main-menu-view.fxml")));
     }
-    private static <G extends GenericGame<?, ?>> Scene loadGameScene(@NotNull GameType gameType, @NotNull UUID gameId, @NotNull Account account, @NotNull GameRole accountRole) throws IOException {
-        String fxmlPath;
-        switch (gameType) {
-            case MATCHLESS -> fxmlPath = "matchless-game-view.fxml";
-            case MATCHING -> fxmlPath = "matching-game-view.fxml";
-            case TREE -> fxmlPath = "tree-game-view.fxml";
-            default -> fxmlPath = null;
-        }
+    private static Scene loadGameScene(@NotNull GameMetadata metadata, @NotNull GameRole joinRole) throws IOException {
+        String fxmlPath = switch (metadata.getType()) {
+            case MATCHLESS -> "matchless-game-view.fxml";
+            case MATCHING -> "matching-game-view.fxml";
+            case TREE -> "tree-game-view.fxml";
+        };
 
         FXMLLoader gameViewLoader = new FXMLLoader(Objects.requireNonNull(SceneLoader.class.getClassLoader().getResource(fxmlPath)));
         Parent gameRoot = gameViewLoader.load();
         gameRoot.setOnMousePressed(rootOnMousePressed);
-        GameController<G> gameController = gameViewLoader.getController();
-        gameController.setAccount(account);
-        gameController.setAccountRole(accountRole);
-        gameController.loadGame(gameId);
+
+        switch (metadata.getType()) {
+            case MATCHLESS -> {
+                MatchlessGameController controller = gameViewLoader.getController();
+                controller.loadGame(metadata, joinRole);
+            }
+            case MATCHING -> {
+                MatchingGameController controller = gameViewLoader.getController();
+                controller.loadGame(metadata, joinRole);
+            }
+            case TREE -> {
+                TreeGameController controller = (TreeGameController) gameViewLoader.getController();
+                controller.loadGame(metadata, joinRole);
+            }
+        }
         return new Scene(gameRoot);
     }
 }

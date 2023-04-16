@@ -1,4 +1,4 @@
-package org.app.fx_application;
+package org.app.fx_application.daos;
 
 import org.app.game_classes.Account;
 
@@ -19,6 +19,9 @@ public interface AccountDao {
 
     @SqlQuery("SELECT name FROM account WHERE last_login < DATEADD(month, -:monthsSinceLastLogin, GETDATE())")
     List<String> getAbandonedAccountNames(int monthsSinceLastLogin);
+
+    @SqlQuery("SELECT name FROM account WHERE name LIKE :query + '%' ORDER BY name")
+    List<String> getAccountNamesByQuery(String query);
 
     @SqlQuery("IF EXISTS(SELECT 1 FROM account WHERE name = :name) SELECT 1 ELSE SELECT 0")
     boolean existsByName(String name);

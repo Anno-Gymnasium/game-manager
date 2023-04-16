@@ -17,12 +17,17 @@ module spiele.manager {
 
     opens org.app.fx_application to javafx.graphics, javafx.fxml, org.jdbi.v3.core, org.jdbi.v3.sqlobject;
     opens org.app.game_classes to org.jdbi.v3.core, org.jdbi.v3.sqlobject;
+    opens org.app.fx_application.dialogs to javafx.fxml, javafx.graphics, org.jdbi.v3.core, org.jdbi.v3.sqlobject;
+    opens org.app.fx_application.selectables to javafx.fxml, javafx.graphics, org.jdbi.v3.core, org.jdbi.v3.sqlobject;
+    opens org.app.fx_application.controllers to javafx.fxml, javafx.graphics, org.jdbi.v3.core, org.jdbi.v3.sqlobject;
+    opens org.app.fx_application.daos to javafx.fxml, javafx.graphics, org.jdbi.v3.core, org.jdbi.v3.sqlobject;
+    opens org.app to javafx.fxml, javafx.graphics, org.jdbi.v3.core, org.jdbi.v3.sqlobject;
 
     exports org.app.fx_application;
     exports org.app.game_classes;
     exports org.app;
     exports org.app.fx_application.dialogs;
-    opens org.app.fx_application.dialogs to javafx.fxml, javafx.graphics, org.jdbi.v3.core, org.jdbi.v3.sqlobject;
     exports org.app.fx_application.selectables;
-    opens org.app.fx_application.selectables to javafx.fxml, javafx.graphics, org.jdbi.v3.core, org.jdbi.v3.sqlobject;
+    exports org.app.fx_application.controllers;
+    exports org.app.fx_application.daos;
 }

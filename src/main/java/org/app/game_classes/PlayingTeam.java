@@ -16,12 +16,10 @@ public class PlayingTeam implements Comparable<PlayingTeam> {
     // Spieler, die in diesem Team spielen
     protected TreeMap<String, Player> playerByName = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
-    public PlayingTeam() {}
-    public PlayingTeam(GlobalTeam globalTeam, int leagueIndex, Player player) {
+    public PlayingTeam(GlobalTeam globalTeam, int leagueIndex) {
         this.leagueIndex = leagueIndex;
         this.globalTeam = globalTeam;
         this.totalScore = 0;
-        addPlayer(player);
     }
     public void addPlayer(Player player) {
         playerByName.put(player.getName(), player);
@@ -54,7 +52,7 @@ public class PlayingTeam implements Comparable<PlayingTeam> {
     }
 
     public PlayingTeam cloneForNewLeague() {
-        PlayingTeam clone = new PlayingTeam(globalTeam, leagueIndex, playerByName.firstEntry().getValue());
+        PlayingTeam clone = new PlayingTeam(globalTeam, leagueIndex);
         clone.playerByName = new TreeMap<>(playerByName);
         return clone;
     }

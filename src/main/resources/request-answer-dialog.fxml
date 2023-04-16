@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" type="DialogPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <header>
+      <Label fx:id="requestGameNameLabel" alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </header>
+   <content>
+      <VBox alignment="TOP_CENTER" fillWidth="false" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" fillHeight="false" spacing="5.0">
+               <children>
+                  <Label text="Fragender Account:">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="hlAccountName" onAction="#openAccountInfo">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" fillHeight="false" spacing="5.0">
+               <children>
+                  <Label text="Aktuelle Whitelist-Rolle:">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="currentRoleLabel">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" fillHeight="false" spacing="5.0">
+               <children>
+                  <Label text="Angefragte Whitelist-Rolle:">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="requestedRoleLabel">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label text="Nachricht:" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="messageArea" editable="false" prefHeight="150.0" prefWidth="400.0" promptText="Keine Nachricht" wrapText="true" />
+            <HBox alignment="CENTER_LEFT" spacing="5.0">
+               <children>
+                  <Label text="Rolle akzeptieren:">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cboxAcceptedRole" prefWidth="150.0" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="70.0" />
+         </padding>
+      </VBox>
+   </content>
+   <buttonTypes>
+      <ButtonType fx:constant="CANCEL" />
+      <ButtonType fx:constant="OK" />
+   </buttonTypes>
+</fx:root>

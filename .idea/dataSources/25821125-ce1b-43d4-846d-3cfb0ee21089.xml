@@ -16700,7 +16700,7 @@
     </schema>
     <schema id="5546" parent="5510" name="dbo">
       <Current>1</Current>
-      <IntrospectionTimestamp>2023-04-13.22:43:45.820</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-04-16.19:57:54.533</IntrospectionTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="5547" parent="5510" name="guest">
@@ -16710,163 +16710,163 @@
       <ObjectId>4</ObjectId>
     </schema>
     <routine id="5549" parent="5546" name="game_id_is_generic_matching_game_id">
-      <CreatedTimestamp>2023-04-13.12:42:55.513</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.513</ModifiedTimestamp>
-      <ObjectId>150291595</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.353</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.353</ModifiedTimestamp>
+      <ObjectId>2070298435</ObjectId>
       <RoutineType>scalar-fun</RoutineType>
       <SourceTextLength>318</SourceTextLength>
     </routine>
     <routine id="5550" parent="5546" name="game_id_is_matching_game_id">
-      <CreatedTimestamp>2023-04-13.12:42:55.723</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.723</ModifiedTimestamp>
-      <ObjectId>246291937</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.527</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.527</ModifiedTimestamp>
+      <ObjectId>18815129</ObjectId>
       <RoutineType>scalar-fun</RoutineType>
       <SourceTextLength>294</SourceTextLength>
     </routine>
     <routine id="5551" parent="5546" name="game_id_is_tree_game_id">
-      <CreatedTimestamp>2023-04-13.12:42:55.930</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.930</ModifiedTimestamp>
-      <ObjectId>326292222</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.827</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.827</ModifiedTimestamp>
+      <ObjectId>98815414</ObjectId>
       <RoutineType>scalar-fun</RoutineType>
       <SourceTextLength>282</SourceTextLength>
     </routine>
     <routine id="5552" parent="5546" name="is_generic_matching_game_id">
-      <CreatedTimestamp>2023-04-13.12:42:55.047</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.047</ModifiedTimestamp>
-      <ObjectId>2041774331</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.870</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.870</ModifiedTimestamp>
+      <ObjectId>1814297523</ObjectId>
       <RoutineType>scalar-fun</RoutineType>
       <SourceTextLength>211</SourceTextLength>
     </routine>
     <routine id="5553" parent="5546" name="is_matchless_game_id">
-      <CreatedTimestamp>2023-04-13.12:42:54.843</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.843</ModifiedTimestamp>
-      <ObjectId>1961774046</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.683</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.683</ModifiedTimestamp>
+      <ObjectId>1734297238</ObjectId>
       <RoutineType>scalar-fun</RoutineType>
       <SourceTextLength>190</SourceTextLength>
     </routine>
     <routine id="5554" parent="5546" name="valid_match_teams">
-      <CreatedTimestamp>2023-04-13.12:42:56.313</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.313</ModifiedTimestamp>
-      <ObjectId>534292963</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.207</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.207</ModifiedTimestamp>
+      <ObjectId>306816155</ObjectId>
       <RoutineType>scalar-fun</RoutineType>
       <SourceTextLength>374</SourceTextLength>
     </routine>
     <routine id="5555" parent="5546" name="valid_player_deployment">
-      <CreatedTimestamp>2023-04-13.12:42:56.110</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.110</ModifiedTimestamp>
-      <ObjectId>438292621</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.023</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.023</ModifiedTimestamp>
+      <ObjectId>210815813</ObjectId>
       <RoutineType>scalar-fun</RoutineType>
       <SourceTextLength>357</SourceTextLength>
     </routine>
     <table id="5556" parent="5546" name="account">
-      <CreatedTimestamp>2023-04-13.12:42:54.453</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.783</ModifiedTimestamp>
-      <ObjectId>1625772849</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.323</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.760</ModifiedTimestamp>
+      <ObjectId>1382295984</ObjectId>
     </table>
     <table id="5557" parent="5546" name="game">
-      <CreatedTimestamp>2023-04-13.12:42:53.963</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.603</ModifiedTimestamp>
-      <ObjectId>1337771823</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:14.763</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.577</ModifiedTimestamp>
+      <ObjectId>1094294958</ObjectId>
     </table>
     <table id="5558" parent="5546" name="game_invitation">
-      <CreatedTimestamp>2023-04-13.12:42:56.687</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.687</ModifiedTimestamp>
-      <ObjectId>870294160</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.667</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.667</ModifiedTimestamp>
+      <ObjectId>642817352</ObjectId>
     </table>
     <table id="5559" parent="5546" name="game_whitelist">
-      <CreatedTimestamp>2023-04-13.12:42:56.500</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.690</ModifiedTimestamp>
-      <ObjectId>710293590</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.467</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.670</ModifiedTimestamp>
+      <ObjectId>482816782</ObjectId>
     </table>
     <table id="5560" parent="5546" name="game_whitelisting_request">
-      <CreatedTimestamp>2023-04-13.12:42:56.600</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.600</ModifiedTimestamp>
-      <ObjectId>774293818</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.573</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.573</ModifiedTimestamp>
+      <ObjectId>546817010</ObjectId>
     </table>
     <table id="5561" parent="5546" name="generic_matching_game">
-      <CreatedTimestamp>2023-04-13.12:42:54.170</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.363</ModifiedTimestamp>
-      <ObjectId>1481772336</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:14.957</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.220</ModifiedTimestamp>
+      <ObjectId>1238295471</ObjectId>
     </table>
     <table id="5562" parent="5546" name="generic_matching_team">
-      <CreatedTimestamp>2023-04-13.12:42:55.627</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.410</ModifiedTimestamp>
-      <ObjectId>166291652</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.437</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.357</ModifiedTimestamp>
+      <ObjectId>2086298492</ObjectId>
     </table>
     <table id="5563" parent="5546" name="global_team">
-      <CreatedTimestamp>2023-04-13.12:42:54.547</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.783</ModifiedTimestamp>
-      <ObjectId>1721773191</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.410</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.760</ModifiedTimestamp>
+      <ObjectId>1494296383</ObjectId>
     </table>
     <table id="5564" parent="5546" name="league">
-      <CreatedTimestamp>2023-04-13.12:42:54.757</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.333</ModifiedTimestamp>
-      <ObjectId>1913773875</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.587</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.163</ModifiedTimestamp>
+      <ObjectId>1686297067</ObjectId>
     </table>
     <table id="5565" parent="5546" name="logged_match_generation">
-      <CreatedTimestamp>2023-04-13.12:42:55.237</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.410</ModifiedTimestamp>
-      <ObjectId>2121774616</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.070</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.357</ModifiedTimestamp>
+      <ObjectId>1894297808</ObjectId>
     </table>
     <table id="5566" parent="5546" name="match">
-      <CreatedTimestamp>2023-04-13.12:42:56.407</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.407</ModifiedTimestamp>
-      <ObjectId>550293020</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.353</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.353</ModifiedTimestamp>
+      <ObjectId>322816212</ObjectId>
     </table>
     <table id="5567" parent="5546" name="matching_game">
-      <CreatedTimestamp>2023-04-13.12:42:54.260</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.260</ModifiedTimestamp>
-      <ObjectId>1529772507</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.097</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.097</ModifiedTimestamp>
+      <ObjectId>1286295642</ObjectId>
     </table>
     <table id="5568" parent="5546" name="matching_league">
-      <CreatedTimestamp>2023-04-13.12:42:55.147</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.237</ModifiedTimestamp>
-      <ObjectId>2057774388</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.983</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.073</ModifiedTimestamp>
+      <ObjectId>1830297580</ObjectId>
     </table>
     <table id="5569" parent="5546" name="matching_team">
-      <CreatedTimestamp>2023-04-13.12:42:55.820</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.820</ModifiedTimestamp>
-      <ObjectId>262291994</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.730</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.730</ModifiedTimestamp>
+      <ObjectId>34815186</ObjectId>
     </table>
     <table id="5570" parent="5546" name="matchless_game">
-      <CreatedTimestamp>2023-04-13.12:42:54.067</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.067</ModifiedTimestamp>
-      <ObjectId>1433772165</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:14.863</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.863</ModifiedTimestamp>
+      <ObjectId>1190295300</ObjectId>
     </table>
     <table id="5571" parent="5546" name="matchless_league">
-      <CreatedTimestamp>2023-04-13.12:42:54.940</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.940</ModifiedTimestamp>
-      <ObjectId>1977774103</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.780</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.780</ModifiedTimestamp>
+      <ObjectId>1750297295</ObjectId>
     </table>
     <table id="5572" parent="5546" name="player">
-      <CreatedTimestamp>2023-04-13.12:42:54.643</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.200</ModifiedTimestamp>
-      <ObjectId>1801773476</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.497</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.113</ModifiedTimestamp>
+      <ObjectId>1574296668</ObjectId>
     </table>
     <table id="5573" parent="5546" name="player_deployment">
-      <CreatedTimestamp>2023-04-13.12:42:56.197</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.197</ModifiedTimestamp>
-      <ObjectId>454292678</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.113</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.113</ModifiedTimestamp>
+      <ObjectId>226815870</ObjectId>
     </table>
     <table id="5574" parent="5546" name="playing_team">
-      <CreatedTimestamp>2023-04-13.12:42:55.330</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.200</ModifiedTimestamp>
-      <ObjectId>38291196</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.117</ModifiedTimestamp>
+      <ObjectId>1958298036</ObjectId>
     </table>
     <table id="5575" parent="5546" name="team_joining_whitelist">
-      <CreatedTimestamp>2023-04-13.12:42:56.780</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.780</ModifiedTimestamp>
-      <ObjectId>934294388</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.760</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.760</ModifiedTimestamp>
+      <ObjectId>706817580</ObjectId>
     </table>
     <table id="5576" parent="5546" name="tree_game">
-      <CreatedTimestamp>2023-04-13.12:42:54.360</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.360</ModifiedTimestamp>
-      <ObjectId>1577772678</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.217</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.217</ModifiedTimestamp>
+      <ObjectId>1334295813</ObjectId>
     </table>
     <table id="5577" parent="5546" name="tree_team">
-      <CreatedTimestamp>2023-04-13.12:42:56.017</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.017</ModifiedTimestamp>
-      <ObjectId>342292279</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.930</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.930</ModifiedTimestamp>
+      <ObjectId>114815471</ObjectId>
     </table>
     <argument id="5578" parent="5549">
       <ArgumentDirection>R</ArgumentDirection>
@@ -16939,7 +16939,10 @@
     </column>
     <column id="5595" parent="5556" name="description">
       <DasType>varchar(100 char)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
+      <DefaultConstraintId>1430296155</DefaultConstraintId>
+      <DefaultConstraintName>DF__account__descrip__5540965B</DefaultConstraintName>
     </column>
     <column id="5596" parent="5556" name="email">
       <DasType>varchar(50 char)|0s</DasType>
@@ -16950,15 +16953,15 @@
       <DasType>date|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <DefaultConstraintId>1673773020</DefaultConstraintId>
-      <DefaultConstraintName>DF__account__date_cr__63C3BFDC</DefaultConstraintName>
+      <DefaultConstraintId>1446296212</DefaultConstraintId>
+      <DefaultConstraintName>DF__account__date_cr__5634BA94</DefaultConstraintName>
     </column>
     <column id="5598" parent="5556" name="last_login">
       <DasType>date|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <DefaultConstraintId>1689773077</DefaultConstraintId>
-      <DefaultConstraintName>DF__account__last_lo__64B7E415</DefaultConstraintName>
+      <DefaultConstraintId>1462296269</DefaultConstraintId>
+      <DefaultConstraintName>DF__account__last_lo__5728DECD</DefaultConstraintName>
     </column>
     <column id="5599" parent="5556" name="pw_hash">
       <DasType>char(60 char)|0s</DasType>
@@ -16970,196 +16973,208 @@
       <DasType>bit|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
-      <DefaultConstraintId>1705773134</DefaultConstraintId>
-      <DefaultConstraintName>DF__account__allow_p__65AC084E</DefaultConstraintName>
+      <DefaultConstraintId>1478296326</DefaultConstraintId>
+      <DefaultConstraintName>DF__account__allow_p__581D0306</DefaultConstraintName>
     </column>
-    <default id="5601" parent="5556" name="DF__account__date_cr__63C3BFDC">
+    <default id="5601" parent="5556" name="DF__account__descrip__5540965B">
+      <ColNames>description</ColNames>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ModifiedTimestamp>2023-04-14.19:23:15.323</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>1430296155</ObjectId>
+    </default>
+    <default id="5602" parent="5556" name="DF__account__date_cr__5634BA94">
       <ColNames>date_created</ColNames>
       <DefaultExpression>getdate()</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:54.453</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.323</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1673773020</ObjectId>
+      <ObjectId>1446296212</ObjectId>
     </default>
-    <default id="5602" parent="5556" name="DF__account__last_lo__64B7E415">
+    <default id="5603" parent="5556" name="DF__account__last_lo__5728DECD">
       <ColNames>last_login</ColNames>
       <DefaultExpression>getdate()</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:54.453</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.323</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1689773077</ObjectId>
+      <ObjectId>1462296269</ObjectId>
     </default>
-    <default id="5603" parent="5556" name="DF__account__allow_p__65AC084E">
+    <default id="5604" parent="5556" name="DF__account__allow_p__581D0306">
       <ColNames>allow_passive_game_joining</ColNames>
       <DefaultExpression>0</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:54.453</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.323</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1705773134</ObjectId>
+      <ObjectId>1478296326</ObjectId>
     </default>
-    <index id="5604" parent="5556" name="PK__account__72E12F1ADAB9B368">
+    <index id="5605" parent="5556" name="PK__account__72E12F1A0329ABEE">
       <Clustering>1</Clustering>
       <ColNames>name</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <index id="5605" parent="5556" name="account_unique_email">
+    <index id="5606" parent="5556" name="account_unique_email">
       <ColNames>email</ColNames>
       <Position>2</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5606" parent="5556" name="PK__account__72E12F1ADAB9B368">
-      <CreatedTimestamp>2023-04-13.12:42:54.453</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.453</ModifiedTimestamp>
+    <key id="5607" parent="5556" name="PK__account__72E12F1A0329ABEE">
+      <CreatedTimestamp>2023-04-14.19:23:15.323</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.323</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1641772906</ObjectId>
+      <ObjectId>1398296041</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__account__72E12F1ADAB9B368</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__account__72E12F1A0329ABEE</UnderlyingIndexName>
     </key>
-    <key id="5607" parent="5556" name="account_unique_email">
-      <CreatedTimestamp>2023-04-13.12:42:54.453</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.453</ModifiedTimestamp>
-      <ObjectId>1657772963</ObjectId>
+    <key id="5608" parent="5556" name="account_unique_email">
+      <CreatedTimestamp>2023-04-14.19:23:15.323</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.323</ModifiedTimestamp>
+      <ObjectId>1414296098</ObjectId>
       <UnderlyingIndexName>account_unique_email</UnderlyingIndexName>
     </key>
-    <column id="5608" parent="5557" name="id">
+    <column id="5609" parent="5557" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5609" parent="5557" name="name">
-      <DasType>varchar(25 char)|0s</DasType>
+    <column id="5610" parent="5557" name="gametype">
+      <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <CollationName>Latin1_General_CS_AS</CollationName>
     </column>
-    <column id="5610" parent="5557" name="num_suffix">
-      <DasType>int|0s</DasType>
+    <column id="5611" parent="5557" name="name">
+      <DasType>varchar(25 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
+      <CollationName>Latin1_General_CS_AS</CollationName>
     </column>
-    <column id="5611" parent="5557" name="description">
-      <DasType>varchar(120 char)|0s</DasType>
+    <column id="5612" parent="5557" name="num_suffix">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="5612" parent="5557" name="solo_teams">
-      <DasType>bit|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="5613" parent="5557" name="description">
+      <DasType>varchar(120 char)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="5613" parent="5557" name="public_view">
+    <column id="5614" parent="5557" name="solo_teams">
       <DasType>bit|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <DefaultConstraintId>1385771994</DefaultConstraintId>
-      <DefaultConstraintName>DF__game__public_vie__529933DA</DefaultConstraintName>
     </column>
-    <column id="5614" parent="5557" name="allow_own_teams_creation">
+    <column id="5615" parent="5557" name="public_view">
       <DasType>bit|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
-      <DefaultConstraintId>1401772051</DefaultConstraintId>
-      <DefaultConstraintName>DF__game__allow_own___538D5813</DefaultConstraintName>
+      <DefaultConstraintId>1142295129</DefaultConstraintId>
+      <DefaultConstraintName>DF__game__public_vie__44160A59</DefaultConstraintName>
     </column>
-    <column id="5615" parent="5557" name="admin_online">
+    <column id="5616" parent="5557" name="allow_own_teams_creation">
       <DasType>bit|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
-      <DefaultConstraintId>1417772108</DefaultConstraintId>
-      <DefaultConstraintName>DF__game__admin_onli__54817C4C</DefaultConstraintName>
+      <DefaultConstraintId>1158295186</DefaultConstraintId>
+      <DefaultConstraintName>DF__game__allow_own___450A2E92</DefaultConstraintName>
     </column>
-    <default id="5616" parent="5557" name="DF__game__public_vie__529933DA">
+    <column id="5617" parent="5557" name="admin_online">
+      <DasType>bit|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <DefaultConstraintId>1174295243</DefaultConstraintId>
+      <DefaultConstraintName>DF__game__admin_onli__45FE52CB</DefaultConstraintName>
+    </column>
+    <default id="5618" parent="5557" name="DF__game__public_vie__44160A59">
       <ColNames>public_view</ColNames>
       <DefaultExpression>0</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:53.967</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.763</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1385771994</ObjectId>
+      <ObjectId>1142295129</ObjectId>
     </default>
-    <default id="5617" parent="5557" name="DF__game__allow_own___538D5813">
+    <default id="5619" parent="5557" name="DF__game__allow_own___450A2E92">
       <ColNames>allow_own_teams_creation</ColNames>
       <DefaultExpression>0</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:53.967</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.763</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1401772051</ObjectId>
+      <ObjectId>1158295186</ObjectId>
     </default>
-    <default id="5618" parent="5557" name="DF__game__admin_onli__54817C4C">
+    <default id="5620" parent="5557" name="DF__game__admin_onli__45FE52CB">
       <ColNames>admin_online</ColNames>
       <DefaultExpression>0</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:53.967</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.763</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1417772108</ObjectId>
+      <ObjectId>1174295243</ObjectId>
     </default>
-    <index id="5619" parent="5557" name="PK__game__3213E83F9BE0F0EC">
+    <index id="5621" parent="5557" name="PK__game__3213E83FE597F216">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <index id="5620" parent="5557" name="game_unique_name_with_suffix">
+    <index id="5622" parent="5557" name="game_unique_name_with_suffix">
       <ColNames>name
 num_suffix</ColNames>
       <Position>2</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5621" parent="5557" name="PK__game__3213E83F9BE0F0EC">
-      <CreatedTimestamp>2023-04-13.12:42:53.967</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:53.967</ModifiedTimestamp>
+    <key id="5623" parent="5557" name="PK__game__3213E83FE597F216">
+      <CreatedTimestamp>2023-04-14.19:23:14.763</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.763</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1353771880</ObjectId>
+      <ObjectId>1110295015</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__game__3213E83F9BE0F0EC</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__game__3213E83FE597F216</UnderlyingIndexName>
     </key>
-    <key id="5622" parent="5557" name="game_unique_name_with_suffix">
-      <CreatedTimestamp>2023-04-13.12:42:53.967</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:53.967</ModifiedTimestamp>
-      <ObjectId>1369771937</ObjectId>
+    <key id="5624" parent="5557" name="game_unique_name_with_suffix">
+      <CreatedTimestamp>2023-04-14.19:23:14.763</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.763</ModifiedTimestamp>
+      <ObjectId>1126295072</ObjectId>
       <UnderlyingIndexName>game_unique_name_with_suffix</UnderlyingIndexName>
     </key>
-    <trigger id="5623" parent="5557" name="trigger_delete_game">
-      <CreatedTimestamp>2023-04-13.12:42:55.423</CreatedTimestamp>
+    <trigger id="5625" parent="5557" name="trigger_delete_game">
+      <CreatedTimestamp>2023-04-14.19:23:16.260</CreatedTimestamp>
       <Events>D</Events>
-      <ModifiedTimestamp>2023-04-13.12:42:55.423</ModifiedTimestamp>
-      <ObjectId>134291538</ObjectId>
+      <ModifiedTimestamp>2023-04-14.19:23:16.260</ModifiedTimestamp>
+      <ObjectId>2054298378</ObjectId>
       <SourceTextLength>224</SourceTextLength>
       <Turn>instead-of</Turn>
     </trigger>
-    <column id="5624" parent="5558" name="game_id">
+    <column id="5626" parent="5558" name="game_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5625" parent="5558" name="account_name">
+    <column id="5627" parent="5558" name="account_name">
       <DasType>varchar(20 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5626" parent="5558" name="message">
+    <column id="5628" parent="5558" name="message">
       <DasType>varchar(70 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <DefaultConstraintId>902294274</DefaultConstraintId>
-      <DefaultConstraintName>DF__game_invi__messa__35C7EB02</DefaultConstraintName>
+      <DefaultConstraintId>674817466</DefaultConstraintId>
+      <DefaultConstraintName>DF__game_invi__messa__2838E5BA</DefaultConstraintName>
     </column>
-    <default id="5627" parent="5558" name="DF__game_invi__messa__35C7EB02">
+    <default id="5629" parent="5558" name="DF__game_invi__messa__2838E5BA">
       <ColNames>message</ColNames>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:56.690</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.670</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>902294274</ObjectId>
+      <ObjectId>674817466</ObjectId>
     </default>
-    <foreign-key id="5628" parent="5558" name="game_invitation_fk_from_whitelist">
+    <foreign-key id="5630" parent="5558" name="game_invitation_fk_from_whitelist">
       <ColNames>game_id
 account_name</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.690</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.690</ModifiedTimestamp>
-      <ObjectId>918294331</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.670</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.670</ModifiedTimestamp>
+      <ObjectId>690817523</ObjectId>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>game_id
 account_name</RefColNames>
-      <RefTableId>710293590</RefTableId>
+      <RefTableId>482816782</RefTableId>
       <RefTableName>game_whitelist</RefTableName>
     </foreign-key>
-    <index id="5629" parent="5558" name="PK__game_inv__5968539BAF30D460">
+    <index id="5631" parent="5558" name="PK__game_inv__5968539B46E035BD">
       <Clustering>1</Clustering>
       <ColNames>game_id
 account_name</ColNames>
@@ -17167,51 +17182,51 @@ account_name</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5630" parent="5558" name="PK__game_inv__5968539BAF30D460">
-      <CreatedTimestamp>2023-04-13.12:42:56.690</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.690</ModifiedTimestamp>
+    <key id="5632" parent="5558" name="PK__game_inv__5968539B46E035BD">
+      <CreatedTimestamp>2023-04-14.19:23:17.667</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.667</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>886294217</ObjectId>
+      <ObjectId>658817409</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__game_inv__5968539BAF30D460</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__game_inv__5968539B46E035BD</UnderlyingIndexName>
     </key>
-    <column id="5631" parent="5559" name="game_id">
+    <column id="5633" parent="5559" name="game_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5632" parent="5559" name="account_name">
+    <column id="5634" parent="5559" name="account_name">
       <DasType>varchar(20 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5633" parent="5559" name="assigned_role">
+    <column id="5635" parent="5559" name="assigned_role">
       <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <foreign-key id="5634" parent="5559" name="game_joining_wl_fk_game_id">
+    <foreign-key id="5636" parent="5559" name="game_joining_wl_fk_game_id">
       <ColNames>game_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.503</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.503</ModifiedTimestamp>
-      <ObjectId>742293704</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.467</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.467</ModifiedTimestamp>
+      <ObjectId>514816896</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1337771823</RefTableId>
+      <RefTableId>1094294958</RefTableId>
       <RefTableName>game</RefTableName>
     </foreign-key>
-    <foreign-key id="5635" parent="5559" name="game_joining_wl_fk_account_name">
+    <foreign-key id="5637" parent="5559" name="game_joining_wl_fk_account_name">
       <ColNames>account_name</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.503</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.503</ModifiedTimestamp>
-      <ObjectId>758293761</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.467</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.467</ModifiedTimestamp>
+      <ObjectId>530816953</ObjectId>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>name</RefColNames>
-      <RefTableId>1625772849</RefTableId>
+      <RefTableId>1382295984</RefTableId>
       <RefTableName>account</RefTableName>
     </foreign-key>
-    <index id="5636" parent="5559" name="PK__game_whi__5968539B388582EB">
+    <index id="5638" parent="5559" name="PK__game_whi__5968539BD156C339">
       <Clustering>1</Clustering>
       <ColNames>game_id
 account_name</ColNames>
@@ -17219,78 +17234,78 @@ account_name</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5637" parent="5559" name="PK__game_whi__5968539B388582EB">
-      <CreatedTimestamp>2023-04-13.12:42:56.503</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.503</ModifiedTimestamp>
+    <key id="5639" parent="5559" name="PK__game_whi__5968539BD156C339">
+      <CreatedTimestamp>2023-04-14.19:23:17.467</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.467</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>726293647</ObjectId>
+      <ObjectId>498816839</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__game_whi__5968539B388582EB</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__game_whi__5968539BD156C339</UnderlyingIndexName>
     </key>
-    <column id="5638" parent="5560" name="account_name">
+    <column id="5640" parent="5560" name="account_name">
       <DasType>varchar(20 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5639" parent="5560" name="game_id">
+    <column id="5641" parent="5560" name="game_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5640" parent="5560" name="requested_role">
+    <column id="5642" parent="5560" name="requested_role">
       <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="5641" parent="5560" name="message">
-      <DasType>varchar(50 char)|0s</DasType>
+    <column id="5643" parent="5560" name="message">
+      <DasType>varchar(80 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <DefaultConstraintId>806293932</DefaultConstraintId>
-      <DefaultConstraintName>DF__game_whit__messa__300F11AC</DefaultConstraintName>
+      <DefaultConstraintId>578817124</DefaultConstraintId>
+      <DefaultConstraintName>DF__game_whit__messa__22800C64</DefaultConstraintName>
     </column>
-    <column id="5642" parent="5560" name="accepted_role">
+    <column id="5644" parent="5560" name="accepted_role">
       <DasType>tinyint|0s</DasType>
       <Position>5</Position>
-      <DefaultConstraintId>822293989</DefaultConstraintId>
-      <DefaultConstraintName>DF__game_whit__accep__310335E5</DefaultConstraintName>
+      <DefaultConstraintId>594817181</DefaultConstraintId>
+      <DefaultConstraintName>DF__game_whit__accep__2374309D</DefaultConstraintName>
     </column>
-    <default id="5643" parent="5560" name="DF__game_whit__messa__300F11AC">
+    <default id="5645" parent="5560" name="DF__game_whit__messa__22800C64">
       <ColNames>message</ColNames>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:56.600</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.577</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>806293932</ObjectId>
+      <ObjectId>578817124</ObjectId>
     </default>
-    <default id="5644" parent="5560" name="DF__game_whit__accep__310335E5">
+    <default id="5646" parent="5560" name="DF__game_whit__accep__2374309D">
       <ColNames>accepted_role</ColNames>
       <DefaultExpression>NULL</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:56.600</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.577</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>822293989</ObjectId>
+      <ObjectId>594817181</ObjectId>
     </default>
-    <foreign-key id="5645" parent="5560" name="game_wl_request_fk_account_name">
+    <foreign-key id="5647" parent="5560" name="game_wl_request_fk_account_name">
       <ColNames>account_name</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.603</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.603</ModifiedTimestamp>
-      <ObjectId>838294046</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.577</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.577</ModifiedTimestamp>
+      <ObjectId>610817238</ObjectId>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>name</RefColNames>
-      <RefTableId>1625772849</RefTableId>
+      <RefTableId>1382295984</RefTableId>
       <RefTableName>account</RefTableName>
     </foreign-key>
-    <foreign-key id="5646" parent="5560" name="game_wl_request_fk_game_id">
+    <foreign-key id="5648" parent="5560" name="game_wl_request_fk_game_id">
       <ColNames>game_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.603</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.603</ModifiedTimestamp>
-      <ObjectId>854294103</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.577</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.577</ModifiedTimestamp>
+      <ObjectId>626817295</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1337771823</RefTableId>
+      <RefTableId>1094294958</RefTableId>
       <RefTableName>game</RefTableName>
     </foreign-key>
-    <index id="5647" parent="5560" name="PK__game_whi__876AD4B7B7066FA9">
+    <index id="5649" parent="5560" name="PK__game_whi__876AD4B7BBC9BBD0">
       <Clustering>1</Clustering>
       <ColNames>account_name
 game_id</ColNames>
@@ -17298,184 +17313,184 @@ game_id</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5648" parent="5560" name="PK__game_whi__876AD4B7B7066FA9">
-      <CreatedTimestamp>2023-04-13.12:42:56.600</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.600</ModifiedTimestamp>
+    <key id="5650" parent="5560" name="PK__game_whi__876AD4B7BBC9BBD0">
+      <CreatedTimestamp>2023-04-14.19:23:17.577</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.577</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>790293875</ObjectId>
+      <ObjectId>562817067</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__game_whi__876AD4B7B7066FA9</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__game_whi__876AD4B7BBC9BBD0</UnderlyingIndexName>
     </key>
-    <column id="5649" parent="5561" name="id">
+    <column id="5651" parent="5561" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <foreign-key id="5650" parent="5561" name="generic_matching_game_fk_parent_id">
+    <foreign-key id="5652" parent="5561" name="generic_matching_game_fk_parent_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.173</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.173</ModifiedTimestamp>
-      <ObjectId>1513772450</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:14.957</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.957</ModifiedTimestamp>
+      <ObjectId>1270295585</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1337771823</RefTableId>
+      <RefTableId>1094294958</RefTableId>
       <RefTableName>game</RefTableName>
     </foreign-key>
-    <index id="5651" parent="5561" name="PK__generic___3213E83FF6D47FC6">
+    <index id="5653" parent="5561" name="PK__generic___3213E83F1380085C">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5652" parent="5561" name="PK__generic___3213E83FF6D47FC6">
-      <CreatedTimestamp>2023-04-13.12:42:54.170</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.170</ModifiedTimestamp>
+    <key id="5654" parent="5561" name="PK__generic___3213E83F1380085C">
+      <CreatedTimestamp>2023-04-14.19:23:14.957</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.957</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1497772393</ObjectId>
+      <ObjectId>1254295528</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__generic___3213E83FF6D47FC6</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__generic___3213E83F1380085C</UnderlyingIndexName>
     </key>
-    <check id="5653" parent="5562" name="gen_matching_team_chk_gen_matching_game_id">
+    <check id="5655" parent="5562" name="gen_matching_team_chk_gen_matching_game_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:55.627</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.627</ModifiedTimestamp>
-      <ObjectId>230291880</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.440</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.440</ModifiedTimestamp>
+      <ObjectId>2815072</ObjectId>
       <Predicate>[dbo].[game_id_is_generic_matching_game_id]([id])=1</Predicate>
     </check>
-    <column id="5654" parent="5562" name="id">
+    <column id="5656" parent="5562" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5655" parent="5562" name="match_score">
+    <column id="5657" parent="5562" name="match_score">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <DefaultConstraintId>198291766</DefaultConstraintId>
-      <DefaultConstraintName>DF__generic_m__match__0BD1B136</DefaultConstraintName>
+      <DefaultConstraintId>2118298606</DefaultConstraintId>
+      <DefaultConstraintName>DF__generic_m__match__7E42ABEE</DefaultConstraintName>
     </column>
-    <default id="5656" parent="5562" name="DF__generic_m__match__0BD1B136">
+    <default id="5658" parent="5562" name="DF__generic_m__match__7E42ABEE">
       <ColNames>match_score</ColNames>
       <DefaultExpression>0</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:55.627</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.440</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>198291766</ObjectId>
+      <ObjectId>2118298606</ObjectId>
     </default>
-    <foreign-key id="5657" parent="5562" name="gen_matching_team_fk_parent_id">
+    <foreign-key id="5659" parent="5562" name="gen_matching_team_fk_parent_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:55.627</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.627</ModifiedTimestamp>
-      <ObjectId>214291823</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.440</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.440</ModifiedTimestamp>
+      <ObjectId>2134298663</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>38291196</RefTableId>
+      <RefTableId>1958298036</RefTableId>
       <RefTableName>playing_team</RefTableName>
     </foreign-key>
-    <index id="5658" parent="5562" name="PK__generic___3213E83FE3D64E8E">
+    <index id="5660" parent="5562" name="PK__generic___3213E83FDE120BC5">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5659" parent="5562" name="PK__generic___3213E83FE3D64E8E">
-      <CreatedTimestamp>2023-04-13.12:42:55.627</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.627</ModifiedTimestamp>
+    <key id="5661" parent="5562" name="PK__generic___3213E83FDE120BC5">
+      <CreatedTimestamp>2023-04-14.19:23:16.437</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.437</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>182291709</ObjectId>
+      <ObjectId>2102298549</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__generic___3213E83FE3D64E8E</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__generic___3213E83FDE120BC5</UnderlyingIndexName>
     </key>
-    <column id="5660" parent="5563" name="id">
+    <column id="5662" parent="5563" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5661" parent="5563" name="name">
+    <column id="5663" parent="5563" name="name">
       <DasType>varchar(20 char)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5662" parent="5563" name="game_id">
+    <column id="5664" parent="5563" name="game_id">
       <DasType>uniqueidentifier|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="5663" parent="5563" name="description">
+    <column id="5665" parent="5563" name="description">
       <DasType>varchar(70 char)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="5664" parent="5563" name="use_joining_whitelist">
+    <column id="5666" parent="5563" name="use_joining_whitelist">
       <DasType>bit|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <DefaultConstraintId>1769773362</DefaultConstraintId>
-      <DefaultConstraintName>DF__global_te__use_j__697C9932</DefaultConstraintName>
+      <DefaultConstraintId>1542296554</DefaultConstraintId>
+      <DefaultConstraintName>DF__global_te__use_j__5BED93EA</DefaultConstraintName>
     </column>
-    <default id="5665" parent="5563" name="DF__global_te__use_j__697C9932">
+    <default id="5667" parent="5563" name="DF__global_te__use_j__5BED93EA">
       <ColNames>use_joining_whitelist</ColNames>
       <DefaultExpression>0</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:54.550</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.413</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1769773362</ObjectId>
+      <ObjectId>1542296554</ObjectId>
     </default>
-    <foreign-key id="5666" parent="5563" name="global_team_fk_game_id">
+    <foreign-key id="5668" parent="5563" name="global_team_fk_game_id">
       <ColNames>game_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.550</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.550</ModifiedTimestamp>
-      <ObjectId>1785773419</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.413</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.413</ModifiedTimestamp>
+      <ObjectId>1558296611</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1337771823</RefTableId>
+      <RefTableId>1094294958</RefTableId>
       <RefTableName>game</RefTableName>
     </foreign-key>
-    <index id="5667" parent="5563" name="PK__global_t__3213E83F19CF8DBD">
+    <index id="5669" parent="5563" name="PK__global_t__3213E83F688198FA">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <index id="5668" parent="5563" name="global_team_unqiue_name_game_id">
+    <index id="5670" parent="5563" name="global_team_unqiue_name_game_id">
       <ColNames>name
 game_id</ColNames>
       <Position>2</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5669" parent="5563" name="PK__global_t__3213E83F19CF8DBD">
-      <CreatedTimestamp>2023-04-13.12:42:54.547</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.547</ModifiedTimestamp>
+    <key id="5671" parent="5563" name="PK__global_t__3213E83F688198FA">
+      <CreatedTimestamp>2023-04-14.19:23:15.410</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.410</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1737773248</ObjectId>
+      <ObjectId>1510296440</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__global_t__3213E83F19CF8DBD</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__global_t__3213E83F688198FA</UnderlyingIndexName>
     </key>
-    <key id="5670" parent="5563" name="global_team_unqiue_name_game_id">
-      <CreatedTimestamp>2023-04-13.12:42:54.550</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.550</ModifiedTimestamp>
-      <ObjectId>1753773305</ObjectId>
+    <key id="5672" parent="5563" name="global_team_unqiue_name_game_id">
+      <CreatedTimestamp>2023-04-14.19:23:15.413</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.413</ModifiedTimestamp>
+      <ObjectId>1526296497</ObjectId>
       <UnderlyingIndexName>global_team_unqiue_name_game_id</UnderlyingIndexName>
     </key>
-    <column id="5671" parent="5564" name="index">
+    <column id="5673" parent="5564" name="index">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5672" parent="5564" name="game_id">
+    <column id="5674" parent="5564" name="game_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <foreign-key id="5673" parent="5564" name="league_fk_game_id">
+    <foreign-key id="5675" parent="5564" name="league_fk_game_id">
       <ColNames>game_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.757</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.757</ModifiedTimestamp>
-      <ObjectId>1945773989</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.590</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.590</ModifiedTimestamp>
+      <ObjectId>1718297181</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1337771823</RefTableId>
+      <RefTableId>1094294958</RefTableId>
       <RefTableName>game</RefTableName>
     </foreign-key>
-    <index id="5674" parent="5564" name="PK__league__6E31BCFBCBE95C50">
+    <index id="5676" parent="5564" name="PK__league__6E31BCFB87469F5F">
       <Clustering>1</Clustering>
       <ColNames>game_id
 index</ColNames>
@@ -17483,240 +17498,240 @@ index</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5675" parent="5564" name="PK__league__6E31BCFBCBE95C50">
-      <CreatedTimestamp>2023-04-13.12:42:54.757</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.757</ModifiedTimestamp>
+    <key id="5677" parent="5564" name="PK__league__6E31BCFB87469F5F">
+      <CreatedTimestamp>2023-04-14.19:23:15.590</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.590</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1929773932</ObjectId>
+      <ObjectId>1702297124</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__league__6E31BCFBCBE95C50</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__league__6E31BCFB87469F5F</UnderlyingIndexName>
     </key>
-    <column id="5676" parent="5565" name="id">
+    <column id="5678" parent="5565" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5677" parent="5565" name="game_id">
+    <column id="5679" parent="5565" name="game_id">
       <DasType>uniqueidentifier|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5678" parent="5565" name="league_index">
+    <column id="5680" parent="5565" name="league_index">
       <DasType>int|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="5679" parent="5565" name="index">
+    <column id="5681" parent="5565" name="index">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <foreign-key id="5680" parent="5565" name="lm_generation_fk_league_game_id_and_index">
+    <foreign-key id="5682" parent="5565" name="lm_generation_fk_league_game_id_and_index">
       <ColNames>game_id
 league_index</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:55.237</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.237</ModifiedTimestamp>
-      <ObjectId>22291139</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.073</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.073</ModifiedTimestamp>
+      <ObjectId>1942297979</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>game_id
 index</RefColNames>
-      <RefTableId>2057774388</RefTableId>
+      <RefTableId>1830297580</RefTableId>
       <RefTableName>matching_league</RefTableName>
     </foreign-key>
-    <index id="5681" parent="5565" name="PK__logged_m__3213E83F84EDDB4E">
+    <index id="5683" parent="5565" name="PK__logged_m__3213E83F01B29E33">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <index id="5682" parent="5565" name="lm_generation_unique_comp_key">
+    <index id="5684" parent="5565" name="lm_generation_unique_comp_key">
       <ColNames>game_id
 league_index
 index</ColNames>
       <Position>2</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5683" parent="5565" name="PK__logged_m__3213E83F84EDDB4E">
-      <CreatedTimestamp>2023-04-13.12:42:55.237</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.237</ModifiedTimestamp>
+    <key id="5685" parent="5565" name="PK__logged_m__3213E83F01B29E33">
+      <CreatedTimestamp>2023-04-14.19:23:16.073</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.073</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>2137774673</ObjectId>
+      <ObjectId>1910297865</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__logged_m__3213E83F84EDDB4E</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__logged_m__3213E83F01B29E33</UnderlyingIndexName>
     </key>
-    <key id="5684" parent="5565" name="lm_generation_unique_comp_key">
-      <CreatedTimestamp>2023-04-13.12:42:55.237</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.237</ModifiedTimestamp>
-      <ObjectId>6291082</ObjectId>
+    <key id="5686" parent="5565" name="lm_generation_unique_comp_key">
+      <CreatedTimestamp>2023-04-14.19:23:16.073</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.073</ModifiedTimestamp>
+      <ObjectId>1926297922</ObjectId>
       <UnderlyingIndexName>lm_generation_unique_comp_key</UnderlyingIndexName>
     </key>
-    <check id="5685" parent="5566" name="match_chk_valid_teams">
-      <CreatedTimestamp>2023-04-13.12:42:56.410</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.410</ModifiedTimestamp>
-      <ObjectId>694293533</ObjectId>
+    <check id="5687" parent="5566" name="match_chk_valid_teams">
+      <CreatedTimestamp>2023-04-14.19:23:17.357</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.357</ModifiedTimestamp>
+      <ObjectId>466816725</ObjectId>
       <Predicate>[dbo].[valid_match_teams]([gen_matching_team_1_id],[gen_matching_team_2_id])=1</Predicate>
     </check>
-    <column id="5686" parent="5566" name="gen_matching_team_1_id">
+    <column id="5688" parent="5566" name="gen_matching_team_1_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5687" parent="5566" name="gen_matching_team_2_id">
+    <column id="5689" parent="5566" name="gen_matching_team_2_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="5688" parent="5566" name="final_score_1">
+    <column id="5690" parent="5566" name="final_score_1">
       <DasType>int|0s</DasType>
       <Position>3</Position>
-      <DefaultConstraintId>598293191</DefaultConstraintId>
-      <DefaultConstraintName>DF__match__final_sco__23A93AC7</DefaultConstraintName>
+      <DefaultConstraintId>370816383</DefaultConstraintId>
+      <DefaultConstraintName>DF__match__final_sco__161A357F</DefaultConstraintName>
     </column>
-    <column id="5689" parent="5566" name="final_score_2">
+    <column id="5691" parent="5566" name="final_score_2">
       <DasType>int|0s</DasType>
       <Position>4</Position>
-      <DefaultConstraintId>614293248</DefaultConstraintId>
-      <DefaultConstraintName>DF__match__final_sco__249D5F00</DefaultConstraintName>
+      <DefaultConstraintId>386816440</DefaultConstraintId>
+      <DefaultConstraintName>DF__match__final_sco__170E59B8</DefaultConstraintName>
     </column>
-    <column id="5690" parent="5566" name="logged_match_generation_id">
+    <column id="5692" parent="5566" name="logged_match_generation_id">
       <DasType>uniqueidentifier|0s</DasType>
       <Position>5</Position>
-      <DefaultConstraintId>630293305</DefaultConstraintId>
-      <DefaultConstraintName>DF__match__logged_ma__25918339</DefaultConstraintName>
+      <DefaultConstraintId>402816497</DefaultConstraintId>
+      <DefaultConstraintName>DF__match__logged_ma__18027DF1</DefaultConstraintName>
     </column>
-    <default id="5691" parent="5566" name="DF__match__final_sco__23A93AC7">
+    <default id="5693" parent="5566" name="DF__match__final_sco__161A357F">
       <ColNames>final_score_1</ColNames>
       <DefaultExpression>NULL</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:56.410</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.357</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>598293191</ObjectId>
+      <ObjectId>370816383</ObjectId>
     </default>
-    <default id="5692" parent="5566" name="DF__match__final_sco__249D5F00">
+    <default id="5694" parent="5566" name="DF__match__final_sco__170E59B8">
       <ColNames>final_score_2</ColNames>
       <DefaultExpression>NULL</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:56.410</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.357</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>614293248</ObjectId>
+      <ObjectId>386816440</ObjectId>
     </default>
-    <default id="5693" parent="5566" name="DF__match__logged_ma__25918339">
+    <default id="5695" parent="5566" name="DF__match__logged_ma__18027DF1">
       <ColNames>logged_match_generation_id</ColNames>
       <DefaultExpression>NULL</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:56.410</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.357</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>630293305</ObjectId>
+      <ObjectId>402816497</ObjectId>
     </default>
-    <foreign-key id="5694" parent="5566" name="match_fk_gm_team_1_id">
+    <foreign-key id="5696" parent="5566" name="match_fk_gm_team_1_id">
       <ColNames>gen_matching_team_1_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.410</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.410</ModifiedTimestamp>
-      <ObjectId>646293362</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.357</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.357</ModifiedTimestamp>
+      <ObjectId>418816554</ObjectId>
       <RefColNames>id</RefColNames>
-      <RefTableId>166291652</RefTableId>
+      <RefTableId>2086298492</RefTableId>
       <RefTableName>generic_matching_team</RefTableName>
     </foreign-key>
-    <foreign-key id="5695" parent="5566" name="match_fk_gm_team_2_id">
+    <foreign-key id="5697" parent="5566" name="match_fk_gm_team_2_id">
       <ColNames>gen_matching_team_2_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.410</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.410</ModifiedTimestamp>
-      <ObjectId>662293419</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.357</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.357</ModifiedTimestamp>
+      <ObjectId>434816611</ObjectId>
       <RefColNames>id</RefColNames>
-      <RefTableId>166291652</RefTableId>
+      <RefTableId>2086298492</RefTableId>
       <RefTableName>generic_matching_team</RefTableName>
     </foreign-key>
-    <foreign-key id="5696" parent="5566" name="match_fk_lm_generation_id">
+    <foreign-key id="5698" parent="5566" name="match_fk_lm_generation_id">
       <ColNames>logged_match_generation_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.410</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.410</ModifiedTimestamp>
-      <ObjectId>678293476</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.357</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.357</ModifiedTimestamp>
+      <ObjectId>450816668</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>2121774616</RefTableId>
+      <RefTableId>1894297808</RefTableId>
       <RefTableName>logged_match_generation</RefTableName>
     </foreign-key>
-    <index id="5697" parent="5566" name="PK__match__9CEF8E4D6F2E6739">
+    <index id="5699" parent="5566" name="PK__match__9CEF8E4DAE4FAF4C">
       <Clustering>1</Clustering>
       <ColNames>gen_matching_team_1_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <index id="5698" parent="5566" name="match_unique_gmt2_id">
+    <index id="5700" parent="5566" name="match_unique_gmt2_id">
       <ColNames>gen_matching_team_2_id</ColNames>
       <Position>2</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5699" parent="5566" name="PK__match__9CEF8E4D6F2E6739">
-      <CreatedTimestamp>2023-04-13.12:42:56.407</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.407</ModifiedTimestamp>
+    <key id="5701" parent="5566" name="PK__match__9CEF8E4DAE4FAF4C">
+      <CreatedTimestamp>2023-04-14.19:23:17.353</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.353</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>566293077</ObjectId>
+      <ObjectId>338816269</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__match__9CEF8E4D6F2E6739</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__match__9CEF8E4DAE4FAF4C</UnderlyingIndexName>
     </key>
-    <key id="5700" parent="5566" name="match_unique_gmt2_id">
-      <CreatedTimestamp>2023-04-13.12:42:56.407</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.407</ModifiedTimestamp>
-      <ObjectId>582293134</ObjectId>
+    <key id="5702" parent="5566" name="match_unique_gmt2_id">
+      <CreatedTimestamp>2023-04-14.19:23:17.353</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.353</ModifiedTimestamp>
+      <ObjectId>354816326</ObjectId>
       <UnderlyingIndexName>match_unique_gmt2_id</UnderlyingIndexName>
     </key>
-    <column id="5701" parent="5567" name="id">
+    <column id="5703" parent="5567" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <foreign-key id="5702" parent="5567" name="matching_game_fk_parent_id">
+    <foreign-key id="5704" parent="5567" name="matching_game_fk_parent_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.260</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.260</ModifiedTimestamp>
-      <ObjectId>1561772621</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.100</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.100</ModifiedTimestamp>
+      <ObjectId>1318295756</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1481772336</RefTableId>
+      <RefTableId>1238295471</RefTableId>
       <RefTableName>generic_matching_game</RefTableName>
     </foreign-key>
-    <index id="5703" parent="5567" name="PK__matching__3213E83FE8A6600D">
+    <index id="5705" parent="5567" name="PK__matching__3213E83FE3517571">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5704" parent="5567" name="PK__matching__3213E83FE8A6600D">
-      <CreatedTimestamp>2023-04-13.12:42:54.260</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.260</ModifiedTimestamp>
+    <key id="5706" parent="5567" name="PK__matching__3213E83FE3517571">
+      <CreatedTimestamp>2023-04-14.19:23:15.100</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.100</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1545772564</ObjectId>
+      <ObjectId>1302295699</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__matching__3213E83FE8A6600D</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__matching__3213E83FE3517571</UnderlyingIndexName>
     </key>
-    <check id="5705" parent="5568" name="matching_league_chk_fk_gen_matching_game_id">
+    <check id="5707" parent="5568" name="matching_league_chk_fk_gen_matching_game_id">
       <ColNames>game_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:55.147</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.147</ModifiedTimestamp>
-      <ObjectId>2105774559</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.983</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.983</ModifiedTimestamp>
+      <ObjectId>1878297751</ObjectId>
       <Predicate>[dbo].[is_generic_matching_game_id]([game_id])=1</Predicate>
     </check>
-    <column id="5706" parent="5568" name="index">
+    <column id="5708" parent="5568" name="index">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5707" parent="5568" name="game_id">
+    <column id="5709" parent="5568" name="game_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <foreign-key id="5708" parent="5568" name="matching_league_fk_parent_game_id_and_index">
+    <foreign-key id="5710" parent="5568" name="matching_league_fk_parent_game_id_and_index">
       <ColNames>game_id
 index</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:55.147</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.147</ModifiedTimestamp>
-      <ObjectId>2089774502</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.983</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.983</ModifiedTimestamp>
+      <ObjectId>1862297694</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>game_id
 index</RefColNames>
-      <RefTableId>1913773875</RefTableId>
+      <RefTableId>1686297067</RefTableId>
       <RefTableName>league</RefTableName>
     </foreign-key>
-    <index id="5709" parent="5568" name="PK__matching__6E31BCFBD643B561">
+    <index id="5711" parent="5568" name="PK__matching__6E31BCFBDDADB2EA">
       <Clustering>1</Clustering>
       <ColNames>game_id
 index</ColNames>
@@ -17724,111 +17739,111 @@ index</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5710" parent="5568" name="PK__matching__6E31BCFBD643B561">
-      <CreatedTimestamp>2023-04-13.12:42:55.147</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.147</ModifiedTimestamp>
+    <key id="5712" parent="5568" name="PK__matching__6E31BCFBDDADB2EA">
+      <CreatedTimestamp>2023-04-14.19:23:15.983</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.983</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>2073774445</ObjectId>
+      <ObjectId>1846297637</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__matching__6E31BCFBD643B561</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__matching__6E31BCFBDDADB2EA</UnderlyingIndexName>
     </key>
-    <check id="5711" parent="5569" name="matching_team_chk_matching_game_id">
+    <check id="5713" parent="5569" name="matching_team_chk_matching_game_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:55.820</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.820</ModifiedTimestamp>
-      <ObjectId>310292165</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.730</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.730</ModifiedTimestamp>
+      <ObjectId>82815357</ObjectId>
       <Predicate>[dbo].[game_id_is_matching_game_id]([id])=1</Predicate>
     </check>
-    <column id="5712" parent="5569" name="id">
+    <column id="5714" parent="5569" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <foreign-key id="5713" parent="5569" name="matching_team_fk_parent_id">
+    <foreign-key id="5715" parent="5569" name="matching_team_fk_parent_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:55.820</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.820</ModifiedTimestamp>
-      <ObjectId>294292108</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.730</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.730</ModifiedTimestamp>
+      <ObjectId>66815300</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>166291652</RefTableId>
+      <RefTableId>2086298492</RefTableId>
       <RefTableName>generic_matching_team</RefTableName>
     </foreign-key>
-    <index id="5714" parent="5569" name="PK__matching__3213E83F733611D8">
+    <index id="5716" parent="5569" name="PK__matching__3213E83FB92309C9">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5715" parent="5569" name="PK__matching__3213E83F733611D8">
-      <CreatedTimestamp>2023-04-13.12:42:55.820</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.820</ModifiedTimestamp>
+    <key id="5717" parent="5569" name="PK__matching__3213E83FB92309C9">
+      <CreatedTimestamp>2023-04-14.19:23:16.730</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.730</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>278292051</ObjectId>
+      <ObjectId>50815243</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__matching__3213E83F733611D8</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__matching__3213E83FB92309C9</UnderlyingIndexName>
     </key>
-    <column id="5716" parent="5570" name="id">
+    <column id="5718" parent="5570" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <foreign-key id="5717" parent="5570" name="matchless_game_fk_parent_id">
+    <foreign-key id="5719" parent="5570" name="matchless_game_fk_parent_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.067</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.067</ModifiedTimestamp>
-      <ObjectId>1465772279</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:14.863</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.863</ModifiedTimestamp>
+      <ObjectId>1222295414</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1337771823</RefTableId>
+      <RefTableId>1094294958</RefTableId>
       <RefTableName>game</RefTableName>
     </foreign-key>
-    <index id="5718" parent="5570" name="PK__matchles__3213E83F1FEB8A3E">
+    <index id="5720" parent="5570" name="PK__matchles__3213E83FE8BBBCC9">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5719" parent="5570" name="PK__matchles__3213E83F1FEB8A3E">
-      <CreatedTimestamp>2023-04-13.12:42:54.067</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.067</ModifiedTimestamp>
+    <key id="5721" parent="5570" name="PK__matchles__3213E83FE8BBBCC9">
+      <CreatedTimestamp>2023-04-14.19:23:14.863</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:14.863</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1449772222</ObjectId>
+      <ObjectId>1206295357</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__matchles__3213E83F1FEB8A3E</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__matchles__3213E83FE8BBBCC9</UnderlyingIndexName>
     </key>
-    <check id="5720" parent="5571" name="matchless_league_chk_fk_matchless_game_id">
+    <check id="5722" parent="5571" name="matchless_league_chk_fk_matchless_game_id">
       <ColNames>game_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.940</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.940</ModifiedTimestamp>
-      <ObjectId>2025774274</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.780</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.780</ModifiedTimestamp>
+      <ObjectId>1798297466</ObjectId>
       <Predicate>[dbo].[is_matchless_game_id]([game_id])=1</Predicate>
     </check>
-    <column id="5721" parent="5571" name="index">
+    <column id="5723" parent="5571" name="index">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5722" parent="5571" name="game_id">
+    <column id="5724" parent="5571" name="game_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <foreign-key id="5723" parent="5571" name="matchless_league_fk_parent_game_id_and_index">
+    <foreign-key id="5725" parent="5571" name="matchless_league_fk_parent_game_id_and_index">
       <ColNames>game_id
 index</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.940</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.940</ModifiedTimestamp>
-      <ObjectId>2009774217</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.780</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.780</ModifiedTimestamp>
+      <ObjectId>1782297409</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>game_id
 index</RefColNames>
-      <RefTableId>1913773875</RefTableId>
+      <RefTableId>1686297067</RefTableId>
       <RefTableName>league</RefTableName>
     </foreign-key>
-    <index id="5724" parent="5571" name="PK__matchles__6E31BCFBD85C18E8">
+    <index id="5726" parent="5571" name="PK__matchles__6E31BCFBF788127A">
       <Clustering>1</Clustering>
       <ColNames>game_id
 index</ColNames>
@@ -17836,143 +17851,143 @@ index</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5725" parent="5571" name="PK__matchles__6E31BCFBD85C18E8">
-      <CreatedTimestamp>2023-04-13.12:42:54.940</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.940</ModifiedTimestamp>
+    <key id="5727" parent="5571" name="PK__matchles__6E31BCFBF788127A">
+      <CreatedTimestamp>2023-04-14.19:23:15.780</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.780</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1993774160</ObjectId>
+      <ObjectId>1766297352</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__matchles__6E31BCFBD85C18E8</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__matchles__6E31BCFBF788127A</UnderlyingIndexName>
     </key>
-    <column id="5726" parent="5572" name="id">
+    <column id="5728" parent="5572" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5727" parent="5572" name="global_team_id">
+    <column id="5729" parent="5572" name="global_team_id">
       <DasType>uniqueidentifier|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5728" parent="5572" name="is_team_leader">
+    <column id="5730" parent="5572" name="is_team_leader">
       <DasType>bit|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <DefaultConstraintId>1849773647</DefaultConstraintId>
-      <DefaultConstraintName>DF__player__is_team___6E414E4F</DefaultConstraintName>
+      <DefaultConstraintId>1622296839</DefaultConstraintId>
+      <DefaultConstraintName>DF__player__is_team___60B24907</DefaultConstraintName>
     </column>
-    <column id="5729" parent="5572" name="account_name">
+    <column id="5731" parent="5572" name="account_name">
       <DasType>varchar(20 char)|0s</DasType>
       <Position>4</Position>
-      <DefaultConstraintId>1865773704</DefaultConstraintId>
-      <DefaultConstraintName>DF__player__account___6F357288</DefaultConstraintName>
+      <DefaultConstraintId>1638296896</DefaultConstraintId>
+      <DefaultConstraintName>DF__player__account___61A66D40</DefaultConstraintName>
     </column>
-    <column id="5730" parent="5572" name="name">
+    <column id="5732" parent="5572" name="name">
       <DasType>varchar(20 char)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="5731" parent="5572" name="description">
+    <column id="5733" parent="5572" name="description">
       <DasType>varchar(70 char)|0s</DasType>
       <Position>6</Position>
     </column>
-    <default id="5732" parent="5572" name="DF__player__is_team___6E414E4F">
+    <default id="5734" parent="5572" name="DF__player__is_team___60B24907">
       <ColNames>is_team_leader</ColNames>
       <DefaultExpression>0</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:54.647</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.500</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1849773647</ObjectId>
+      <ObjectId>1622296839</ObjectId>
     </default>
-    <default id="5733" parent="5572" name="DF__player__account___6F357288">
+    <default id="5735" parent="5572" name="DF__player__account___61A66D40">
       <ColNames>account_name</ColNames>
       <DefaultExpression>NULL</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:54.647</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.500</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1865773704</ObjectId>
+      <ObjectId>1638296896</ObjectId>
     </default>
-    <foreign-key id="5734" parent="5572" name="player_fk_global_team_id">
+    <foreign-key id="5736" parent="5572" name="player_fk_global_team_id">
       <ColNames>global_team_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.647</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.647</ModifiedTimestamp>
-      <ObjectId>1881773761</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.500</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.500</ModifiedTimestamp>
+      <ObjectId>1654296953</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1721773191</RefTableId>
+      <RefTableId>1494296383</RefTableId>
       <RefTableName>global_team</RefTableName>
     </foreign-key>
-    <foreign-key id="5735" parent="5572" name="player_fk_account_name">
+    <foreign-key id="5737" parent="5572" name="player_fk_account_name">
       <ColNames>account_name</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.647</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.647</ModifiedTimestamp>
-      <ObjectId>1897773818</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.500</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.500</ModifiedTimestamp>
+      <ObjectId>1670297010</ObjectId>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>name</RefColNames>
-      <RefTableId>1625772849</RefTableId>
+      <RefTableId>1382295984</RefTableId>
       <RefTableName>account</RefTableName>
     </foreign-key>
-    <index id="5736" parent="5572" name="PK__player__3213E83FFD3D7DF6">
+    <index id="5738" parent="5572" name="PK__player__3213E83FA843C796">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <index id="5737" parent="5572" name="UQ__player__328A9D02B574DEA1">
+    <index id="5739" parent="5572" name="UQ__player__328A9D0208567AD6">
       <ColNames>name
 global_team_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>2</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5738" parent="5572" name="PK__player__3213E83FFD3D7DF6">
-      <CreatedTimestamp>2023-04-13.12:42:54.643</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.643</ModifiedTimestamp>
+    <key id="5740" parent="5572" name="PK__player__3213E83FA843C796">
+      <CreatedTimestamp>2023-04-14.19:23:15.497</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.497</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1817773533</ObjectId>
+      <ObjectId>1590296725</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__player__3213E83FFD3D7DF6</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__player__3213E83FA843C796</UnderlyingIndexName>
     </key>
-    <key id="5739" parent="5572" name="UQ__player__328A9D02B574DEA1">
-      <CreatedTimestamp>2023-04-13.12:42:54.647</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.647</ModifiedTimestamp>
+    <key id="5741" parent="5572" name="UQ__player__328A9D0208567AD6">
+      <CreatedTimestamp>2023-04-14.19:23:15.497</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.497</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1833773590</ObjectId>
-      <UnderlyingIndexName>UQ__player__328A9D02B574DEA1</UnderlyingIndexName>
+      <ObjectId>1606296782</ObjectId>
+      <UnderlyingIndexName>UQ__player__328A9D0208567AD6</UnderlyingIndexName>
     </key>
-    <check id="5740" parent="5573" name="deployment_chk_valid_deployment">
-      <CreatedTimestamp>2023-04-13.12:42:56.200</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.200</ModifiedTimestamp>
-      <ObjectId>518292906</ObjectId>
+    <check id="5742" parent="5573" name="deployment_chk_valid_deployment">
+      <CreatedTimestamp>2023-04-14.19:23:17.117</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.117</ModifiedTimestamp>
+      <ObjectId>290816098</ObjectId>
       <Predicate>[dbo].[valid_player_deployment]([player_id],[playing_team_id])=1</Predicate>
     </check>
-    <column id="5741" parent="5573" name="player_id">
+    <column id="5743" parent="5573" name="player_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5742" parent="5573" name="playing_team_id">
+    <column id="5744" parent="5573" name="playing_team_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <foreign-key id="5743" parent="5573" name="deployment_fk_player_id">
+    <foreign-key id="5745" parent="5573" name="deployment_fk_player_id">
       <ColNames>player_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.197</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.197</ModifiedTimestamp>
-      <ObjectId>486292792</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.113</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.113</ModifiedTimestamp>
+      <ObjectId>258815984</ObjectId>
       <RefColNames>id</RefColNames>
-      <RefTableId>1801773476</RefTableId>
+      <RefTableId>1574296668</RefTableId>
       <RefTableName>player</RefTableName>
     </foreign-key>
-    <foreign-key id="5744" parent="5573" name="deployment_fk_playing_team_id">
+    <foreign-key id="5746" parent="5573" name="deployment_fk_playing_team_id">
       <ColNames>playing_team_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.200</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.200</ModifiedTimestamp>
-      <ObjectId>502292849</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.113</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.113</ModifiedTimestamp>
+      <ObjectId>274816041</ObjectId>
       <RefColNames>id</RefColNames>
-      <RefTableId>38291196</RefTableId>
+      <RefTableId>1958298036</RefTableId>
       <RefTableName>playing_team</RefTableName>
     </foreign-key>
-    <index id="5745" parent="5573" name="PK__player_d__8C8ACD11042DD244">
+    <index id="5747" parent="5573" name="PK__player_d__8C8ACD1198363864">
       <Clustering>1</Clustering>
       <ColNames>player_id
 playing_team_id</ColNames>
@@ -17980,125 +17995,125 @@ playing_team_id</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5746" parent="5573" name="PK__player_d__8C8ACD11042DD244">
-      <CreatedTimestamp>2023-04-13.12:42:56.197</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.197</ModifiedTimestamp>
+    <key id="5748" parent="5573" name="PK__player_d__8C8ACD1198363864">
+      <CreatedTimestamp>2023-04-14.19:23:17.113</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.113</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>470292735</ObjectId>
+      <ObjectId>242815927</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__player_d__8C8ACD11042DD244</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__player_d__8C8ACD1198363864</UnderlyingIndexName>
     </key>
-    <column id="5747" parent="5574" name="id">
+    <column id="5749" parent="5574" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5748" parent="5574" name="game_id">
+    <column id="5750" parent="5574" name="game_id">
       <DasType>uniqueidentifier|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5749" parent="5574" name="global_team_id">
+    <column id="5751" parent="5574" name="global_team_id">
       <DasType>uniqueidentifier|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="5750" parent="5574" name="league_index">
+    <column id="5752" parent="5574" name="league_index">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="5751" parent="5574" name="total_score">
+    <column id="5753" parent="5574" name="total_score">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <DefaultConstraintId>86291367</DefaultConstraintId>
-      <DefaultConstraintName>DF__playing_t__total__0524B3A7</DefaultConstraintName>
+      <DefaultConstraintId>2006298207</DefaultConstraintId>
+      <DefaultConstraintName>DF__playing_t__total__7795AE5F</DefaultConstraintName>
     </column>
-    <default id="5752" parent="5574" name="DF__playing_t__total__0524B3A7">
+    <default id="5754" parent="5574" name="DF__playing_t__total__7795AE5F">
       <ColNames>total_score</ColNames>
       <DefaultExpression>0</DefaultExpression>
-      <ModifiedTimestamp>2023-04-13.12:42:55.330</ModifiedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.160</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>86291367</ObjectId>
+      <ObjectId>2006298207</ObjectId>
     </default>
-    <foreign-key id="5753" parent="5574" name="playing_team_fk_league_game_id_and_index">
+    <foreign-key id="5755" parent="5574" name="playing_team_fk_league_game_id_and_index">
       <ColNames>game_id
 league_index</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:55.333</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.333</ModifiedTimestamp>
-      <ObjectId>118291481</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.160</ModifiedTimestamp>
+      <ObjectId>2038298321</ObjectId>
       <RefColNames>game_id
 index</RefColNames>
-      <RefTableId>1913773875</RefTableId>
+      <RefTableId>1686297067</RefTableId>
       <RefTableName>league</RefTableName>
     </foreign-key>
-    <foreign-key id="5754" parent="5574" name="playing_team_fk_global_team_id">
+    <foreign-key id="5756" parent="5574" name="playing_team_fk_global_team_id">
       <ColNames>global_team_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:55.330</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.330</ModifiedTimestamp>
-      <ObjectId>102291424</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.160</ModifiedTimestamp>
+      <ObjectId>2022298264</ObjectId>
       <RefColNames>id</RefColNames>
-      <RefTableId>1721773191</RefTableId>
+      <RefTableId>1494296383</RefTableId>
       <RefTableName>global_team</RefTableName>
     </foreign-key>
-    <index id="5755" parent="5574" name="PK__playing___3213E83F4CF2830C">
+    <index id="5757" parent="5574" name="PK__playing___3213E83FA46A2B2D">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <index id="5756" parent="5574" name="playing_team_unique_gt_id_and_lg_index">
+    <index id="5758" parent="5574" name="playing_team_unique_gt_id_and_lg_index">
       <ColNames>global_team_id
 league_index</ColNames>
       <Position>2</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5757" parent="5574" name="PK__playing___3213E83F4CF2830C">
-      <CreatedTimestamp>2023-04-13.12:42:55.330</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.330</ModifiedTimestamp>
+    <key id="5759" parent="5574" name="PK__playing___3213E83FA46A2B2D">
+      <CreatedTimestamp>2023-04-14.19:23:16.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.160</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>54291253</ObjectId>
+      <ObjectId>1974298093</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__playing___3213E83F4CF2830C</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__playing___3213E83FA46A2B2D</UnderlyingIndexName>
     </key>
-    <key id="5758" parent="5574" name="playing_team_unique_gt_id_and_lg_index">
-      <CreatedTimestamp>2023-04-13.12:42:55.330</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:55.330</ModifiedTimestamp>
-      <ObjectId>70291310</ObjectId>
+    <key id="5760" parent="5574" name="playing_team_unique_gt_id_and_lg_index">
+      <CreatedTimestamp>2023-04-14.19:23:16.160</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.160</ModifiedTimestamp>
+      <ObjectId>1990298150</ObjectId>
       <UnderlyingIndexName>playing_team_unique_gt_id_and_lg_index</UnderlyingIndexName>
     </key>
-    <column id="5759" parent="5575" name="global_team_id">
+    <column id="5761" parent="5575" name="global_team_id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5760" parent="5575" name="account_name">
+    <column id="5762" parent="5575" name="account_name">
       <DasType>varchar(20 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <foreign-key id="5761" parent="5575" name="team_joining_wl_fk_gt_id">
+    <foreign-key id="5763" parent="5575" name="team_joining_wl_fk_gt_id">
       <ColNames>global_team_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.783</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.783</ModifiedTimestamp>
-      <ObjectId>966294502</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.760</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.760</ModifiedTimestamp>
+      <ObjectId>738817694</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1721773191</RefTableId>
+      <RefTableId>1494296383</RefTableId>
       <RefTableName>global_team</RefTableName>
     </foreign-key>
-    <foreign-key id="5762" parent="5575" name="team_joining_wl_fk_account_name">
+    <foreign-key id="5764" parent="5575" name="team_joining_wl_fk_account_name">
       <ColNames>account_name</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.783</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.783</ModifiedTimestamp>
-      <ObjectId>982294559</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:17.760</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.760</ModifiedTimestamp>
+      <ObjectId>754817751</ObjectId>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>name</RefColNames>
-      <RefTableId>1625772849</RefTableId>
+      <RefTableId>1382295984</RefTableId>
       <RefTableName>account</RefTableName>
     </foreign-key>
-    <index id="5763" parent="5575" name="PK__team_joi__A0326DC1FAFC5B3B">
+    <index id="5765" parent="5575" name="PK__team_joi__A0326DC17EE038B1">
       <Clustering>1</Clustering>
       <ColNames>global_team_id
 account_name</ColNames>
@@ -18106,106 +18121,106 @@ account_name</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5764" parent="5575" name="PK__team_joi__A0326DC1FAFC5B3B">
-      <CreatedTimestamp>2023-04-13.12:42:56.783</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.783</ModifiedTimestamp>
+    <key id="5766" parent="5575" name="PK__team_joi__A0326DC17EE038B1">
+      <CreatedTimestamp>2023-04-14.19:23:17.760</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:17.760</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>950294445</ObjectId>
+      <ObjectId>722817637</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__team_joi__A0326DC1FAFC5B3B</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__team_joi__A0326DC17EE038B1</UnderlyingIndexName>
     </key>
-    <column id="5765" parent="5576" name="id">
+    <column id="5767" parent="5576" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <foreign-key id="5766" parent="5576" name="tree_game_fk_parent_id">
+    <foreign-key id="5768" parent="5576" name="tree_game_fk_parent_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:54.360</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.360</ModifiedTimestamp>
-      <ObjectId>1609772792</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:15.220</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.220</ModifiedTimestamp>
+      <ObjectId>1366295927</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>1481772336</RefTableId>
+      <RefTableId>1238295471</RefTableId>
       <RefTableName>generic_matching_game</RefTableName>
     </foreign-key>
-    <index id="5767" parent="5576" name="PK__tree_gam__3213E83F38ACE963">
+    <index id="5769" parent="5576" name="PK__tree_gam__3213E83FDDF1DBDF">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5768" parent="5576" name="PK__tree_gam__3213E83F38ACE963">
-      <CreatedTimestamp>2023-04-13.12:42:54.360</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:54.360</ModifiedTimestamp>
+    <key id="5770" parent="5576" name="PK__tree_gam__3213E83FDDF1DBDF">
+      <CreatedTimestamp>2023-04-14.19:23:15.220</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:15.220</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>1593772735</ObjectId>
+      <ObjectId>1350295870</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__tree_gam__3213E83F38ACE963</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__tree_gam__3213E83FDDF1DBDF</UnderlyingIndexName>
     </key>
-    <check id="5769" parent="5577" name="tree_team_chk_tree_game_id">
+    <check id="5771" parent="5577" name="tree_team_chk_tree_game_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.017</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.017</ModifiedTimestamp>
-      <ObjectId>422292564</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.930</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.930</ModifiedTimestamp>
+      <ObjectId>194815756</ObjectId>
       <Predicate>[dbo].[game_id_is_tree_game_id]([id])=1</Predicate>
     </check>
-    <column id="5770" parent="5577" name="id">
+    <column id="5772" parent="5577" name="id">
       <DasType>uniqueidentifier|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5771" parent="5577" name="child1_id">
+    <column id="5773" parent="5577" name="child1_id">
       <DasType>uniqueidentifier|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="5772" parent="5577" name="child2_id">
+    <column id="5774" parent="5577" name="child2_id">
       <DasType>uniqueidentifier|0s</DasType>
       <Position>3</Position>
     </column>
-    <foreign-key id="5773" parent="5577" name="tree_team_fk_inheritance_parent_id">
+    <foreign-key id="5775" parent="5577" name="tree_team_fk_inheritance_parent_id">
       <ColNames>id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.017</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.017</ModifiedTimestamp>
-      <ObjectId>374292393</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.930</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.930</ModifiedTimestamp>
+      <ObjectId>146815585</ObjectId>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
-      <RefTableId>166291652</RefTableId>
+      <RefTableId>2086298492</RefTableId>
       <RefTableName>generic_matching_team</RefTableName>
     </foreign-key>
-    <foreign-key id="5774" parent="5577" name="tree_team_fk_child1_id">
+    <foreign-key id="5776" parent="5577" name="tree_team_fk_child1_id">
       <ColNames>child1_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.017</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.017</ModifiedTimestamp>
-      <ObjectId>390292450</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.930</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.930</ModifiedTimestamp>
+      <ObjectId>162815642</ObjectId>
       <RefColNames>id</RefColNames>
-      <RefTableId>342292279</RefTableId>
+      <RefTableId>114815471</RefTableId>
       <RefTableName>tree_team</RefTableName>
     </foreign-key>
-    <foreign-key id="5775" parent="5577" name="tree_team_fk_child2_id">
+    <foreign-key id="5777" parent="5577" name="tree_team_fk_child2_id">
       <ColNames>child2_id</ColNames>
-      <CreatedTimestamp>2023-04-13.12:42:56.017</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.017</ModifiedTimestamp>
-      <ObjectId>406292507</ObjectId>
+      <CreatedTimestamp>2023-04-14.19:23:16.930</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.930</ModifiedTimestamp>
+      <ObjectId>178815699</ObjectId>
       <RefColNames>id</RefColNames>
-      <RefTableId>342292279</RefTableId>
+      <RefTableId>114815471</RefTableId>
       <RefTableName>tree_team</RefTableName>
     </foreign-key>
-    <index id="5776" parent="5577" name="PK__tree_tea__3213E83F98B52CF7">
+    <index id="5778" parent="5577" name="PK__tree_tea__3213E83FFB7DCBDF">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5777" parent="5577" name="PK__tree_tea__3213E83F98B52CF7">
-      <CreatedTimestamp>2023-04-13.12:42:56.017</CreatedTimestamp>
-      <ModifiedTimestamp>2023-04-13.12:42:56.017</ModifiedTimestamp>
+    <key id="5779" parent="5577" name="PK__tree_tea__3213E83FFB7DCBDF">
+      <CreatedTimestamp>2023-04-14.19:23:16.930</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-14.19:23:16.930</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>358292336</ObjectId>
+      <ObjectId>130815528</ObjectId>
       <Primary>1</Primary>
-      <UnderlyingIndexName>PK__tree_tea__3213E83F98B52CF7</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__tree_tea__3213E83FFB7DCBDF</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

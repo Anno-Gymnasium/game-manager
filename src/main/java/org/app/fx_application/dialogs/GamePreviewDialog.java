@@ -1,32 +1,35 @@
 package org.app.fx_application.dialogs;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import org.app.GameRole;
-import org.app.fx_application.GameDao;
-import org.app.fx_application.RequestDao;
-import org.app.fx_application.selectables.PreviewGame;
-import org.app.game_classes.Account;
-import org.app.game_classes.WhiteListEntry;
+import org.app.GameMetadata;
+import org.app.fx_application.SceneLoader;
+import org.app.fx_application.controllers.MainMenuController;
+import org.app.fx_application.daos.GameDao;
+import org.app.fx_application.daos.GameMetadataDao;
+import org.app.fx_application.daos.RequestDao;
 
 import org.app.fx_application.JdbiProvider;
 import org.jdbi.v3.core.Jdbi;
 
-public class GamePreviewDialog extends CustomDialog<WhiteListEntry> {
+public class GamePreviewDialog extends CustomDialog<Boolean> {
     @FXML private Label gameTypeLabel, adminOnlineLabel;
     @FXML private TextField gameNameField;
     @FXML private TextArea descriptionTextArea;
     @FXML private CheckBox cbSoloTeams, cbPublicView, cbOwnTeamsCreation;
     @FXML private ComboBox<GameRole> cboxJoinRole;
     @FXML private Hyperlink hlCreateRequest, hlInvite, hlEditWhitelist;
+    @FXML private Button deleteButton;
     private Button saveButton;
 
-    private Account currentAccount;
-    private PreviewGame previewGame;
-    private WhiteListEntry whiteListEntry;
+    private GameMetadata metadata;
+    private boolean resNameChanged = false;
     private boolean gameSaved = true;
     private Jdbi jdbi = JdbiProvider.getInstance().getJdbi();
 
@@ -40,12 +43,13 @@ public class GamePreviewDialog extends CustomDialog<WhiteListEntry> {
         bCancel.setOnAction(actionEvent -> onCancel());
         bConfirm.addEventFilter(ActionEvent.ACTION, this::onJoinGame);
 
-        gameNameField.setDisable(true);
-        descriptionTextArea.setDisable(true);
+        gameNameField.setEditable(false);
+        descriptionTextArea.setEditable(false);
         cbSoloTeams.setDisable(true);
         cbPublicView.setDisable(true);
         cbOwnTeamsCreation.setDisable(true);
 
+        deleteButton.setVisible(false);
         hlInvite.setVisible(false);
         hlEditWhitelist.setVisible(false);
 
@@ -58,36 +62,28 @@ public class GamePreviewDialog extends CustomDialog<WhiteListEntry> {
             }
         });
 
-        setResultConverter(buttonType -> {
-            if (buttonType == ButtonType.OK) {
-                return whiteListEntry;
-            }
-            return null;
-        });
+        setResultConverter(buttonType -> buttonType == null ? null : resNameChanged); // True wenn Name geändert wurde, null wenn das Spiel gelöscht wurde
     }
 
     protected DialogPane loadDialogPane() {
         return loadDialogPane("game-preview-dialog.fxml");
     }
 
-    public void setAccount(Account currentAccount) {
-        this.currentAccount = currentAccount;
-    }
-    public void setPreviewGame(PreviewGame previewGame) {
-        this.previewGame = previewGame;
-        gameTypeLabel.setText("Typ: " + previewGame.getGameType());
-        gameNameField.setText(previewGame.getGameName());
-        descriptionTextArea.setText(previewGame.getGameDescription());
-        cbSoloTeams.setSelected(previewGame.isSoloTeams());
-        cbPublicView.setSelected(previewGame.isPublicView());
-        cbOwnTeamsCreation.setSelected(previewGame.isAllowOwnTeamsCreation());
+    public void setMetadata(GameMetadata metadata) {
+        this.metadata = metadata;
+        gameTypeLabel.setText("Typ: " + metadata.getType().getName());
+        gameNameField.setText(metadata.getName());
+        descriptionTextArea.setText(metadata.getDescription());
+        cbSoloTeams.setSelected(metadata.isSoloTeams());
+        cbPublicView.setSelected(metadata.isPublicView());
+        cbOwnTeamsCreation.setSelected(metadata.isAllowOwnTeamsCreation());
 
-        GameRole accountRole = previewGame.getAccountRole();
+        GameRole accountRole = metadata.getAccountRole();
         switch (accountRole) {
             case SPECTATOR -> cboxJoinRole.getItems().add(GameRole.SPECTATOR);
             case PLAYER -> cboxJoinRole.getItems().addAll(GameRole.PLAYER, GameRole.SPECTATOR);
             case ADMIN -> {
-                boolean adminOnline = jdbi.withHandle(handle -> handle.attach(GameDao.class).isAdminOnline(previewGame.getGameId()));
+                boolean adminOnline = jdbi.withHandle(handle -> handle.attach(GameDao.class).isAdminOnline(metadata.getId()));
                 if (adminOnline) adminOnlineLabel.setVisible(true);
                 else cboxJoinRole.getItems().add(GameRole.ADMIN);
 
@@ -98,12 +94,13 @@ public class GamePreviewDialog extends CustomDialog<WhiteListEntry> {
                 saveButton.addEventFilter(ActionEvent.ACTION, this::onSaveGame);
                 saveButton.setDisable(true);
 
-                gameNameField.setDisable(false);
-                descriptionTextArea.setDisable(false);
+                gameNameField.setEditable(true);
+                descriptionTextArea.setEditable(true);
                 cbPublicView.setDisable(false);
-                cbOwnTeamsCreation.setDisable(false);
+                if (!metadata.isSoloTeams()) cbOwnTeamsCreation.setDisable(false);
                 hlCreateRequest.setDisable(true);
 
+                deleteButton.setVisible(true);
                 hlInvite.setVisible(true);
                 hlEditWhitelist.setVisible(true);
 
@@ -120,10 +117,10 @@ public class GamePreviewDialog extends CustomDialog<WhiteListEntry> {
     }
     @FXML
     public void onGameChanged() {
-        if (gameNameField.getText().strip().equals(previewGame.getGameName()) &&
-                descriptionTextArea.getText().strip().equals(previewGame.getGameDescription()) &&
-                cbPublicView.isSelected() == previewGame.isPublicView() &&
-                cbOwnTeamsCreation.isSelected() == previewGame.isAllowOwnTeamsCreation()) {
+        if (gameNameField.getText().strip().equals(metadata.getName()) &&
+                descriptionTextArea.getText().strip().equals(metadata.getDescription()) &&
+                cbPublicView.isSelected() == metadata.isPublicView() &&
+                cbOwnTeamsCreation.isSelected() == metadata.isAllowOwnTeamsCreation()) {
             gameSaved = true;
             saveButton.setDisable(true);
             return;
@@ -145,34 +142,46 @@ public class GamePreviewDialog extends CustomDialog<WhiteListEntry> {
             return false;
         }
 
-        boolean nameChanged = !gameNameField.getText().strip().equals(previewGame.getGameName());
-        previewGame.setGameName(gameNameField.getText().strip());
-        previewGame.setGameDescription(descriptionTextArea.getText().strip());
-        previewGame.setPublicView(cbPublicView.isSelected());
-        previewGame.setOwnTeamsCreation(cbOwnTeamsCreation.isSelected());
+        boolean nameChanged = !gameNameField.getText().strip().equals(metadata.getName());
+        if (nameChanged) {
+            resNameChanged = true;
+        }
+
+        metadata.setName(gameNameField.getText().strip());
+        metadata.setDescription(descriptionTextArea.getText().strip());
+        metadata.setPublicView(cbPublicView.isSelected());
+        metadata.setAllowOwnTeamsCreation(cbOwnTeamsCreation.isSelected());
 
         saveButton.setDisable(true);
         jdbi.useHandle(handle -> {
             GameDao dao = handle.attach(GameDao.class);
             if (nameChanged) {
-                int numSuffix = dao.countGamesWithName(previewGame.getGameName());
-                previewGame.setGameNumSuffix(numSuffix);
+                int numSuffix = dao.countGamesWithName(metadata.getName());
+                metadata.setNumSuffix(numSuffix);
             }
-            dao.updateGamePreview(previewGame);
+            handle.attach(GameMetadataDao.class).updateGameMetadata(metadata);
         });
         return gameSaved = true;
     }
-    public void onJoinGame(ActionEvent actionEvent) {
+    private void onJoinGame(ActionEvent actionEvent) {
         if (cboxJoinRole.getSelectionModel().getSelectedItem() == null) {
             actionEvent.consume();
             return;
         }
-        whiteListEntry = new WhiteListEntry(currentAccount.getName(), previewGame.getGameId(), cboxJoinRole.getSelectionModel().getSelectedItem().getValue());
+        joinGame();
+    }
+    public void joinGame() {
+        GameRole joinRole = cboxJoinRole.getSelectionModel().getSelectedItem();
+        if (joinRole == null) return;
+
+        if (joinRole == GameRole.ADMIN) jdbi.useHandle(handle -> handle.attach(GameDao.class).setAdminOnline(metadata.getId(), true));
+        Stage stage = (Stage) getOwner().getScene().getWindow();
+        SceneLoader.openGameScene(stage, metadata, joinRole);
     }
 
     @FXML
-    public void onCreateRequest() {
-        boolean existsRequest = jdbi.withHandle(handle -> handle.attach(RequestDao.class).existsRequest(currentAccount.getName(), previewGame.getGameId()));
+    private void onCreateRequest() {
+        boolean existsRequest = jdbi.withHandle(handle -> handle.attach(RequestDao.class).existsRequest(metadata.getAccount().getName(), metadata.getId()));
         if (existsRequest) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Keine Anfrage möglich");
@@ -182,19 +191,45 @@ public class GamePreviewDialog extends CustomDialog<WhiteListEntry> {
             return;
         }
         RoleRequestDialog dialog = new RoleRequestDialog();
-        dialog.setAccount(currentAccount);
-        dialog.setPreviewGame(previewGame);
+        dialog.setMetadata(metadata);
         dialog.showAndWait().ifPresent(request -> {
             jdbi.useHandle(handle -> handle.attach(RequestDao.class).insertRequest(request));
             hlCreateRequest.setDisable(true);
+            Event.fireEvent(getOwner(), new Event(MainMenuController.RELOAD));
         });
     }
     @FXML
-    public void onInvite() {
-
+    private void onInvite() {
+        InviteDialog dialog = new InviteDialog();
+        dialog.setMetadata(metadata);
+        dialog.showAndWait();
     }
     @FXML
-    public void onEditWhitelist() {
+    private void onEditWhitelist() {
 
+    }
+
+    @FXML
+    private void onDelete() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Spiel löschen");
+        alert.setHeaderText("Spiel löschen");
+        alert.setContentText("Sind Sie sicher, dass Sie das Spiel löschen möchten?");
+
+        alert.showAndWait().ifPresent(buttonType -> {
+            if (buttonType == ButtonType.OK) {
+                deleteGame();
+            }
+        });
+    }
+    private void deleteGame() {
+        jdbi.useHandle(handle -> {
+            GameDao dao = handle.attach(GameDao.class);
+            dao.deleteGame(metadata.getId());
+            dao.setAdminOnline(metadata.getId(), false);
+        });
+        System.out.println("Result ist null");
+        setResult(null);
+        close();
     }
 }

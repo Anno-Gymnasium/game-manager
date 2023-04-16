@@ -69,6 +69,7 @@
                </font>
             </Label>
             <TextField fx:id="renameField" layoutX="255.0" layoutY="22.0" promptText="Neuer Name" />
+            <Label fx:id="descriptionExceededLabel" alignment="CENTER" layoutX="5.0" layoutY="197.0" prefWidth="500.0" textFill="RED" visible="false" />
          </children>
       </AnchorPane>
    </content>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+
+<MenuBar xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.fx_application.controllers.GameController">
+  <menus>
+    <Menu fx:id="gameMenu" mnemonicParsing="false" text="Spiel">
+      <items>
+        <MenuItem fx:id="miGameInfoSettings" mnemonicParsing="false" onAction="#onGameInfoSettings" text="Info/Einstellungen" />
+      </items>
+    </Menu>
+      <Menu fx:id="teamsMenu" mnemonicParsing="false" text="Teams">
+        <items>
+          <MenuItem fx:id="miCreateTeam" mnemonicParsing="false" text="+ Neu" />
+            <SeparatorMenuItem fx:id="sepTeamsMenu" mnemonicParsing="false" />
+            <MenuItem fx:id="miMyTeam" mnemonicParsing="false" text="Mein Team" />
+            <MenuItem fx:id="miAllTeams" mnemonicParsing="false" text="Alle Teams" />
+        </items>
+      </Menu>
+      <Menu fx:id="playerMenu" mnemonicParsing="false" text="Spieler">
+         <items>
+            <MenuItem mnemonicParsing="false" text="+ Neu" />
+            <SeparatorMenuItem fx:id="sepPlayerMenu" mnemonicParsing="false" />
+            <MenuItem fx:id="miMyPlayer" mnemonicParsing="false" text="Ich" />
+            <MenuItem fx:id="miAllPlayers" mnemonicParsing="false" text="Alle Spieler" />
+         </items>
+      </Menu>
+  </menus>
+</MenuBar>

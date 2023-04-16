@@ -1,16 +1,14 @@
 package org.app.game_classes;
 
+import org.app.GameMetadata;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 
 public class MatchingGame extends GenericMatchingGame<MatchingTeam, MatchingLeague<MatchingTeam>> implements WithCustomLimitedPassing {
-    public MatchingGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation, UUID id) {
-        super(soloTeams, publicView, allowOwnTeamsCreation, id);
-    }
-    public MatchingGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation) {
-        this(soloTeams, publicView, allowOwnTeamsCreation, UUID.randomUUID());
+    public MatchingGame(GameMetadata metadata) {
+        super(metadata);
     }
 
     public int createNextLeague(int minScore) throws NotEvaluatedException, TeamSelectionException {

@@ -1,10 +1,9 @@
 package org.app.fx_application.dialogs;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.DialogPane;
+import javafx.scene.control.*;
+import org.app.game_classes.Account;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -21,6 +20,10 @@ public abstract class CustomDialog<R> extends Dialog<R> implements Initializable
             windowEvent.consume();
             onCancel();
         });
+        Button bCancel = (Button) getDialogPane().lookupButton(ButtonType.CANCEL);
+        if (bCancel != null) {
+            bCancel.setOnAction(actionEvent -> onCancel());
+        }
     }
 
     protected DialogPane loadDialogPane(String fxmlPath) {
@@ -37,5 +40,19 @@ public abstract class CustomDialog<R> extends Dialog<R> implements Initializable
     protected void onCancel() {
         setResult(null);
         close();
+    }
+
+    public static void openAccountInfoAlert(Account account) {
+        Alert accountInfo = new Alert(Alert.AlertType.INFORMATION);
+        accountInfo.setTitle("Account-Info");
+        accountInfo.setHeaderText(account.getName());
+        accountInfo.setGraphic(null);
+
+        TextArea descriptionArea = new TextArea(account.getDescription());
+        descriptionArea.setWrapText(true);
+        descriptionArea.setPromptText("Keine Beschreibung vorhanden");
+        descriptionArea.setEditable(false);
+        accountInfo.getDialogPane().setContent(descriptionArea);
+        accountInfo.showAndWait();
     }
 }

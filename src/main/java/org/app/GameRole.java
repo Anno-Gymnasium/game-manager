@@ -1,9 +1,11 @@
 package org.app;
 
 public enum GameRole {
-    SPECTATOR((byte) 0, "Zuschauer"),
-    PLAYER((byte) 1, "Spieler"),
-    ADMIN((byte) 2, "Admin");
+    EXCLUDED((byte) 0, "Ausgeschlossen"),
+    SPECTATOR((byte) 1, "Zuschauer"),
+    PLAYER((byte) 2, "Spieler"),
+    ADMIN((byte) 3, "Admin"),
+    REJECTED((byte) 4, "Abgelehnt");
 
     private final byte value;
     private final String name;
@@ -21,9 +23,11 @@ public enum GameRole {
 
     public static GameRole getRole(int value) {
         return switch (value) {
-            case 0 -> SPECTATOR;
-            case 1 -> PLAYER;
-            case 2 -> ADMIN;
+            case 0 -> EXCLUDED;
+            case 1 -> SPECTATOR;
+            case 2 -> PLAYER;
+            case 3 -> ADMIN;
+            case 4 -> REJECTED;
             default -> null;
         };
     }

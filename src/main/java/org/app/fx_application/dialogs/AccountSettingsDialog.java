@@ -2,22 +2,19 @@ package org.app.fx_application.dialogs;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import javafx.stage.Stage;
-import org.app.fx_application.AccountDao;
+import org.app.fx_application.daos.AccountDao;
 import org.app.fx_application.JdbiProvider;
 import org.app.fx_application.SceneLoader;
 import org.app.game_classes.Account;
 import org.jdbi.v3.core.Jdbi;
 
-import java.io.IOException;
-import java.util.Objects;
-
 public class AccountSettingsDialog extends CustomDialog<Account> {
-    @FXML private Label accountNameLabel;
+    private static final int MAX_DESCRIPTION_LENGTH = 100;
+
+    @FXML private Label accountNameLabel, descriptionExceededLabel;
     @FXML private TextArea descriptionTextArea;
     @FXML private CheckBox cbPassiveGameJoining;
     @FXML private TextField oldPasswordField, newPasswordField, renameField;
@@ -32,6 +29,18 @@ public class AccountSettingsDialog extends CustomDialog<Account> {
         Button bConfirm = (Button) getDialogPane().lookupButton(ButtonType.APPLY);
         bCancel.setOnAction(actionEvent -> onCancel());
         bConfirm.addEventFilter(ActionEvent.ACTION, this::onConfirm);
+
+        descriptionExceededLabel.setText("Maximale Zeichenanzahl von " + MAX_DESCRIPTION_LENGTH + " erreicht");
+
+        descriptionTextArea.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > MAX_DESCRIPTION_LENGTH) {
+                descriptionTextArea.setText(oldValue);
+                descriptionExceededLabel.setVisible(true);
+            }
+            else {
+                descriptionExceededLabel.setVisible(false);
+            }
+        });
 
         setResultConverter(buttonType -> {
             if (buttonType == ButtonType.APPLY) {

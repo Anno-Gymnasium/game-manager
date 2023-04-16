@@ -2,24 +2,27 @@ package org.app.fx_application.dialogs;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-import org.app.game_classes.GenericGame;
+import org.app.GameRole;
+import org.app.GameType;
+import org.app.GameMetadata;
 
-import java.io.IOException;
-import java.lang.reflect.Constructor;
-import java.util.Objects;
+import org.app.fx_application.JdbiProvider;
+import org.app.fx_application.daos.GameDao;
+import org.jdbi.v3.core.Jdbi;
 
-public class GameCreationDialog<G extends GenericGame<?, ?>> extends CustomDialog<G> {
+import java.util.UUID;
+
+public class GameCreationDialog extends CustomDialog<GameMetadata> {
     @FXML private Label createGameLabel;
     @FXML private TextField gameNameField;
     @FXML private TextArea descriptionTextArea;
     @FXML private CheckBox cbSoloTeams, cbPublicView, cbOwnTeamsCreation;
 
-    private Constructor<G> gameConstructor;
-    private G game;
+    private GameMetadata metadata = null;
+    private GameType gameType = null;
+    private Jdbi jdbi = JdbiProvider.getInstance().getJdbi();
 
     public GameCreationDialog() {
         super();
@@ -29,9 +32,18 @@ public class GameCreationDialog<G extends GenericGame<?, ?>> extends CustomDialo
         bCancel.setOnAction(actionEvent -> onCancel());
         bConfirm.addEventFilter(ActionEvent.ACTION, this::onConfirm);
 
+        cbSoloTeams.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                cbOwnTeamsCreation.setDisable(true);
+                cbOwnTeamsCreation.setSelected(false);
+            } else {
+                cbOwnTeamsCreation.setDisable(false);
+            }
+        });
+
         setResultConverter(buttonType -> {
             if (buttonType == ButtonType.APPLY) {
-                return game;
+                return metadata;
             }
             return null;
         });
@@ -41,33 +53,16 @@ public class GameCreationDialog<G extends GenericGame<?, ?>> extends CustomDialo
         return loadDialogPane("game-creation-dialog.fxml");
     }
 
-    public void setGameClass(Class<G> gameClass) {
-        String gameType;
-        if (gameClass == org.app.game_classes.MatchlessGame.class) {
-            gameType = "All-vs-All-Spiel";
-        } else if (gameClass == org.app.game_classes.MatchingGame.class) {
-            gameType = "Match-Spiel";
-        } else if (gameClass == org.app.game_classes.TreeGame.class) {
-            gameType = "Baum-Spiel";
-        } else {
-            throw new IllegalArgumentException("Ungültige Spielklasse");
-        }
-        createGameLabel.setText(gameType + " erstellen");
-
-        try {
-            gameConstructor = gameClass.getConstructor(boolean.class, boolean.class, boolean.class);
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
+    public void setGameType(GameType gameType) {
+        this.gameType = gameType;
+        createGameLabel.setText(gameType.getName() + " erstellen");
     }
 
     private void onConfirm(ActionEvent actionEvent) {
-        try {
-            game = gameConstructor.newInstance(cbSoloTeams.isSelected(), cbPublicView.isSelected(), cbOwnTeamsCreation.isSelected());
-            game.setName(gameNameField.getText().strip());
-            game.setDescription(descriptionTextArea.getText().strip());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        String gameName = gameNameField.getText().strip();
+        int numSuffix = jdbi.withHandle(handle -> handle.attach(GameDao.class).countGamesWithName(gameName));
+        String description = descriptionTextArea.getText().strip();
+        metadata = new GameMetadata(UUID.randomUUID(), gameType.getValue(), gameName, numSuffix, description, GameRole.ADMIN.getValue(),
+                GameRole.ADMIN.getValue(), cbPublicView.isSelected(), cbSoloTeams.isSelected(), cbOwnTeamsCreation.isSelected());
     }
 }

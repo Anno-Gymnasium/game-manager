@@ -1,19 +1,30 @@
 package org.app;
 
 public enum GameType {
-    MATCHLESS(0, "All vs All"),
-    MATCHING(1, "1v1-Matches"),
-    TREE(2, "Baum-Spiel");
+    MATCHLESS((byte) 0, "All vs All"),
+    MATCHING((byte) 1, "1v1-Matches"),
+    TREE((byte) 2, "Baum-Spiel");
 
-    private final int value;
+    private final byte value;
     private final String name;
 
-    GameType(int value, String name) {
+    GameType(byte value, String name) {
         this.name = name;
         this.value = value;
     }
+    public static GameType fromClass(Class<?> gameClass) {
+        if (gameClass == org.app.game_classes.MatchlessGame.class) {
+            return MATCHLESS;
+        } else if (gameClass == org.app.game_classes.MatchingGame.class) {
+            return MATCHING;
+        } else if (gameClass == org.app.game_classes.TreeGame.class) {
+            return TREE;
+        } else {
+            throw new IllegalArgumentException("Ungültige Spielklasse: " + gameClass);
+        }
+    }
 
-    public int getValue() {
+    public byte getValue() {
         return value;
     }
     public String getName() {

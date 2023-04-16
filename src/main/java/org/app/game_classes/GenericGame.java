@@ -1,5 +1,6 @@
 package org.app.game_classes;
 
+import org.app.GameMetadata;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -27,6 +28,8 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
     // enthält für jeweils einen Account-Namen den zugehörigen Spieler (falls vorhanden)
     protected HashMap<String, Player> accountPlayerBindings;
 
+    // ID des Spiels
+    protected UUID id;
     // Wenn true, dann wird jedem Spieler ein eigenes Team zugewiesen
     protected boolean soloTeams;
     // Wenn true, dann kann jeder Account das Spiel ansehen, ansonsten nach Whitelist
@@ -34,30 +37,22 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
     // Wenn true, dann kann jeder Spieler neue Teams erstellen, ansonsten nur Admins
     protected boolean allowOwnTeamsCreation;
 
-    // Name und Beschreibung des Spiels
-    protected String name;
-    protected String description;
+    protected GameMetadata metadata;
 
-    // ID des Spiels
-    protected UUID id;
-
-    public GenericGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation, @NotNull UUID id) {
+    public GenericGame(GameMetadata metadata) {
         leagues = new ArrayList<>();
         currentLeague = null;
 
-        this.soloTeams = soloTeams;
-        this.publicView = publicView;
-        this.allowOwnTeamsCreation = allowOwnTeamsCreation;
-        this.id = id;
-        name = "";
-        description = "";
+        this.metadata = metadata;
+
+        this.id = metadata.getId();
+        this.soloTeams = metadata.isSoloTeams();
+        this.publicView = metadata.isPublicView();
+        this.allowOwnTeamsCreation = metadata.isAllowOwnTeamsCreation();
 
         accountPlayerBindings = new HashMap<>();
         teamByName = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         allPlayers = new TreeSet<>(Player::compareTo);
-    }
-    public GenericGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation) {
-        this(soloTeams, publicView, allowOwnTeamsCreation, UUID.randomUUID());
     }
 
     protected void checkForDuplicatePlayer(@NotNull Player player) throws DuplicatePlayerException {
@@ -90,7 +85,7 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
 
     public void addPlayer(@NotNull Player player) throws DuplicatePlayerException {
         if (soloTeams) {
-            player.setGlobalTeam(new GlobalTeam(player.getName(), id, player));
+            player.setGlobalTeam(new GlobalTeam(player.getName(), id));
         }
         checkForDuplicatePlayer(player);
         String teamName = player.getGlobalTeam().getName();
@@ -219,7 +214,8 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
 
         team = teamByName.get(newTeamName);
         if (team == null) {
-            team = new GlobalTeam(newTeamName, id, player);
+            team = new GlobalTeam(newTeamName, id);
+            team.addPlayer(player);
             teamByName.put(newTeamName, team);
         } else {
             team.addPlayer(player);
@@ -265,26 +261,18 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
         currentLeague.addTotalScore(team.getName(), score);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public GameMetadata getMetadata() {
+        return metadata;
     }
-    public String getName() {
-        return name;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setPublicView(boolean publicView) {
-        this.publicView = publicView;
+
+    public void updatePublicView() {
+        this.publicView = metadata.isPublicView();
     }
     public boolean isPublicView() {
         return publicView;
     }
-    public void setAllowOwnTeamsCreation(boolean allowOwnTeamsCreation) {
-        this.allowOwnTeamsCreation = allowOwnTeamsCreation;
+    public void updateAllowOwnTeamsCreation() {
+        this.allowOwnTeamsCreation = metadata.isAllowOwnTeamsCreation();
     }
     public boolean isAllowOwnTeamsCreation() {
         return allowOwnTeamsCreation;

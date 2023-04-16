@@ -10,8 +10,8 @@ public abstract class GenericMatchingTeam <T extends GenericMatchingTeam<T>> ext
     // Punktzahl des Teams im aktuellen Match
     protected int matchScore;
 
-    public GenericMatchingTeam(GlobalTeam globalTeam, int leagueIndex, Player player) {
-        super(globalTeam, leagueIndex, player);
+    public GenericMatchingTeam(GlobalTeam globalTeam, int leagueIndex) {
+        super(globalTeam, leagueIndex);
         this.matchScore = 0;
         this.opponent = null;
     }

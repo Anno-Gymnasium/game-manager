@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.UUID;
 
-/** GlobalTeam enthält die Eigenschaften eines Teams, die für alle Ligen gleich sind. */
+/** GlobalTeam enthält die Eigenschaften eines Teams, die für das gesamte Spiel gelten. */
 public class GlobalTeam implements Comparable<GlobalTeam> {
     private UUID id;
 
@@ -21,15 +21,17 @@ public class GlobalTeam implements Comparable<GlobalTeam> {
     // enthält alle Spieler, die für dieses Team spielen
     private TreeMap<String, Player> playerByName;
 
-    public GlobalTeam() {}
-    public GlobalTeam(String name, UUID gameID, Player player) {
+    public GlobalTeam(String name, UUID gameID, UUID id) {
         this.name = name;
         this.gameID = gameID;
 
         this.description = "";
         playerByName = new TreeMap<>();
-        addPlayer(player);
     }
+    public GlobalTeam(String name, UUID gameID) {
+        this(name, gameID, UUID.randomUUID());
+    }
+
     public UUID getId() {return id;}
     public void setName(String name) {
         this.name = name;

@@ -1,18 +1,16 @@
 package org.app.game_classes;
 
+import org.app.GameMetadata;
+
 import java.util.List;
 import java.util.ArrayList;
 
 import java.util.Random;
-import java.util.UUID;
 
 public class MatchlessGame extends GenericGame<PlayingTeam, MatchlessLeague> implements WithCustomLimitedPassing {
-    public MatchlessGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation, UUID id) {
-        super(soloTeams, publicView, allowOwnTeamsCreation, id);
+    public MatchlessGame(GameMetadata metadata) {
+        super(metadata);
         leagues.add(currentLeague = new MatchlessLeague());
-    }
-    public MatchlessGame(boolean soloTeams, boolean publicView, boolean allowOwnTeamsCreation) {
-        this(soloTeams, publicView, allowOwnTeamsCreation, UUID.randomUUID());
     }
 
     public int createNextLeague(int minScore) throws TeamSelectionException {

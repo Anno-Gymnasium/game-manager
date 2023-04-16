@@ -1,9 +1,17 @@
 .button{
     -fx-skin: "org.app.fx_application.AnimatedButtonSkin";
 }
+.no-skin-button{
+    -fx-skin: null;
+}
 .button:disabled{
     -fx-opacity: 0.6;
 }
-.clickable_pane:hover {
-    -fx-background-color: #cccccc;
+.clickable-pane:hover {
+    -fx-background-color: #3cb8d4;
+}
+.clickable-pane:hover > .button{
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-border-color: rgba(0, 0, 0, 0.6);
+    -fx-border-radius: 5;
 }
