@@ -23,6 +23,9 @@ public interface AccountDao {
     @SqlQuery("SELECT name FROM account WHERE name LIKE :query + '%' ORDER BY name")
     List<String> getAccountNamesByQuery(String query);
 
+    @SqlQuery("SELECT name FROM account WHERE name LIKE :query + '%' AND name NOT IN (<excludedNames>) ORDER BY name")
+    List<String> getAccountNamesByQuery(String query, String... excludedNames);
+
     @SqlQuery("IF EXISTS(SELECT 1 FROM account WHERE name = :name) SELECT 1 ELSE SELECT 0")
     boolean existsByName(String name);
 
