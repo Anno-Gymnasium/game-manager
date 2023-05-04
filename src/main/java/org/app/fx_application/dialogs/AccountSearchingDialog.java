@@ -10,12 +10,20 @@ import javafx.scene.layout.VBox;
 
 import java.util.List;
 
+import org.app.fx_application.daos.AccountDao;
+import org.app.game_classes.Account;
+
+import org.app.fx_application.JdbiProvider;
+import org.jdbi.v3.core.Jdbi;
+
 public abstract class AccountSearchingDialog<R> extends CustomDialog<R> {
     @FXML protected VBox vbAccounts;
     protected Label selectedAccountLabel = null;
     @FXML protected TextField searchAccountField;
-    protected boolean searchQueryChanged = false;
+    protected boolean accountQueryChanged = false;
     @FXML protected Button bSearchAccount, bShowAccountInfo;
+
+    protected Jdbi jdbi = JdbiProvider.getInstance().getJdbi();
 
     public AccountSearchingDialog() {
         super();
@@ -29,8 +37,12 @@ public abstract class AccountSearchingDialog<R> extends CustomDialog<R> {
             }
         });
 
-        searchAccountField.textProperty().addListener((observable, oldValue, newValue) -> {
-            searchQueryChanged = true;
+        searchAccountField.textProperty().addListener((obs, o, n) -> {
+            if (n.length() > Account.MAX_NAME_LENGTH) {
+                searchAccountField.setText(o);
+                return;
+            }
+            accountQueryChanged = true;
         });
         searchAccountField.requestFocus();
     }
@@ -69,23 +81,26 @@ public abstract class AccountSearchingDialog<R> extends CustomDialog<R> {
     }
     @FXML
     private void onSearchAccounts() {
-        if (!searchQueryChanged) return;
-        searchQueryChanged = false;
+        if (!accountQueryChanged) return;
+        accountQueryChanged = false;
+
+        beforeSearchAccounts();
 
         selectedAccountLabel = null;
         vbAccounts.getChildren().clear();
         bShowAccountInfo.setDisable(true);
         String query = searchAccountField.getText().strip();
-        if (query.isEmpty()) {
-            return;
-        }
         getQueriedAccountNames(query).forEach(accountName -> {
                     Label accountLabel = new Label(accountName);
                     accountLabel.setFont(javafx.scene.text.Font.font(13));
                     accountLabel.setMinWidth(295);
                     accountLabel.getStyleClass().add("clickable-pane");
                     accountLabel.setOnMouseClicked(event -> {
-                        onLabelClick(accountLabel);
+                        if (selectedAccountLabel == accountLabel) return;
+                        selectedAccountLabel = accountLabel;
+                        accountLabel.setStyle("-fx-background-color: #3cb8d4");
+                        bShowAccountInfo.setDisable(false);
+                        onLabelClick(accountLabel.getText());
                     });
                     vbAccounts.getChildren().add(accountLabel);
                 });
@@ -93,9 +108,15 @@ public abstract class AccountSearchingDialog<R> extends CustomDialog<R> {
             triggerMouseClick((Label) vbAccounts.getChildren().get(0));
         }
     }
+
+    protected Account loadSelectedAccount() {
+        return jdbi.withExtension(AccountDao.class, dao -> dao.getByName(selectedAccountLabel.getText()));
+    }
+
     protected abstract void beforeSearchAccounts();
     protected abstract List<String> getQueriedAccountNames(String query);
-    protected abstract void onLabelClick(Label label);
+    protected abstract void onLabelClick(String accountName);
+    @FXML protected abstract void onShowAccountInfo();
 
     private void triggerMouseClick(Label label) {
         label.fireEvent(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0, MouseButton.PRIMARY,

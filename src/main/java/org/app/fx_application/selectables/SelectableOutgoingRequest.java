@@ -53,7 +53,7 @@ public class SelectableOutgoingRequest extends SelectableRequest {
         this.gameMetadata = gameMetadata;
     }
     private void onDelete(ActionEvent actionEvent) {
-        jdbi.useHandle(handle -> handle.attach(RequestDao.class).deleteRequest(this));
+        jdbi.useExtension(RequestDao.class, dao -> dao.deleteRequest(this));
         ((VBox) getParent()).getChildren().remove(this);
     }
     private void openPreviewDialog() {

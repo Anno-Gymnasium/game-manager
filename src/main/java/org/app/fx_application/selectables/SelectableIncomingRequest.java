@@ -53,7 +53,7 @@ public class SelectableIncomingRequest extends SelectableRequest {
         dialog.setRequest(this);
         dialog.showAndWait().ifPresent(gameRole -> {
             jdbi.useHandle(handle -> handle.attach(RequestDao.class).acceptRequest(this, gameRole.getValue()));
-            jdbi.useHandle(handle -> handle.attach(WhitelistDao.class).setWhitelistRole(this.gameId, this.accountName, gameRole.getValue()));
+            jdbi.useHandle(handle -> handle.attach(WhitelistDao.class).setEntry(this.gameId, this.accountName, gameRole.getValue()));
             ((VBox) getParent()).getChildren().remove(this);
         });
     }

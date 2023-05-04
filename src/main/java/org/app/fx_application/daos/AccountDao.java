@@ -3,7 +3,9 @@ package org.app.fx_application.daos;
 import org.app.game_classes.Account;
 
 import java.util.List;
+import java.util.UUID;
 
+import org.jdbi.v3.sqlobject.customizer.BindList;
 import org.jdbi.v3.sqlobject.customizer.BindMethods;
 import org.jdbi.v3.sqlobject.statement.*;
 import org.jdbi.v3.sqlobject.config.*;
@@ -23,8 +25,16 @@ public interface AccountDao {
     @SqlQuery("SELECT name FROM account WHERE name LIKE :query + '%' ORDER BY name")
     List<String> getAccountNamesByQuery(String query);
 
-    @SqlQuery("SELECT name FROM account WHERE name LIKE :query + '%' AND name NOT IN (<excludedNames>) ORDER BY name")
-    List<String> getAccountNamesByQuery(String query, String... excludedNames);
+    @SqlQuery("SELECT TOP 100 name FROM account " +
+            "WHERE name LIKE :query + '%' AND " +
+            "NOT EXISTS(SELECT 1 FROM game_whitelist WHERE game_id = :gameId AND account_name = account.name) " +
+            "AND name NOT IN (<unsavedListedNames>) ORDER BY NAME")
+    List<String> getUnlistedAccountNamesByQuery(String query, UUID gameId, @BindList(onEmpty = BindList.EmptyHandling.NULL_STRING) String... unsavedListedNames);
+
+    @SqlQuery("SELECT TOP 100 name FROM account " +
+            "WHERE name LIKE :query + '%' AND " +
+            "NOT EXISTS(SELECT 1 FROM game_whitelist WHERE game_id = :gameId AND account_name = account.name) ORDER BY NAME")
+    List<String> getUnlistedAccountNamesByQuery(String query, UUID gameId);
 
     @SqlQuery("IF EXISTS(SELECT 1 FROM account WHERE name = :name) SELECT 1 ELSE SELECT 0")
     boolean existsByName(String name);
@@ -35,7 +45,7 @@ public interface AccountDao {
     @SqlUpdate("INSERT INTO account (name, pw_hash, email) VALUES (:getName, :getPasswordHash, :getEmail)")
     void saveNewAccount(@BindMethods Account account);
 
-    @SqlUpdate("UPDATE account SET name = :getName, description = :getDescription, email = :getEmail, pw_hash = :getPasswordHash," +
+    @SqlUpdate("UPDATE account SET name = :getName, description = :getDescription, email = :getEmail, pw_hash = :getPasswordHash, " +
             "allow_passive_game_joining = :isAllowPassiveGameJoining WHERE name = :oldName")
     void updateAccount(String oldName, @BindMethods Account account);
 
@@ -44,4 +54,7 @@ public interface AccountDao {
 
     @SqlUpdate("DELETE FROM account WHERE name = :name")
     void deleteAccount(String name);
+
+    @SqlUpdate("DELETE FROM account WHERE name IN (<accountNames>)")
+    void deleteAccounts(@BindList(onEmpty = BindList.EmptyHandling.NULL_STRING) List<String> accountNames);
 }

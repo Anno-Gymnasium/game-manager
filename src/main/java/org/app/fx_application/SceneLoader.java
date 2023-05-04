@@ -10,7 +10,11 @@ import javafx.stage.Stage;
 import org.app.GameMetadata;
 import org.app.GameRole;
 import org.app.fx_application.controllers.*;
+import org.app.fx_application.daos.GameDao;
 import org.app.game_classes.Account;
+
+import org.jdbi.v3.core.Jdbi;
+import org.app.fx_application.JdbiProvider;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -18,6 +22,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class SceneLoader {
+    private static Jdbi jdbi = JdbiProvider.getInstance().getJdbi();
+
     private static final EventHandler<? super MouseEvent> rootOnMousePressed = (EventHandler<MouseEvent>) mouseEvent -> {
         Parent root = (Parent) mouseEvent.getSource();
         root.requestFocus();
@@ -63,6 +69,8 @@ public class SceneLoader {
             throw new RuntimeException(e);
         }
 
+        if (joinRole == GameRole.ADMIN) jdbi.useExtension(GameDao.class, dao -> dao.pingAdminOnline(metadata.getId()));
+
         primaryStage.setTitle("Game Manager - Spiel (Angemeldet als: " + metadata.getAccount().getName() + ")");
         primaryStage.setScene(gameScene);
     }
@@ -97,7 +105,7 @@ public class SceneLoader {
                 controller.loadGame(metadata, joinRole);
             }
             case TREE -> {
-                TreeGameController controller = (TreeGameController) gameViewLoader.getController();
+                TreeGameController controller = gameViewLoader.getController();
                 controller.loadGame(metadata, joinRole);
             }
         }

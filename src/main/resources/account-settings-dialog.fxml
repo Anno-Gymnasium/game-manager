@@ -22,7 +22,7 @@
       </Label>
    </header>
    <content>
-      <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0">
+      <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="500.0">
          <children>
             <TextArea fx:id="descriptionTextArea" layoutX="75.0" layoutY="90.0" prefHeight="100.0" prefWidth="350.0" promptText="Beschreibung eingeben..." wrapText="true">
                <font>
@@ -46,12 +46,12 @@
             </Label>
             <PasswordField fx:id="oldPasswordField" layoutX="150.0" layoutY="268.0" promptText="Altes Passwort" />
             <PasswordField fx:id="newPasswordField" layoutX="310.0" layoutY="268.0" promptText="Neues Passwort" />
-            <Label layoutX="25.0" layoutY="317.0" text="Account löschen (für immer und ewig):" textFill="RED">
+            <Label layoutX="25.0" layoutY="340.0" text="Account löschen (für immer und ewig):" textFill="RED">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="bDeleteAccount" contentDisplay="GRAPHIC_ONLY" layoutX="280.0" layoutY="310.0" mnemonicParsing="false" onAction="#onDeleteAccount" text="Button">
+            <Button fx:id="bDeleteAccount" contentDisplay="GRAPHIC_ONLY" layoutX="283.0" layoutY="334.0" mnemonicParsing="false" onAction="#onDeleteAccount" text="Button">
                <graphic>
                   <ImageView fitHeight="33.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -70,6 +70,11 @@
             </Label>
             <TextField fx:id="renameField" layoutX="255.0" layoutY="22.0" promptText="Neuer Name" />
             <Label fx:id="descriptionExceededLabel" alignment="CENTER" layoutX="5.0" layoutY="197.0" prefWidth="500.0" textFill="RED" visible="false" />
+            <Label fx:id="dateCreatedLabel" layoutX="25.0" layoutY="305.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </content>

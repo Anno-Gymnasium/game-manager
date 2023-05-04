@@ -11,11 +11,11 @@ public interface GameDao {
     @SqlQuery("SELECT COUNT(1) FROM game WHERE name = :gameName")
     int countGamesWithName(String gameName);
 
-    @SqlQuery("SELECT admin_online FROM game WHERE id = :gameId")
-    boolean isAdminOnline(UUID gameId);
+    @SqlQuery("IF DATEADD(SECOND, :adminPingTimeoutSeconds, (SELECT last_admin_ping FROM game WHERE id = :gameId)) >= GETDATE() SELECT 1 ELSE SELECT 0")
+    boolean isAdminOnline(UUID gameId, int adminPingTimeoutSeconds);
 
-    @SqlUpdate("UPDATE game SET admin_online = :adminOnline WHERE id = :gameId")
-    void setAdminOnline(UUID gameId, boolean adminOnline);
+    @SqlUpdate("UPDATE game SET last_admin_ping = GETDATE() WHERE id = :gameId")
+    void pingAdminOnline(UUID gameId);
 
     @SqlUpdate("INSERT INTO game(id, gametype, name, num_suffix, description, solo_teams, public_view, allow_own_teams_creation)" +
             " VALUES (:getId, :getType.getValue, :getName, :getNumSuffix, :getDescription, :isSoloTeams, :isPublicView, :isAllowOwnTeamsCreation)")

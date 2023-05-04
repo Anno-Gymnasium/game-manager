@@ -53,17 +53,17 @@ public class LoginController {
         currentAccount = null;
 
         unameRegField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.length() > 20) {
+            if (newValue.length() > Account.MAX_NAME_LENGTH) {
                 unameRegField.setText(oldValue);
             }
         });
         unameLoginField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.length() > 20) {
+            if (newValue.length() > Account.MAX_NAME_LENGTH) {
                 unameLoginField.setText(oldValue);
             }
         });
         emailRegField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.length() > 50) {
+            if (newValue.length() > Account.MAX_EMAIL_LENGTH) {
                 emailRegField.setText(oldValue);
             }
         });
@@ -74,14 +74,20 @@ public class LoginController {
         });
 
         jdbi = JdbiProvider.getInstance().getJdbi();
-        int abandonedAccountMonthsTreshold = 8;
-        jdbi.useHandle(handle -> {
-            AccountDao dao = handle.attach(AccountDao.class);
-            List<String> abandonedAccountNames = dao.getAbandonedAccountNames(abandonedAccountMonthsTreshold);
-            for (String abandonedAccountName : abandonedAccountNames) {
-                dao.deleteAccount(abandonedAccountName);
-            }
-        });
+        final int LAZY_ACCOUNT_TRESHOLD_MONTHS = 8;
+
+        try {
+            jdbi.useExtension(AccountDao.class, dao -> {
+                List<String> abandonedAccountNames = dao.getAbandonedAccountNames(LAZY_ACCOUNT_TRESHOLD_MONTHS);
+                if (abandonedAccountNames.isEmpty()) return;
+                dao.deleteAccounts(abandonedAccountNames);
+            });
+        } catch (Exception e) {
+            errorAlert.setHeaderText("Verbindungsfehler");
+            errorAlert.setContentText("Die Verbindung zur Datenbank ist leider nicht möglich.");
+            errorAlert.showAndWait();
+            System.exit(0);
+        }
     }
 
     @FXML
@@ -165,7 +171,6 @@ public class LoginController {
         }
 
         currentAccount = account;
-        System.out.println("Erstellungsdatum des eingeloggten Accounts: " + currentAccount.getDateCreated());
         jdbi.useHandle(handle -> handle.attach(AccountDao.class).updateLastLogin(currentAccount.getName()));
         openMainMenuScene();
     }

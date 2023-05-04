@@ -21,12 +21,12 @@ public class SelectableInvitation extends HBox {
 
     private final UUID gameId;
     private final String gameName;
-    private final GameRole newRole;
+    private final GameRole newRole, invitedRole;
     private final String message;
     private final Label gameNameLabel, newRoleLabel, messageLabel;
     private GameMetadata gameMetadata;
 
-    public SelectableInvitation(UUID gameId, String gameName, byte newRole, String message) {
+    public SelectableInvitation(UUID gameId, String gameName, byte newRole, byte invitedRole, String message) {
         super(5);
         setAlignment(javafx.geometry.Pos.CENTER_LEFT);
         setMinWidth(295);
@@ -35,6 +35,7 @@ public class SelectableInvitation extends HBox {
         this.gameId = gameId;
         this.gameName = gameName;
         this.newRole = GameRole.getRole(newRole);
+        this.invitedRole = GameRole.getRole(invitedRole);
         this.message = message;
 
         gameNameLabel = new Label(gameName);
@@ -54,6 +55,13 @@ public class SelectableInvitation extends HBox {
         showButton.getStyleClass().add("no-skin-button");
         showButton.setOnAction(event -> openInfoDialog());
 
+        Label deprecatedLabel = new Label("Veraltet");
+        deprecatedLabel.setFont(Font.font(12));
+        deprecatedLabel.setStyle("-fx-text-fill: #ff0000;");
+
+        if (isDeprecated()) {
+            getChildren().add(deprecatedLabel);
+        }
         getChildren().addAll(gameNameLabel, newRoleLabel, messageLabel, showButton);
 
         setOnMouseClicked(event -> {
@@ -82,8 +90,14 @@ public class SelectableInvitation extends HBox {
     public UUID getGameId() {
         return gameId;
     }
+    public boolean isDeprecated() {
+        return !newRole.equals(invitedRole);
+    }
     public GameRole getNewRole() {
         return newRole;
+    }
+    public GameRole getInvitedRole() {
+        return invitedRole;
     }
     public String getMessage() {
         return message;

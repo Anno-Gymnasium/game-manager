@@ -12,12 +12,13 @@ public interface InvitationDao {
             "SELECT 1 ELSE SELECT 0")
     boolean existsInvitation(UUID gameId, String accountName);
 
-    @SqlQuery("SELECT TOP 100 name FROM account WHERE name != :invitingAccountName AND name LIKE :query + '%' AND name NOT IN " +
-            "(SELECT account_name FROM game_whitelist WHERE game_id = :gameId AND assigned_role = 3) ORDER BY name")
+    @SqlQuery("SELECT TOP 100 name FROM account " +
+            "WHERE NOT EXISTS(SELECT 1 FROM game_whitelist gw WHERE game_id = :gameId AND account_name = account.name AND assigned_role = 3) " +
+            "AND name != :invitingAccountName AND name LIKE :query + '%' ORDER BY name")
     List<String> getInvitableAccountNamesByQuery(UUID gameId, String invitingAccountName, String query);
 
     @RegisterConstructorMapper(SelectableInvitation.class)
-    @SqlQuery("SELECT TOP 100 game.id gameId, game.name gameName, wl.assigned_role newRole, gi.message " +
+    @SqlQuery("SELECT TOP 100 game.id gameId, game.name gameName, wl.assigned_role newRole, gi.invited_role, gi.message " +
             "FROM game_invitation gi " +
             "INNER JOIN game_whitelist wl ON wl.game_id = gi.game_id AND wl.account_name = gi.account_name " +
             "INNER JOIN game ON game.id = gi.game_id " +
@@ -25,7 +26,8 @@ public interface InvitationDao {
             "ORDER BY game.name")
     List<SelectableInvitation> getInvitations(String accountName);
 
-    @SqlUpdate("INSERT INTO game_invitation VALUES (:gameId, :accountName, :message)")
+    @SqlUpdate("INSERT INTO game_invitation VALUES (:gameId, :accountName, :message, " +
+            "(SELECT assigned_role FROM game_whitelist WHERE game_id = :gameId AND account_name = :accountName))")
     void insertInvitation(UUID gameId, String accountName, String message);
     @SqlUpdate("UPDATE game_invitation SET message = :message WHERE game_id = :gameId AND account_name = :accountName")
     void updateInvitation(UUID gameId, String accountName, String message);

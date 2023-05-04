@@ -5,7 +5,6 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
 
 import org.app.GameRole;
 import org.app.GameMetadata;
@@ -16,9 +15,10 @@ import org.app.fx_application.daos.GameMetadataDao;
 import org.app.fx_application.daos.RequestDao;
 
 import org.app.fx_application.JdbiProvider;
+import org.app.game_classes.GenericGame;
 import org.jdbi.v3.core.Jdbi;
 
-public class GamePreviewDialog extends CustomDialog<Boolean> {
+public class GamePreviewDialog extends CustomDialog<GameEditDialogResult> {
     @FXML private Label gameTypeLabel, adminOnlineLabel;
     @FXML private TextField gameNameField;
     @FXML private TextArea descriptionTextArea;
@@ -29,8 +29,9 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
     private Button saveButton;
 
     private GameMetadata metadata;
-    private boolean resNameChanged = false;
+    private boolean gameChanged = false;
     private boolean gameSaved = true;
+    private boolean adminOnline = false;
     private Jdbi jdbi = JdbiProvider.getInstance().getJdbi();
 
     public GamePreviewDialog() {
@@ -53,16 +54,9 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
         hlInvite.setVisible(false);
         hlEditWhitelist.setVisible(false);
 
-        cboxJoinRole.setConverter(new StringConverter<>() {
-            @Override public String toString(GameRole gameRole) {
-                return gameRole.getName();
-            }
-            @Override public GameRole fromString(String s) {
-                return null;
-            }
-        });
+        cboxJoinRole.setConverter(GameRole.STRING_CONVERTER);
 
-        setResultConverter(buttonType -> buttonType == null ? null : resNameChanged); // True wenn Name geändert wurde, null wenn das Spiel gelöscht wurde
+        setResultConverter(buttonType -> new GameEditDialogResult(gameChanged, false));
     }
 
     protected DialogPane loadDialogPane() {
@@ -83,9 +77,8 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
             case SPECTATOR -> cboxJoinRole.getItems().add(GameRole.SPECTATOR);
             case PLAYER -> cboxJoinRole.getItems().addAll(GameRole.PLAYER, GameRole.SPECTATOR);
             case ADMIN -> {
-                boolean adminOnline = jdbi.withHandle(handle -> handle.attach(GameDao.class).isAdminOnline(metadata.getId()));
-                if (adminOnline) adminOnlineLabel.setVisible(true);
-                else cboxJoinRole.getItems().add(GameRole.ADMIN);
+                updateAdminOnline();
+                if (!adminOnline) cboxJoinRole.getItems().add(GameRole.ADMIN);
 
                 cboxJoinRole.getItems().addAll(GameRole.PLAYER, GameRole.SPECTATOR);
                 getDialogPane().getButtonTypes().add(ButtonType.APPLY);
@@ -104,11 +97,28 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
                 hlInvite.setVisible(true);
                 hlEditWhitelist.setVisible(true);
 
-                gameNameField.textProperty().addListener((observableValue, vOld, vNew) -> onGameChanged());
-                descriptionTextArea.textProperty().addListener((observableValue, vOld, vNew) -> onGameChanged());
+                gameNameField.textProperty().addListener((observableValue, vOld, vNew) -> {
+                    if (vNew.length() > GenericGame.MAX_NAME_LENGTH) {
+                        gameNameField.setText(vOld);
+                        return;
+                    }
+                    onGameChanged();
+                });
+                descriptionTextArea.textProperty().addListener((observableValue, vOld, vNew) -> {
+                    if (vNew.length() > GenericGame.MAX_DESCRIPTION_LENGTH) {
+                        descriptionTextArea.setText(vOld);
+                        return;
+                    }
+                    onGameChanged();
+                });
             }
         }
         cboxJoinRole.getSelectionModel().selectFirst();
+    }
+
+    private void updateAdminOnline() {
+        adminOnline = jdbi.withExtension(GameDao.class, dao -> dao.isAdminOnline(metadata.getId(), GenericGame.ADMIN_PING_TIMEOUT_SECONDS));
+        adminOnlineLabel.setVisible(adminOnline);
     }
 
     @FXML
@@ -117,6 +127,7 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
     }
     @FXML
     public void onGameChanged() {
+        gameChanged = true;
         if (gameNameField.getText().strip().equals(metadata.getName()) &&
                 descriptionTextArea.getText().strip().equals(metadata.getDescription()) &&
                 cbPublicView.isSelected() == metadata.isPublicView() &&
@@ -130,8 +141,10 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
         gameSaved = false;
         saveButton.setDisable(false);
     }
-    public boolean onSaveGame(ActionEvent actionEvent) {
+    public void onSaveGame(ActionEvent actionEvent) {
         actionEvent.consume();
+        if (gameSaved) return;
+
         if (gameNameField.getText().isEmpty()) {
             gameNameField.requestFocus();
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -139,12 +152,6 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
             alert.setHeaderText("Kein Name angegeben");
             alert.setContentText("Bitte geben Sie einen Namen für das Spiel an.");
             alert.showAndWait();
-            return false;
-        }
-
-        boolean nameChanged = !gameNameField.getText().strip().equals(metadata.getName());
-        if (nameChanged) {
-            resNameChanged = true;
         }
 
         metadata.setName(gameNameField.getText().strip());
@@ -155,13 +162,15 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
         saveButton.setDisable(true);
         jdbi.useHandle(handle -> {
             GameDao dao = handle.attach(GameDao.class);
+
+            boolean nameChanged = !gameNameField.getText().strip().equals(metadata.getName());
             if (nameChanged) {
                 int numSuffix = dao.countGamesWithName(metadata.getName());
                 metadata.setNumSuffix(numSuffix);
             }
             handle.attach(GameMetadataDao.class).updateGameMetadata(metadata);
         });
-        return gameSaved = true;
+        gameSaved = true;
     }
     private void onJoinGame(ActionEvent actionEvent) {
         if (cboxJoinRole.getSelectionModel().getSelectedItem() == null) {
@@ -174,7 +183,16 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
         GameRole joinRole = cboxJoinRole.getSelectionModel().getSelectedItem();
         if (joinRole == null) return;
 
-        if (joinRole == GameRole.ADMIN) jdbi.useHandle(handle -> handle.attach(GameDao.class).setAdminOnline(metadata.getId(), true));
+        updateAdminOnline();
+        if (adminOnline && joinRole == GameRole.ADMIN) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Admin bereits online");
+            alert.setContentText("Es ist bereits ein Admin online. Sie können nicht als Admin beitreten.");
+            alert.showAndWait();
+            return;
+        }
+
         Stage stage = (Stage) getOwner().getScene().getWindow();
         SceneLoader.openGameScene(stage, metadata, joinRole);
     }
@@ -206,7 +224,9 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
     }
     @FXML
     private void onEditWhitelist() {
-
+        WhitelistDialog dialog = new WhitelistDialog();
+        dialog.setMetadata(metadata);
+        dialog.showAndWait();
     }
 
     @FXML
@@ -226,10 +246,8 @@ public class GamePreviewDialog extends CustomDialog<Boolean> {
         jdbi.useHandle(handle -> {
             GameDao dao = handle.attach(GameDao.class);
             dao.deleteGame(metadata.getId());
-            dao.setAdminOnline(metadata.getId(), false);
         });
-        System.out.println("Result ist null");
-        setResult(null);
+        setResult(new GameEditDialogResult(gameChanged, true));
         close();
     }
 }

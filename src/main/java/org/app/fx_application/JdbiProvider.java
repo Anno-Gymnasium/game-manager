@@ -30,8 +30,7 @@ public final class JdbiProvider {
         ds.setPassword(password);
 
         // JDBI-Setup
-        jdbi = Jdbi.create(ds);
-        jdbi.installPlugin(new org.jdbi.v3.sqlobject.SqlObjectPlugin());
+        jdbi = Jdbi.create(ds).installPlugin(new org.jdbi.v3.sqlobject.SqlObjectPlugin());
     }
 
     public static JdbiProvider getInstance() {

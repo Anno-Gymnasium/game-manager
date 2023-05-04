@@ -10,6 +10,7 @@ import org.app.GameMetadata;
 
 import org.app.fx_application.JdbiProvider;
 import org.app.fx_application.daos.GameDao;
+import org.app.game_classes.GenericGame;
 import org.jdbi.v3.core.Jdbi;
 
 import java.util.UUID;
@@ -40,6 +41,17 @@ public class GameCreationDialog extends CustomDialog<GameMetadata> {
                 cbOwnTeamsCreation.setDisable(false);
             }
         });
+        gameNameField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > GenericGame.MAX_NAME_LENGTH) {
+                gameNameField.setText(oldValue);
+            }
+        });
+        descriptionTextArea.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > GenericGame.MAX_DESCRIPTION_LENGTH) {
+                descriptionTextArea.setText(oldValue);
+            }
+        });
+        gameNameField.requestFocus();
 
         setResultConverter(buttonType -> {
             if (buttonType == ButtonType.APPLY) {
@@ -60,9 +72,21 @@ public class GameCreationDialog extends CustomDialog<GameMetadata> {
 
     private void onConfirm(ActionEvent actionEvent) {
         String gameName = gameNameField.getText().strip();
+        if (gameName.isEmpty()) {
+            actionEvent.consume();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Kein Spielname angegeben");
+            alert.setContentText("Bitte gib einen Spielnamen an.");
+            alert.showAndWait();
+            return;
+        }
+
         int numSuffix = jdbi.withHandle(handle -> handle.attach(GameDao.class).countGamesWithName(gameName));
         String description = descriptionTextArea.getText().strip();
         metadata = new GameMetadata(UUID.randomUUID(), gameType.getValue(), gameName, numSuffix, description, GameRole.ADMIN.getValue(),
                 GameRole.ADMIN.getValue(), cbPublicView.isSelected(), cbSoloTeams.isSelected(), cbOwnTeamsCreation.isSelected());
+        setResult(metadata);
+        close();
     }
 }

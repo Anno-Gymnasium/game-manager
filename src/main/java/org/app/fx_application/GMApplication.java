@@ -3,7 +3,6 @@ package org.app.fx_application;
 import javafx.application.Application;
 import javafx.application.Platform;
 
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class GMApplication extends Application {

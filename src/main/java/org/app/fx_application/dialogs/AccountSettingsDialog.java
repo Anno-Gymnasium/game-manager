@@ -11,10 +11,10 @@ import org.app.fx_application.SceneLoader;
 import org.app.game_classes.Account;
 import org.jdbi.v3.core.Jdbi;
 
-public class AccountSettingsDialog extends CustomDialog<Account> {
-    private static final int MAX_DESCRIPTION_LENGTH = 100;
+import java.time.format.DateTimeFormatter;
 
-    @FXML private Label accountNameLabel, descriptionExceededLabel;
+public class AccountSettingsDialog extends CustomDialog<Account> {
+    @FXML private Label accountNameLabel, descriptionExceededLabel, dateCreatedLabel;
     @FXML private TextArea descriptionTextArea;
     @FXML private CheckBox cbPassiveGameJoining;
     @FXML private TextField oldPasswordField, newPasswordField, renameField;
@@ -30,10 +30,10 @@ public class AccountSettingsDialog extends CustomDialog<Account> {
         bCancel.setOnAction(actionEvent -> onCancel());
         bConfirm.addEventFilter(ActionEvent.ACTION, this::onConfirm);
 
-        descriptionExceededLabel.setText("Maximale Zeichenanzahl von " + MAX_DESCRIPTION_LENGTH + " erreicht");
+        descriptionExceededLabel.setText("Maximale Zeichenanzahl von " + Account.MAX_DESCRIPTION_LENGTH + " erreicht");
 
         descriptionTextArea.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.length() > MAX_DESCRIPTION_LENGTH) {
+            if (newValue.length() > Account.MAX_DESCRIPTION_LENGTH) {
                 descriptionTextArea.setText(oldValue);
                 descriptionExceededLabel.setVisible(true);
             }
@@ -41,6 +41,8 @@ public class AccountSettingsDialog extends CustomDialog<Account> {
                 descriptionExceededLabel.setVisible(false);
             }
         });
+
+        oldPasswordField.setOnAction(actionEvent -> newPasswordField.requestFocus());
 
         setResultConverter(buttonType -> {
             if (buttonType == ButtonType.APPLY) {
@@ -59,6 +61,7 @@ public class AccountSettingsDialog extends CustomDialog<Account> {
         this.account = account;
 
         accountNameLabel.setText(account.getName());
+        dateCreatedLabel.setText("Erstellt am: " + account.getDateCreated().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
         descriptionTextArea.setText(account.getDescription());
         cbPassiveGameJoining.setSelected(account.isAllowPassiveGameJoining());
     }
@@ -90,6 +93,8 @@ public class AccountSettingsDialog extends CustomDialog<Account> {
                 alert.setContentText("Ein Account mit dem gewählten Namen existiert bereits.");
                 alert.showAndWait();
                 actionEvent.consume();
+
+                renameField.setText(account.getName());
                 return;
             }
             account.setName(newName);
@@ -97,7 +102,16 @@ public class AccountSettingsDialog extends CustomDialog<Account> {
 
         account.setDescription(descriptionTextArea.getText().strip());
         account.setAllowPassiveGameJoining(cbPassiveGameJoining.isSelected());
-        if (!newPasswordField.getText().isEmpty() && !newPasswordField.getText().equals(oldPasswordField.getText())) {
+        if (!newPasswordField.getText().isEmpty()) {
+            if (newPasswordField.getText().equals(oldPasswordField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Passwort ändern fehlgeschlagen");
+                alert.setHeaderText("Passwörter sind identisch");
+                alert.setContentText("Das neue Passwort ist identisch mit dem alten.");
+                alert.showAndWait();
+                actionEvent.consume();
+                return;
+            }
             if (!account.authenticate(oldPasswordField.getText())) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Passwort ändern fehlgeschlagen");

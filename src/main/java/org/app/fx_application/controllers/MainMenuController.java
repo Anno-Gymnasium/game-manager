@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.jdbi.v3.core.Jdbi;
 
@@ -129,11 +130,6 @@ public class MainMenuController {
     }
     @FXML
     public void onReload() {
-        vbMatchlessGames.getChildren().clear();
-        vbMatchingGames.getChildren().clear();
-        vbTreeGames.getChildren().clear();
-        loadGames();
-
         vbOutgoingRequests.getChildren().clear();
         vbIncomingRequests.getChildren().clear();
         vbRequestAnswers.getChildren().clear();
@@ -141,6 +137,8 @@ public class MainMenuController {
         loadOutgoingRequests();
         loadIncomingRequests();
         loadInvitations();
+
+        loadGames();
     }
 
     private void setMetadata(GameMetadata metadata) {
@@ -162,16 +160,19 @@ public class MainMenuController {
     }
 
     public void loadGames() {
+        System.out.println("Spiele werden neu geladen...");
+        GamePreview returnedPreview = null;
+
         jdbi.useExtension(GameMetadataDao.class, dao -> {
             // Lade die Metadata-Objekte der Spiele aus der Datenbank und speichere sie in den jeweiligen Listen als GamePreview-Objekte
             matchlessGames = dao.accessibleGames(currentAccount.getName(), GameType.MATCHLESS.getValue()).stream()
-                    .map(this::setupGamePreview).toList();
+                    .map(this::setupGamePreview).collect(Collectors.toList());
 
             matchingGames = dao.accessibleGames(currentAccount.getName(), GameType.MATCHING.getValue()).stream()
-                    .map(this::setupGamePreview).toList();
+                    .map(this::setupGamePreview).collect(Collectors.toList());
 
             treeGames = dao.accessibleGames(currentAccount.getName(), GameType.TREE.getValue()).stream()
-                    .map(this::setupGamePreview).toList();
+                    .map(this::setupGamePreview).collect(Collectors.toList());
         });
 
         if (!sortAscending) {
@@ -181,11 +182,33 @@ public class MainMenuController {
         }
 
         filterGames();
+        System.out.println("Spiele erfolgreich neu geladen.\n");
     }
     private GamePreview setupGamePreview(GameMetadata metadata) {
         metadata.setAccount(currentAccount);
-        setMetadata(metadata);
-        return new GamePreview(metadata);
+        GamePreview preview = new GamePreview(metadata);
+        preview.setOnDeleteGame(() -> onDeleteGame(preview));
+        System.out.println("Spiel-Vorschau erfolgreich eingerichtet: " + metadata.getName());
+        return preview;
+    }
+    private void onDeleteGame(GamePreview preview) {
+        GameMetadata metadata = preview.getMetadata();
+        switch (metadata.getType()) {
+            case MATCHLESS -> {
+                matchlessGames.remove(preview);
+                vbMatchlessGames.getChildren().remove(preview);
+            }
+            case MATCHING -> {
+                matchingGames.remove(preview);
+                vbMatchingGames.getChildren().remove(preview);
+            }
+            case TREE -> {
+                treeGames.remove(preview);
+                vbTreeGames.getChildren().remove(preview);
+            }
+        }
+        removeMetadata(metadata);
+        System.out.println("Spiel erfolgreich gelöscht: " + metadata.getName());
     }
 
     public void loadOutgoingRequests() {
@@ -208,12 +231,10 @@ public class MainMenuController {
         });
     }
     public void loadInvitations() {
-        jdbi.useExtension(InvitationDao.class, dao -> {
-            dao.getInvitations(currentAccount.getName()).forEach(invitation -> {
-                vbGameInvitations.getChildren().add(invitation);
-                invitation.setMetadata(getMetadata(invitation.getGameId()));
-            });
-        });
+        jdbi.useExtension(InvitationDao.class, dao -> dao.getInvitations(currentAccount.getName()).forEach(invitation -> {
+            vbGameInvitations.getChildren().add(invitation);
+            invitation.setMetadata(getMetadata(invitation.getGameId()));
+        }));
     }
 
     @FXML
@@ -254,14 +275,29 @@ public class MainMenuController {
 
             // Spiel wird dem Typ entsprechend in alle Tabellen der Hierarchie eingefügt (Siehe GameDao)
             jdbi.useHandle(handle -> handle.attach(GameDao.class).insertGame(metadata));
-            jdbi.useHandle(handle -> handle.attach(WhitelistDao.class).setWhitelistRole(metadata.getId(), currentAccount.getName(), metadata.getWhitelistedRole()));
+            jdbi.useHandle(handle -> handle.attach(WhitelistDao.class).setEntry(metadata.getId(), currentAccount.getName(), metadata.getWhitelistedRole()));
 
             // Lade die Spiele neu, um das neu erstellte Spiel anzuzeigen
-            onReload();
+            loadGames();
 
-            // Öffne den PreviewDialog des neuen Spiels
-            GamePreview preview = new GamePreview(metadata);
+            // Öffne den Vorschau-Dialog des neuen Spiels
+            GamePreview preview = findGamePreview(metadata);
+            assert preview != null;
             preview.openDialog(gameSearchField.getScene().getWindow());
         });
+    }
+    private GamePreview findGamePreview(GameMetadata metadata) {
+        // Gebe aus der entsprechenden Liste das erste GamePreview-Objekt mit der ID metadata.getId() zurück
+        List<GamePreview> games = switch (metadata.getType()) {
+            case MATCHLESS -> matchlessGames;
+            case MATCHING -> matchingGames;
+            case TREE -> treeGames;
+        };
+        for (GamePreview preview : games) {
+            if (preview.getMetadata().getId().equals(metadata.getId())) {
+                return preview;
+            }
+        }
+        return null;
     }
 }

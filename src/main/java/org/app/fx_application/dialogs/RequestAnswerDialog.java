@@ -34,14 +34,7 @@ public class RequestAnswerDialog extends CustomDialog<GameRole> {
             return null;
         });
 
-        cboxAcceptedRole.setConverter(new StringConverter<>() {
-            @Override public String toString(GameRole gameRole) {
-                return gameRole.getName();
-            }
-            @Override public GameRole fromString(String s) {
-                return null;
-            }
-        });
+        cboxAcceptedRole.setConverter(GameRole.STRING_CONVERTER);
     }
 
     protected DialogPane loadDialogPane() {
@@ -59,7 +52,7 @@ public class RequestAnswerDialog extends CustomDialog<GameRole> {
         // Füge alle Rollen zur ComboBox hinzu, die höher sind als die aktuelle Rolle des anfragenden Accounts, beginnend mit der höchsten Rolle (Admin)
         byte currentRoleValue = request.getCurrentRole().getValue();
         for (byte i = (byte) 3; i > currentRoleValue; i--) {
-            cboxAcceptedRole.getItems().add(GameRole.values()[i]);
+            cboxAcceptedRole.getItems().add(GameRole.getRole(i));
         }
         cboxAcceptedRole.getSelectionModel().select(request.getRequestedRole());
     }

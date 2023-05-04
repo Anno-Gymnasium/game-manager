@@ -1,8 +1,8 @@
 package org.app;
 
 public enum GameType {
-    MATCHLESS((byte) 0, "All vs All"),
-    MATCHING((byte) 1, "1v1-Matches"),
+    MATCHLESS((byte) 0, "All-vs-All-Spiel"),
+    MATCHING((byte) 1, "Spiel mit 1v1-Matches"),
     TREE((byte) 2, "Baum-Spiel");
 
     private final byte value;

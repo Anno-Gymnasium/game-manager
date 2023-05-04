@@ -1,6 +1,5 @@
 package org.app.fx_application.selectables;
 
-import javafx.event.Event;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
@@ -8,18 +7,22 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-
 import javafx.stage.Window;
+
 import org.app.GameMetadata;
-import org.app.fx_application.controllers.MainMenuController;
 import org.app.fx_application.dialogs.GamePreviewDialog;
-import org.jetbrains.annotations.Nullable;
+import org.app.fx_application.dialogs.GameEditDialogResult;
+import org.app.game_classes.GenericGame;
 
 /** Vorschau eines Spiels in der Spielübersicht im Hauptmenü. */
 public class GamePreview extends HBox implements Comparable<GamePreview> {
     public static final int SHORT_DESCRIPTION_LENGTH = 20;
+    public static final int MAX_NAME_LENGTH = GenericGame.MAX_NAME_LENGTH;
+    public static final int MAX_DESCRIPTION_LENGTH = GenericGame.MAX_DESCRIPTION_LENGTH;
+
     private final Label nameLabel, roleLabel, descriptionLabel;
     private final GameMetadata metadata;
+    private Runnable onDeleteGame;
 
     public GamePreview(GameMetadata metadata) {
         super();
@@ -73,38 +76,47 @@ public class GamePreview extends HBox implements Comparable<GamePreview> {
         return name + (numSuffix > 0 ? (" #" + numSuffix) : "");
     }
 
-    public Boolean openDialog(Window owner) {
+    public GameEditDialogResult openDialog(Window owner) {
         GamePreviewDialog dialog = new GamePreviewDialog();
         dialog.setMetadata(metadata);
         dialog.initOwner(owner);
 
         dialog.showAndWait();
-        Boolean nameChanged = dialog.getResult();
-        if (nameChanged == null) { // Spiel wurde gelöscht
-            Event.fireEvent(owner, new Event(MainMenuController.RELOAD));
-            return null;
+        GameEditDialogResult result = dialog.getResult();
+        if (result.gameDeleted()) { // Spiel wurde gelöscht
+            System.out.println("Spiel wurde gelöscht");
+            // Event.fireEvent(owner, new Event(MainMenuController.RELOAD));
+            if (onDeleteGame != null) {
+                onDeleteGame.run();
+            }
+            return result;
         }
         updateDescriptionLabel();
-        if (nameChanged) { // Spielname wurde geändert
-            Event.fireEvent(owner, new Event(MainMenuController.RELOAD));
+        if (result.gameChanged()) { // Spielname wurde geändert
+            // Event.fireEvent(owner, new Event(MainMenuController.RELOAD));
+            updateNameLabel();
+            updateDescriptionLabel();
         }
-        System.out.println("Result in GamePreview.openDialog(): " + nameChanged);
-        return nameChanged;
+        return result;
     }
-    public Boolean openDialog() {
+    public GameEditDialogResult openDialog() {
         return openDialog(getScene().getWindow());
     }
-    public static Boolean openDialog(Window owner, GameMetadata metadata) {
+    public static GameEditDialogResult openDialog(Window owner, GameMetadata metadata) {
         if (metadata == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(owner);
             alert.setTitle("Zugriffsfehler");
             alert.setHeaderText("Zugriff auf Spiel nicht möglich");
-            alert.setContentText("Entweder wurde Ihre Berechtigung zum Zugriff auf das Spiel entfernt oder es wurde vor kurzem gelöscht.");
+            alert.setContentText("Entweder wurde Ihre Berechtigung zum Zugriff auf das Spiel entfernt oder es wurde vor Kurzem gelöscht.");
             alert.showAndWait();
-            return false;
+            return new GameEditDialogResult(false, false);
         }
         return new GamePreview(metadata).openDialog(owner);
+    }
+
+    public void setOnDeleteGame(Runnable onDeleteGame) {
+        this.onDeleteGame = onDeleteGame;
     }
 
     @Override

@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@main_theme.css" type="DialogPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <header>
       <Label fx:id="gameNameLabel" alignment="CENTER">
@@ -30,7 +29,7 @@
             <HBox alignment="CENTER">
                <children>
                   <TextField fx:id="searchAccountField" alignment="CENTER" onAction="#onSearchFieldEnter" promptText="Account suchen" />
-                  <Button fx:id="searchAccountButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onSearchAccounts">
+                  <Button fx:id="bSearchAccount" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onSearchAccounts">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

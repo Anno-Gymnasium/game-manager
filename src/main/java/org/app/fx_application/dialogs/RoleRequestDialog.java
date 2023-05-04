@@ -43,10 +43,7 @@ public class RoleRequestDialog extends CustomDialog<SelectableOutgoingRequest> {
             }
         });
 
-        cboxRole.setConverter(new StringConverter<>() {
-            @Override public String toString(GameRole gameRole) {return gameRole.getName();}
-            @Override public GameRole fromString(String s) {return null;}
-        });
+        cboxRole.setConverter(GameRole.STRING_CONVERTER);
 
         setResultConverter(buttonType -> {
             if (buttonType == ButtonType.OK) {
@@ -67,7 +64,7 @@ public class RoleRequestDialog extends CustomDialog<SelectableOutgoingRequest> {
         // Füge alle Rollen zur ComboBox hinzu, die höher sind als die aktuelle Rolle des Accounts
         byte currentRoleValue = metadata.getWhitelistedRole();
         for (byte i = (byte) (currentRoleValue + 1); i <= 3; i++) {
-            cboxRole.getItems().add(GameRole.values()[i]);
+            cboxRole.getItems().add(GameRole.getRole(i));
         }
         cboxRole.getSelectionModel().selectFirst();
     }

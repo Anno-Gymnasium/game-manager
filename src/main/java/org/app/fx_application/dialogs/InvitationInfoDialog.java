@@ -27,6 +27,11 @@ public class InvitationInfoDialog extends CustomDialog<Boolean> {
     public void setInvitation(SelectableInvitation invitation) {
         this.invitation = invitation;
         newRoleLabel.setText(invitation.getNewRole().getName());
+        if (invitation.isDeprecated()) {
+            newRoleLabel.setStyle("-fx-text-fill: #ff0000;");
+            newRoleLabel.setText(newRoleLabel.getText() + ", ursprünglich eingeladen als " + invitation.getInvitedRole().getName());
+        }
+
         messageArea.setText(invitation.getMessage());
     }
 
@@ -36,9 +41,8 @@ public class InvitationInfoDialog extends CustomDialog<Boolean> {
 
     private void openPreviewDialog() {
         gameMetadata.update();
-        Boolean result = GamePreview.openDialog(getOwner(), gameMetadata);
-        if (result == null) {
-            System.out.println("Result in InvitationInfoDialog ist null");
+        GameEditDialogResult result = GamePreview.openDialog(getOwner(), gameMetadata);
+        if (result.gameDeleted()) {
             setResult(true);
             close();
         }

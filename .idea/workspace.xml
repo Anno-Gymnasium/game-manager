@@ -5,14 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f944ec2d-139e-4ed3-9e74-9de2b13f8236" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/AccountSearchingDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/WhitelistDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableWhitelistEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/whitelist-dialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameManager-Konzept.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/GameEditDialogResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089/storage_v2/_src_/database/game_manager_db.vSTIKA/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/25821125-ce1b-43d4-846d-3cfb0ee21089/storage_v2/_src_/database/game_manager_db.vSTIKA/schema/dbo.sYMBAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/GameRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/GameRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/GameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/GameType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GMApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/GMApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/JdbiProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/JdbiProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/SceneLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/SceneLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/controllers/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/controllers/MainMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/daos/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/daos/AccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/daos/GameDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/daos/GameDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/daos/InvitationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/daos/InvitationDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/daos/WhitelistDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/daos/WhitelistDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/AccountSearchingDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/AccountSearchingDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/AccountSettingsDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/AccountSettingsDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/GameCreationDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/GameCreationDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/GamePreviewDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/GamePreviewDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/InvitationInfoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/InvitationInfoDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/InviteDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/InviteDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/RequestAnswerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/RequestAnswerDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/RoleRequestDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/RoleRequestDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/WhitelistDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/dialogs/WhitelistDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/GamePreview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/GamePreview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableIncomingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableIncomingRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableInvitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableInvitation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableOutgoingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableOutgoingRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableWhitelistEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/fx_application/selectables/SelectableWhitelistEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/app/game_classes/GenericGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/app/game_classes/WhiteListEntry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/account-settings-dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/account-settings-dialog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/invite-dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/invite-dialog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/whitelist-dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/whitelist-dialog.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +59,7 @@
         <option value="FxmlFile" />
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -65,35 +95,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "true",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "I:/Lokale Repos/game-manager-neu/src/main/resources",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lennart/OneDrive - Anno-Gymnasium Siegburg/Informatik/Java-Projekte/graph-training&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "azure"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;azure&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="I:\Lokale Repos\game-manager-neu\src\main\resources" />
@@ -245,6 +275,14 @@
       <workItem from="1681733570301" duration="155000" />
       <workItem from="1681811651181" duration="392000" />
       <workItem from="1681812081195" duration="4336000" />
+      <workItem from="1682187014110" duration="5000" />
+      <workItem from="1682245506549" duration="8390000" />
+      <workItem from="1682527566642" duration="81000" />
+      <workItem from="1683031126733" duration="13443000" />
+      <workItem from="1683131868948" duration="4765000" />
+      <workItem from="1683204984483" duration="1144000" />
+      <workItem from="1683206674583" duration="21531000" />
+      <workItem from="1683230080976" duration="17000" />
     </task>
     <servers />
   </component>

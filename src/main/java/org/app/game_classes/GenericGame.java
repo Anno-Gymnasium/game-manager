@@ -6,13 +6,16 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 
 /** Superklasse von den Spielarten. */
-// @Entity
-// @Table(name = "game")
-// @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague<T>> {
+    public static final int MAX_NAME_LENGTH = 25;
+    public static final int MAX_DESCRIPTION_LENGTH = 120;
+    public static final int MAX_TEAMNAME_LENGTH = 20;
+    public static final int MAX_TEAM_DESCRIPTION_LENGTH = 70;
+    public static final int MAX_PLAYERNAME_LENGTH = 20;
+    public static final int MAX_PLAYER_DESCRIPTION_LENGTH = 70;
 
-    // Gibt für einen Account-Namen den WhiteListEntry zurück
-    private HashMap<String, WhiteListEntry> accessingAccounts = new HashMap<>();
+    public static final int ADMIN_PING_TIMEOUT_SECONDS = 10;
+    public static final int ADMIN_PING_INTERVAL_SECONDS = 8;
 
     // enthält alle globalen Teams, die in diesem Spiel spielen
     protected TreeMap<String, GlobalTeam> teamByName;
@@ -164,6 +167,8 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
         removeTeamFromCurrentLeague(team);
     }
     public void removePlayerFromGame(@NotNull Player player) throws HasPlayedException {
+        if (soloTeams) removeTeamFromGame(player.getName());
+
         if (hasPlayerPlayed(player)) {
             throw new HasPlayedException();
         }
@@ -171,10 +176,6 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
         GlobalTeam team = teamByName.get(player.getGlobalTeam().getName());
         if (team != null) {
             team.removePlayer(player);
-            if (team.getSize() == 0) {
-                teamByName.remove(team.getName());
-                removeTeamFromCurrentLeague(team);
-            }
         }
         removePlayerFromCurrentLeague(player);
     }
@@ -221,10 +222,6 @@ public abstract class GenericGame<T extends PlayingTeam, L extends GenericLeague
             team.addPlayer(player);
         }
         player.setGlobalTeam(team);
-    }
-
-    public byte getRole(@NotNull Player player) {
-        return player.getAccount().getRole(id);
     }
 
     public TreeMap<String, GlobalTeam> getTeamByName() {

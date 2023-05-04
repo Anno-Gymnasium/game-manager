@@ -13,16 +13,12 @@ import org.app.fx_application.daos.WhitelistDao;
 import org.app.fx_application.daos.AccountDao;
 import org.app.fx_application.daos.InvitationDao;
 
-import org.app.fx_application.JdbiProvider;
-import org.jdbi.v3.core.Jdbi;
-
 import java.util.List;
 
 public class InviteDialog extends AccountSearchingDialog<ButtonType> {
     public static final int MAX_MESSAGE_LENGTH = 70;
     private GameMetadata metadata;
     private Account invitedAccount;
-    private Jdbi jdbi = JdbiProvider.getInstance().getJdbi();
 
     @FXML private Label gameNameLabel;
     private final Label messageExceedLabel;
@@ -57,12 +53,7 @@ public class InviteDialog extends AccountSearchingDialog<ButtonType> {
             }
         });
 
-        cboxRole.setConverter(new StringConverter<>() {
-            @Override public String toString(GameRole gameRole) {
-                return gameRole == null ? null : gameRole.getName();
-            }
-            @Override public GameRole fromString(String s) {return null;}
-        });
+        cboxRole.setConverter(GameRole.STRING_CONVERTER);
     }
     protected DialogPane loadDialogPane() {
         return loadDialogPane("invite-dialog.fxml");
@@ -76,7 +67,7 @@ public class InviteDialog extends AccountSearchingDialog<ButtonType> {
         cboxRole.getItems().clear();
         byte currentWlRoleValue = jdbi.withHandle(handle -> handle.attach(WhitelistDao.class).getWhitelistRole(metadata.getId(), accountName));
         for (byte i = (byte) (currentWlRoleValue + 1); i <= 3; i++) {
-            cboxRole.getItems().add(GameRole.values()[i]);
+            cboxRole.getItems().add(GameRole.getRole(i));
         }
         if (cboxRole.getItems().isEmpty()) {
             cboxRole.setPromptText("Account ist bereits Admin");
@@ -93,36 +84,33 @@ public class InviteDialog extends AccountSearchingDialog<ButtonType> {
         }
         bSend.setDisable(true);
         vbAccounts.getChildren().remove(selectedAccountLabel);
-        jdbi.useHandle(handle -> handle.attach(WhitelistDao.class).setWhitelistRole(metadata.getId(),
+        jdbi.useHandle(handle -> handle.attach(WhitelistDao.class).setEntry(metadata.getId(),
                 invitedAccount.getName(), cboxRole.getValue().getValue()));
         jdbi.useHandle(handle -> handle.attach(InvitationDao.class).setInvitation(metadata.getId(),
                 invitedAccount.getName(), messageArea.getText().strip()));
     }
     @FXML
-    private void onShowAccountInfo() {
-        if (invitedAccount == null) {
-            return;
-        }
+    protected void onShowAccountInfo() {
+        if (invitedAccount == null) return;
         CustomDialog.openAccountInfoAlert(invitedAccount);
     }
 
+    @Override
     protected void beforeSearchAccounts() {
         bSend.setDisable(true);
         invitedAccount = null;
         cboxRole.getItems().clear();
     }
+    @Override
     protected List<String> getQueriedAccountNames(String query) {
         return jdbi.withHandle(handle -> handle.attach(InvitationDao.class).getInvitableAccountNamesByQuery(metadata.getId(), metadata.getAccount().getName(), query));
     }
-    protected void onLabelClick(Label accountLabel) {
-        selectedAccountLabel = accountLabel;
-        accountLabel.setStyle("-fx-background-color: #3cb8d4");
-        String accountName = accountLabel.getText();
+    @Override
+    protected void onLabelClick(String accountName) {
         updateAvailableRoles(accountName);
         if (cboxRole.getItems().isEmpty()) {
             return;
         }
-        invitedAccount = jdbi.withHandle(handle -> handle.attach(AccountDao.class).getByName(accountName));
-        bShowAccountInfo.setDisable(false);
+        invitedAccount = loadSelectedAccount();
     }
 }
