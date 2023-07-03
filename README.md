@@ -1,5 +1,5 @@
 # Game Manager
-## (Partially complete)
+## (Partially complete, discontinued)
 This is a German school project from my "Informatik-Leistungskurs" (Computer Science advanced course).
 
 An application for registering accounts and using them to create, host or join games with several leagues, teams, scores etc.  
