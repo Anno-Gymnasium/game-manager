@@ -1,4 +1,4 @@
-# game-manager-neu
+# game-manager
 ## (Partially complete)
 This is a German school project from my "Informatik-Leistungskurs" (Computer Science advanced course).
 
